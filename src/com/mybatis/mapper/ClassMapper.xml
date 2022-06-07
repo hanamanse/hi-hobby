@@ -131,7 +131,7 @@
 	
 <!-- 쿠폰 사용시 -->
 	<select id="selectSale" parameterType="_int" resultType="classVO">
-		select class_num, class_nickname, class_title, class_category, class_place, class_place_detail, class_price-2000, class_start, class_end, class_img, class_like, class_introduce, class_approve, class_one, class_day
+		select class_num, class_nickname, class_title, class_category, class_place, class_place_detail, class_price, class_start, class_end, class_img, class_like, class_introduce, class_approve, class_one, class_day
 		from tbl_class
 		where class_num = #{classNum}
 	</select>
@@ -194,15 +194,15 @@
 	<update id="classLike" parameterType="classVO">
 		update tbl_class
 		set class_like = #{classLike}
-		where class_num = #{classNum} and user_num = #{userNum} 
+		where class_num = #{classNum}<!--  and user_num = #{userNum} --> 
 	</update>
 	
 <!-- 추천 갯수 -->
-	<select id="getLike" resultType="_int">
-		select class_like 
+	<select id="getLike" parameterType="_int" resultType="_int">
+		select class_like
 		from tbl_class
 		where class_num = #{classNum} 
-	</select>	
+	</select>
 	
 <!-- 전체 클래스 보기 (목록에 사용)-->   
    <select id="classAllList" parameterType="map" resultType="classDTO">
