@@ -32,15 +32,17 @@ public class ClassOneCreateOk implements Action {
 			long miliseconds = System.currentTimeMillis();
 			Date date = new Date(miliseconds);
 			String date2 = String.valueOf(date);
-
-			int userNum = (Integer)req.getSession().getAttribute("userNum");
-			// String > Integer 다운캐스팅 표시
 			
 			// 사진 첨부를 위한 부분 
 			String uploadPath = "C:\\hi_hobby\\upload";
 			int fileSize = 1024 * 1024 * 5; // 파일 사이즈 5M								//업로드 경로, 파일사이즈
 			MultipartRequest multipartRequest = new MultipartRequest(req, uploadPath, fileSize, "UTF-8", new DefaultFileRenamePolicy());
 			// 파일을 주고받기 위해서는 multipartREquest 를 이용해야한다.
+			
+			String temp = multipartRequest.getParameter("page");
+			int page = temp == null? 1 : Integer.parseInt(temp);
+			int userNum = (Integer)req.getSession().getAttribute("userNum");
+			// String > Integer 다운캐스팅 표시
 			
 			classVO.setClassNickname(multipartRequest.getParameter("classNickname"));                      // 클래스 생성자 닉네임                   
 			classVO.setClassTitle(multipartRequest.getParameter("classTitle"));                            // 클래스 제목                        
@@ -53,7 +55,7 @@ public class ClassOneCreateOk implements Action {
 			classVO.setClassOne(1);                                // 클래스구분 : 원데이(1)
 			classVO.setClassIntroduce(multipartRequest.getParameter("classIntroduce"));                          // 클래스 설명                     
 			classVO.setUserNum(userNum);                             // 유저 고유번호(크리에이터 정보를 가져오기 위해)
-//			classVO.setClassDay(date2);
+			classVO.setClassDay(date2);
 			
 			// 클래스 등록
 			classDAO.create(classVO);
@@ -62,7 +64,7 @@ public class ClassOneCreateOk implements Action {
 			fileDAO.insert(multipartRequest, classDAO.getSeq(userNum));
 			
 			actionInfo.setRedirect(false);
-			actionInfo.setPath(req.getContextPath() + "/_class/ClassMine.cl?userNum="+userNum+"&page=1");
+			actionInfo.setPath(req.getContextPath() + "/_class/ClassMine.cl?userNum="+userNum+"&page="+page);
 	
 			return actionInfo;
 		
