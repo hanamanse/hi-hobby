@@ -624,6 +624,13 @@
 																			<c:when test="${classs.getClassCategory()=='music'}">음악</c:when>
 																			<c:when test="${classs.getClassCategory()=='exercise'}">운동</c:when>
 																			<c:when test="${classs.getClassCategory()=='life'}">라이프</c:when>
+																			<c:when test="${classs.getClassCategory()=='picture'}">사진 · 영상</c:when>
+																			<c:when test="${classs.getClassCategory()=='profit'}">수익창출</c:when>
+																			<c:when test="${classs.getClassCategory()=='finance'}">금융 · 재테크</c:when>
+																			<c:when test="${classs.getClassCategory()=='job'}">직무</c:when>
+																			<c:when test="${classs.getClassCategory()=='programming'}">프로그래밍</c:when>
+																			<c:when test="${classs.getClassCategory()=='business'}">비즈니스</c:when>
+																			<c:when test="${classs.getClassCategory()=='language'}">외국어</c:when>
 																			<c:otherwise>카테고리 오류</c:otherwise>
 																		</c:choose>
 																		</p>
