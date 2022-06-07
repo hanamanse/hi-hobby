@@ -38,9 +38,5 @@ public class InquiryAdminView implements Action{
 		actionInfo.setPath("/inquiryAdminOkPage.jsp");
 		
 		return actionInfo;
-		
-		
 	}
-	
-
 }

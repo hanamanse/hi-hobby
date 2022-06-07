@@ -29,7 +29,7 @@
                 <div class="helpTop">
                     <div class="helpTitle"><span>문의하기</span></div>
                     <a >
-                        <button class="confirm" onclick="location.href = '${pageContext.request.contextPath}/inquiry/InquiryGoWrite.in'">글쓰기</button>
+                        <button class="confirm" onclick="location.href = '${pageContext.request.contextPath}/InquiryGoWrite.in'">글쓰기</button>
                     </a>
                 </div>
                 <div class="helpAll">
@@ -53,7 +53,7 @@
 			                                <td class="qnaTitle">
 			                                	<c:choose>
 			                                		<c:when test="${sessionScope.userNum eq inquiry.getUserNum()}">
-			                                			<a class="qnaTitle1" href="${pageContext.request.contextPath }/inquiry/InquiryMyView.in?inquiryNum=${inquiry.getInquiryNum()}&page=${page}">${inquiry.getInquiryTitle()}</a>	
+			                                			<a class="qnaTitle1" href="${pageContext.request.contextPath }/InquiryMyView.in?inquiryNum=${inquiry.getInquiryNum()}&page=${page}">${inquiry.getInquiryTitle()}</a>	
 			                                		</c:when>
 			                                		<c:otherwise>
 			                                			<a class="qnaTitle1">비밀글입니다</a>
@@ -84,7 +84,7 @@
 					<tr align="center" valign="middle">
 						<td class="web-view">
 							<c:if test="${startPage > 1}">
-								<a href="${pageContext.request.contextPath}/inquiry/InquiryAllView.in?page=${startPage - 1}">&lt;</a>
+								<a href="${pageContext.request.contextPath}/InquiryAllView.in?page=${startPage - 1}">&lt;</a>
 							</c:if>
 						
 							<c:forEach var="i" begin="${startPage}" end="${endPage}">
@@ -93,13 +93,13 @@
 										<c:out value="${i}"/>&nbsp;&nbsp;
 									</c:when>
 									<c:otherwise>
-										<a href="${pageContext.request.contextPath}/inquiry/InquiryAllView.in?page=${i}"><c:out value="${i}"/></a>&nbsp;&nbsp;
+										<a href="${pageContext.request.contextPath}/InquiryAllView.in?page=${i}"><c:out value="${i}"/></a>&nbsp;&nbsp;
 									</c:otherwise>
 								</c:choose>
 							</c:forEach>
 							
 							<c:if test="${endPage < realEndPage}">
-								<a href="${pageContext.request.contextPath}/inquiry/InquiryAllView.in?page=${endPage + 1}">&gt;</a>
+								<a href="${pageContext.request.contextPath}/InquiryAllView.in?page=${endPage + 1}">&gt;</a>
 							</c:if>
 						</td>
 					</tr>

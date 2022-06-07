@@ -54,7 +54,7 @@
                     	</c:otherwise>
 					</c:choose>
 					
-                    <a onclick="location.href = '${pageContext.request.contextPath}/inquiry/InquiryAllView.in'">
+                    <a onclick="location.href = '${pageContext.request.contextPath}/InquiryAllView.in'">
                         <button type="button" class="goToList">목록</button>
                     </a>
                 </div>
@@ -66,5 +66,6 @@
     <!-- 푸터 영역 -->
     <jsp:include page="footer.jsp"/>
 </body>
+<script src="asset/js/header.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/asset/js/csView.js"></script>
 </html>
