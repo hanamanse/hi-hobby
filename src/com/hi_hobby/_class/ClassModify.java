@@ -40,7 +40,8 @@ public class ClassModify implements Action {
 //		MultipartRequest multipartRequest = new MultipartRequest(req, uploadPath, fileSize, "UTF-8", new DefaultFileRenamePolicy());
 		
 		int classNum = Integer.parseInt(req.getParameter("classNum"));
-		int page = Integer.parseInt(req.getParameter("page"));
+		String temp = req.getParameter("page");
+		int page = temp == null? 1 : Integer.parseInt(temp);
 		
 		classVO = classDAO.modify(classNum);
 		System.out.println(classVO);
