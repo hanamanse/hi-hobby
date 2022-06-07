@@ -20,6 +20,7 @@ table{
 table tr{
 	height: 35px;
     line-height: 35px;
+    cursor : pointer;
 }
 
 table th{

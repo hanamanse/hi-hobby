@@ -76,7 +76,7 @@
 								<div class="css-1q7ezph">
 									<div class="css-zsoya5">
 										<div class="css-qg5d2b"></div>
-										<a href="/creatorCenterInfomation.jsp">
+										<a href="${pageContext.request.contextPath}/_class/ClassCreatorMain.cl">
 											<div class="css-1mg3xmk 2"
 												onmouseout="this.style.background='#ffffff'"
 												onmouseover="this.style.background='rgb(248, 248, 248)';">
