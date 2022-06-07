@@ -92,7 +92,7 @@ ${int userNum = (Integer)session.getAttribute("userNum");}
 												</div>
 											</div>
 										</div>
-										<a href="${pageContext.request.contextPath}/_class/ClassMine.cl?userNum=${userNum}">
+										<a href="${pageContext.request.contextPath}/ClassMine.cl?userNum=${userNum}">
 											<div class="css-a1maoc" style="display: block;" id="classList">전체 상품</div>
 										</a>
 									</div>
@@ -222,7 +222,7 @@ ${int userNum = (Integer)session.getAttribute("userNum");}
 														<th class="classTitle">클래스 제목</th>
 													</tr>
 												<c:forEach var="user" items="${userList}">
-														<tr onclick="location.href='${pageContext.request.contextPath}/_class/ClassModify.cl?classNum=${user.getClassNum()}'">
+														<tr onclick="location.href='${pageContext.request.contextPath}/ClassModify.cl?classNum=${user.getClassNum()}'">
 																<td class="classNum">${user.getClassNum()}</td>
 																<td class="classTitle">${user.getClassTitle()}</td>
 														</tr>
@@ -230,7 +230,7 @@ ${int userNum = (Integer)session.getAttribute("userNum");}
 											</table>
 										</div>
 										<div class="moreClass">
-											<a href="${pageContext.request.contextPath}/_class/ClassMine.cl?userNum=${userNum}">
+											<a href="${pageContext.request.contextPath}/ClassMine.cl?userNum=${userNum}">
 												<p>더보기</p>
 											</a>
 										</div>
