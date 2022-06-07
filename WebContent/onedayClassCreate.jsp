@@ -7,9 +7,9 @@
 <title>하이하비 크리에이터 센터 | 원데이 클래스 신청</title>
 <link href="https://cdn.class101.net/fonts/pretendard/pretendard-dynamic-subset.css" rel="preload" as="style">
 <link href="https://cdn.class101.net/fonts/pretendard/pretendard-dynamic-subset.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="asset/css/createrCenter.css">
-<link rel="stylesheet" href="asset/css/onedayClassCreate.css">
-<link rel="shortcut icon" href="asset/img/favicon.ico">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/asset/css/createrCenter.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/onedayClassCreate.css">
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/asset/img/favicon.ico">
 </head>
 <body>
 	<c:set var="userNum" value="${sessionScope.userNum }"/>
@@ -112,7 +112,7 @@
 		<div class="container-wrap" id="classInput">
 			<div class="container">
 				<div class="topside">
-					<h3>원데이 클래스 신청</h3>
+					<h3>클래스 신청</h3>
 					<nav>
 						<div class="basic-information">기본 정보</div>
 					</nav>
@@ -166,6 +166,13 @@
 									</div>
 								</div>
 							</div>
+							<div class="class-one">
+								<p>클래스 구분</p>
+								<select name="classOne" onchange="classOneDisplay()">
+									<option value="0">온라인 클래스</option>
+									<option value="1">원데이 클래스</option>
+								</select>
+							</div>
 							<div class="class-name">
 								<p>클래스 제목</p>
 								<input type="text" name="classTitle" placeholder="클래스를 대표할 수 있는 제목을 작성해주세요.">
@@ -185,22 +192,26 @@
 								<p>수강료</p>
 								<input type="text" name="classPrice" placeholder = "클래스의 수강비용을 입력해주세요.">
 							</div>
-							<div class="class-place">
-								<p>장소</p>
-								<!-- <input type="text" name="classPlace" placeholder="클래스가 진행되는 장소를 추가해주세요."> -->
-								<div class="searchPlaceWrap">
-									<input type="text" name ="classPlace" class="searchPlaceWrap1" id="sample5_address" placeholder="클래스가 진행되는 장소를 추가해주세요.">
-									<input type="button" class="searchPlaceWrap2" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
+							<div class="classOneRequired">
+								<div class="class-place">
+									<p>장소</p>
+									<!-- <input type="text" name="classPlace" placeholder="클래스가 진행되는 장소를 추가해주세요."> -->
+									<div class="searchPlaceWrap">
+										<input type="text" name ="classPlace" class="searchPlaceWrap1" id="sample5_address" placeholder="클래스가 진행되는 장소를 추가해주세요.">
+										<input type="button" class="searchPlaceWrap2" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
+									</div>
+									<input type="text" name="classPlaceDetail" placeholder="상세 주소를 입력해주세요.">
+									<div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
 								</div>
-								<input type="text" name="classPlaceDetail" placeholder="상세 주소를 입력해주세요.">
-								<div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
-							</div>
-							<div class="class-time">
-								<p>시간</p>
-								<div class="flexWrap">
-									<input type="datetime-local" name="classStart"><p style="margin : 0 10px; font-size: 20px; line-height: 47px;">~</p><input type="datetime-local"  name="classEnd">
+								<div class="class-time">
+									<p>시간</p>
+									<div class="flexWrap">
+										<input type="datetime-local" name="classStart" value= "9999-12-31T00:00" required="false">
+										<p style="margin : 0 10px; font-size: 20px; line-height: 47px;">~</p>
+										<input type="datetime-local"  name="classEnd" value="9999-12-31T00:00:00" required="false">
+									</div>
+									<!-- <input type="text" name="classStart" placeholder="클래스가 진행되는 시간을 추가해주세요."> -->
 								</div>
-								<!-- <input type="text" name="classStart" placeholder="클래스가 진행되는 시간을 추가해주세요."> -->
 							</div>
 							<div class="class-introduce">
 								<p>클래스 소개</p>
@@ -327,6 +338,14 @@
 <script src="asset/js/createrCenter.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>	
+
+function classOneDisplay(){
+	if($('option[value="1"]').prop('selected') == true){
+		$('div.classOneRequired').css('display', 'block');
+	} else{
+		$('div.classOneRequired').css('display', 'none');
+	}
+}
 
 //이미지 등록시 썸네일 보기
 $(".images").click(function(){

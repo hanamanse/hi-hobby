@@ -51,8 +51,8 @@ public class ClassOneCreateOk implements Action {
 			classVO.setClassPrice(Integer.parseInt(multipartRequest.getParameter("classPrice")));          	// 클래스 가격                    
 			classVO.setClassStart(multipartRequest.getParameter("classStart"));                            // 시작시간 (시간 자료형)                 
 			classVO.setClassEnd(multipartRequest.getParameter("classEnd"));                                // 끝나는 시간(시간 자료형)                
-//			classVO.setClassImg(multipartRequest.getParameter("classImg"));                                // 이미지 자료형                       
-			classVO.setClassOne(1);                                // 클래스구분 : 원데이(1)
+			classVO.setClassImg(multipartRequest.getParameter("classImg"));                                // 이미지 자료형                       
+			classVO.setClassOne(Integer.parseInt(multipartRequest.getParameter("classOne")));                                // 클래스구분 : 원데이(1)
 			classVO.setClassIntroduce(multipartRequest.getParameter("classIntroduce"));                          // 클래스 설명                     
 			classVO.setUserNum(userNum);                             // 유저 고유번호(크리에이터 정보를 가져오기 위해)
 			classVO.setClassDay(date2);
