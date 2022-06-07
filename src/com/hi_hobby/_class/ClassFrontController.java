@@ -135,6 +135,10 @@ public class ClassFrontController extends HttpServlet {
 		else if(command.equals("ClassMainView.cl")) {
 			actionInfo = new ClassMainView().execute(req, resp);
 		}
+		else if(command.equals("ClassCreatorMain.cl")) {// 크리에이터센터 메인
+			actionInfo = new ClassCreatorMain().execute(req, resp);
+		}
+		
 		else {
 			// 404 일 때 출력할 에러 페이지 경로 작성
 		}
