@@ -44,9 +44,6 @@ public class ClassModify implements Action {
 		int page = temp == null? 1 : Integer.parseInt(temp);
 		
 		classVO = classDAO.modify(classNum);
-		String category = null;
-		
-		System.out.println("카테고리 : "+classVO.getClassCategory());
 		
 		req.setAttribute("classVO", classVO);
 		req.setAttribute("page", page);
