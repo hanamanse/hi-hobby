@@ -18,6 +18,7 @@
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/asset/img/favicon.ico">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/asset/css/classCreateChoice.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/asset/css/onedayClassCreate.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/asset/css/creatorInfoDetail.css">
 <title>클래스101 크리에이터 센터 | 온라인 클래스 부터 전자책, 디지털 파일까지 크리에이터의 삶은
 	클래스101에서 시작해 2022세요</title>
 </head>
@@ -213,17 +214,25 @@ ${int userNum = (Integer)session.getAttribute("userNum");}
 										<div class="FormGroup__Container-sc-1b539l4-2 YxuLq">
 											<div class="FormGroup__LabelContainer-sc-1b539l4-3 hoTfaP">
 												<label color="#3a3a3a"
-													class="FormGroup__Label-sc-1b539l4-0 hMHDcy">최근 등록한 클래스</label>
+													class="FormGroup__Label-sc-1b539l4-0 hMHDcy recentClass">최근 등록한 클래스</label>
 											</div>
 											<table>
-												<c:forEach var="user" items="${userList}">
 													<tr>
-														<td>${user.getClassNum()}</td>
-														<td>${user.getClassTitle()}</td>
+														<th class="classNum">클래스 번호</th>
+														<th class="classTitle">클래스 제목</th>
 													</tr>
+												<c:forEach var="user" items="${userList}">
+														<tr onclick="location.href='${pageContext.request.contextPath}/_class/ClassModify.cl?classNum=${user.getClassNum()}'">
+																<td class="classNum">${user.getClassNum()}</td>
+																<td class="classTitle">${user.getClassTitle()}</td>
+														</tr>
 												</c:forEach>
 											</table>
-	
+										</div>
+										<div class="moreClass">
+											<a href="${pageContext.request.contextPath}/_class/ClassMine.cl?userNum=${userNum}">
+												<p>더보기</p>
+											</a>
 										</div>
 
 										<div class="Spacing__Box-sc-47wgmh-0 bTsQjQ"></div>
@@ -331,12 +340,12 @@ ${int userNum = (Integer)session.getAttribute("userNum");}
 											</label>
 										</div>
 									</div> -->
-									<div class="Spacing__Box-sc-47wgmh-0 hlNGtB"></div>
+<!-- 									<div class="Spacing__Box-sc-47wgmh-0 hlNGtB"></div>
 									<button type="button" id="save" onclick="saveOk()"
 										class="ButtonBase__ButtonContainer-sc-1lxfn99-0 ePMgoJ ContainButton__StyledButtonBase-zzhpc2-0 iIoHla CreatorAccountProfileViewController__StyledButton-sc-1u2e1vs-3 hdPOVF disabled save"
 										style="display: inline-block; cursor: pointer;">
 										<span class="ButtonBase__Text-sc-1lxfn99-1 klhmlx">저장</span>
-									</button>
+									</button> -->
 <!-- 									<button type="button" id="del" onclick="ok(2)"
 										class="ButtonBase__ButtonContainer-sc-1lxfn99-0 ePMgoJ ContainButton__StyledButtonBase-zzhpc2-0 iIoHla CreatorAccountProfileViewController__StyledButton-sc-1u2e1vs-3 hdPOVF disabled del"
 										style="display: inline-block; cursor: pointer;">

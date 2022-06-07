@@ -1774,11 +1774,17 @@ div.listPointBlock {
 }
 
 .hMHDcy {
-    font-size: 14px;
+	font-size: 16px;
+    font-weight: normal;
+    color: rgb(26, 26, 26);
+    line-height: 24px;
+    letter-spacing: -0.3px;
+     font-weight: 600;
+    /* font-size: 14px;
     font-weight: normal;
     color: rgb(58, 58, 58);
     line-height: 20px;
-    letter-spacing: -0.15px;
+    letter-spacing: -0.15px; */
     flex: 0 0 auto;
     margin: 0px 0px 4px;
 }
