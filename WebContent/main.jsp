@@ -24,37 +24,37 @@
                 <div class="all-menu-below">
                     <div class="below-div">
                         <div class="child-wrap white">
-	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=크리에이터">
+
 	                            <div class="cate-top below-child">크리에이터</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-                        	<a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=드로잉">
+
                             	<div class="cate-bottom below-child">드로잉</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=공예">
+
 	                            <div class="cate-bottom below-child">공예</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=요리 · 베이킹">
+
 	                            <div class="cate-bottom below-child">요리 · 베이킹</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=음악">
+
 	                            <div class="cate-bottom below-child">음악</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=운동">
+
 	                            <div class="cate-bottom below-child">운동</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=라이프">
+
 	                            <div class="cate-bottom below-child">라이프</div>
                             </a>
                         </div>

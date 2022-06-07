@@ -23,13 +23,11 @@ public class ClassGetLike implements Action{
 		String classNum = req.getParameter("classNum");
 		
 		int classLike = classDAO.getLike(Integer.parseInt(classNum));
-		System.out.println(classLike);
 		resultJSON.put("like",classLike);
 		
-		System.out.println("좋아요 값 가져오는 컨트롤러");
 //		System.out.println(resultJSON);
 //		
-//		out.print(resultJSON.toJSONString());
+		out.print(resultJSON.toJSONString());
 		out.close();
 		return null;
 	}
