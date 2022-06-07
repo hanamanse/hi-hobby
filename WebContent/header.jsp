@@ -105,7 +105,7 @@
 	                <p>크리에이터 지원</p>
 	            </a>
 	            <div style="width:24px;"></div> <!-- 공백 블록 -->
-	            <a class="csGoGo" onclick="location.href = '${pageContext.request.contextPath}/inquiry/InquiryAllView.in'">
+	            <a class="csGoGo" onclick="location.href = '${pageContext.request.contextPath}/InquiryAllView.in'">
 	                <p>고객센터</p>
 	            </a>
 				<c:choose>

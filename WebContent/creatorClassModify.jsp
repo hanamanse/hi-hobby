@@ -182,7 +182,7 @@
 							</div>
 							<div class="class-category">
 								<p>카테고리</p>
-								<select name="classCategory">
+								<select name="classCategory" >
 									<option value="drawing">드로잉</option>
 									<option value="crafts">공예</option>
 									<option value="cooking">요리 · 베이킹</option>
@@ -338,6 +338,12 @@
 <script src="asset/js/onedayClassCreate.js"></script>
 <script src="asset/js/createrCenter.js"></script>
 <script>
+
+$('select[name="classCategory"]').val('${classs.getClassCategory()}').prop("selected", true);
+
+/* $(document).ready(function(){
+	$('select[name="classCategory"]').val('${classs.getClassCategory()}').prop("selected", true);
+});  */ 
 
 //이미지 등록시 썸네일 보기
 $(".images").click(function(){

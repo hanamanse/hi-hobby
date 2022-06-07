@@ -24,72 +24,72 @@
                 <div class="all-menu-below">
                     <div class="below-div">
                         <div class="child-wrap white">
-	                        <a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=creator">
+
 	                            <div class="cate-top below-child">크리에이터</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-                        	<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=drawing">
+
                             	<div class="cate-bottom below-child">드로잉</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=crafts">
+
 	                            <div class="cate-bottom below-child">공예</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=cooking">
+
 	                            <div class="cate-bottom below-child">요리 · 베이킹</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=music">
+
 	                            <div class="cate-bottom below-child">음악</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=exercise">
+
 	                            <div class="cate-bottom below-child">운동</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=life">
+
 	                            <div class="cate-bottom below-child">라이프</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=사진·영상">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=사진·영상">
 	                            <div class="cate-bottom below-child">사진·영상</div>
                             </a>
                         </div>
                         <div class="child-wrap white">
-	                        <a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=수익창출">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=수익창출">
 	                            <div class="cate-top below-child">수익창출</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=금융·재테크">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=금융·재테크">
 	                            <div class="cate-bottom below-child">금융·재테크</div>
                             </a>
                         </div>
                         <div class="child-wrap white">
-	                        <a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=직무">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=직무">
 	                            <div class="cate-top below-child">직무</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=프로그래밍">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=프로그래밍">
 	                            <div class="cate-bottom below-child">프로그래밍</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=비즈니스">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=비즈니스">
 	                            <div class="cate-bottom below-child">비즈니스</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=외국어">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=외국어">
 	                            <div class="cate-bottom below-child">외국어</div>
                             </a>
                         </div>
@@ -259,9 +259,9 @@
                 <div class="container-hidden">
 					<div class="timedeal-container" id="oneday-top10">
                        	<c:forEach var="lecture" items="${classOnedayTop}">
-							<a href="#">
+							<form action="ClassBoughtViewOnlineDetail.cl" name="classForm">
 								<div class="thumb-pic">
-									<img src="<c:url value='upload/${lecture.getClassImg()}'/>">
+									<img src="/filePath/${lecture.getClassImg()}">
 								</div>
 								<p class="creator-name"><c:out value="${lecture.getClassNickname()}"/></p>
 								<p class="class-name"><c:out value="${lecture.getClassTitle()}"/></p>
@@ -275,7 +275,8 @@
 								<div class="price-wrap">
 									<p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
 								</div>
-							</a>
+								<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
+							</form>
 						</c:forEach>
 					</div> 
                 </div>
@@ -299,7 +300,7 @@
                        	<c:forEach var="lecture" items="${classOnlineTop}">
 							<a href="#">
 								<div class="thumb-pic">
-									<img src="<c:url value='upload/${lecture.getClassImg()}'/>">
+									<img src="/filePath/${lecture.getClassImg()}">
 								</div>
 								<p class="creator-name"><c:out value="${lecture.getClassNickname()}"/></p>
 								<p class="class-name"><c:out value="${lecture.getClassTitle()}"/></p>
@@ -313,6 +314,7 @@
 								<div class="price-wrap">
 									<p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
 								</div>
+								<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
 							</a>
 						</c:forEach>
 					</div>
@@ -337,7 +339,7 @@
                        	<c:forEach var="lecture" items="${classMD}">
 							<a href="#">
 								<div class="thumb-pic">
-									<img src="<c:url value='upload/${lecture.getClassImg()}'/>">
+									<img src="/filePath/${lecture.getClassImg()}">
 								</div>
 								<p class="creator-name"><c:out value="${lecture.getClassNickname()}"/></p>
 								<p class="class-name"><c:out value="${lecture.getClassTitle()}"/></p>
@@ -351,6 +353,7 @@
 								<div class="price-wrap">
 									<p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
 								</div>
+								<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
 							</a>
 						</c:forEach>
 					</div>
@@ -374,7 +377,7 @@
                        	<c:forEach var="lecture" items="${classOneday}">
 							<a href="#">
 								<div class="thumb-pic">
-									<img src="<c:url value='upload/${lecture.getClassImg()}'/>">
+									<img src="/filePath/${lecture.getClassImg()}">
 								</div>
 								<p class="creator-name"><c:out value="${lecture.getClassNickname()}"/></p>
 								<p class="class-name"><c:out value="${lecture.getClassTitle()}"/></p>
@@ -388,6 +391,7 @@
 								<div class="price-wrap">
 									<p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
 								</div>
+								<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
 							</a>
 						</c:forEach>
 					</div>
@@ -411,7 +415,7 @@
                        	<c:forEach var="lecture" items="${classOnline}">
 							<a href="#">
 								<div class="thumb-pic">
-									<img src="<c:url value='upload/${lecture.getClassImg()}'/>">
+									<img src="/filePath/${lecture.getClassImg()}">
 								</div>
 								<p class="creator-name"><c:out value="${lecture.getClassNickname()}"/></p>
 								<p class="class-name"><c:out value="${lecture.getClassTitle()}"/></p>
@@ -425,6 +429,7 @@
 								<div class="price-wrap">
 									<p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
 								</div>
+								<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
 							</a>
 						</c:forEach>
 					</div>
@@ -470,7 +475,7 @@
 	                            <div class="class-cell">
 	                                <a href="#">
 	                                    <div class="thumb-pic">
-	                                        <img src="<c:url value='upload/${lecture.getClassImg()}'/>">
+	                                        <img src="/filePath/${lecture.getClassImg()}">
 	                                    </div>
 	                                    <p class="creator-name"><c:out value="${lecture.getClassNickname()}"/></p>
 	                                    <p class="class-name"><c:out value="${lecture.getClassTitle()}"/></p>
@@ -484,6 +489,7 @@
 	                                    <div class="price-wrap">
 	                                        <p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
 	                                    </div>
+	                                    <input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
 	                                </a>
 	                            </div>
 	                        </li>
@@ -498,6 +504,7 @@
 <jsp:include page="footer.jsp"/>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="asset/js/header.js"></script>
 <script src="asset/js/main.js"></script>
 <!-- <script>
 function oneListView(){

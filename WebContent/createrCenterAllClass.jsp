@@ -76,7 +76,7 @@
 								<div class="css-1q7ezph">
 									<div class="css-zsoya5">
 										<div class="css-qg5d2b"></div>
-										<a href="${pageContext.request.contextPath}/_class/ClassCreatorMain.cl">
+										<a href="${pageContext.request.contextPath}/ClassCreatorMain.cl">
 											<div class="css-1mg3xmk 2"
 												onmouseout="this.style.background='#ffffff'"
 												onmouseover="this.style.background='rgb(248, 248, 248)';">
@@ -97,7 +97,7 @@
 												</div>
 											</div>
 										</a>
-										<a href="${pageContext.request.contextPath}/_class/ClassMine.cl?userNum=${userNum}">
+										<a href="${pageContext.request.contextPath}/ClassMine.cl?userNum=${userNum}">
 											<div class="css-165esj4 3" onclick="notice(3)" onmouseout="this.style.background='#ffffff'" onmouseover="this.style.background='rgb(248, 248, 248)';" style="background: rgb(255, 255, 255);">
 												<div class="css-1f8m7mx">
 													<div class="css-1m6hr3p">

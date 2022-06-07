@@ -9,6 +9,9 @@
 <link rel="shortcut icon" href="asset/img/favicon.ico">
 </head>
 <body>
-	<jsp:forward page="ClassMainView.cl"/>
+	<form action="ClassMainView.cl" name="mainForm" method="post"></form>
 </body>
+<script>
+	mainForm.submit();
+</script>
 </html>
