@@ -42,7 +42,7 @@
 						<header class="css-3h2b4c">
 							<div class="css-1n2mv2k">
 								<div class="css-zfyjjr">
-									<a target="_self" href="createrCenter.jsp">
+									<a target="_self" href="${pageContext.request.contextPath}/ClassCreatorMain.cl">
 										<img src="asset/img/creatorLogo2.png">
 									</a>
 									<div class="css-1mwu62q"></div>
@@ -575,9 +575,19 @@
 																	style="overflow: hidden; flex: 0 1 170px;">
 																	<div class="css-b3mawz">
 																		<div class="css-b83688">
+																		<c:choose>
+																			<c:when test="${classs.isClassApprove()}">
+																			<div class="css-q9e5d2" style="background-color : #16ce60; "></div>
+																			</c:when>
+																			<c:otherwise>
 																			<div class="css-q9e5d2"></div>
+																			</c:otherwise>
+																		</c:choose>
 																			<div class="css-iiuncx"></div>
-																			<p class="css-hrg016">수요조사 준비</p>
+																			<p class="css-hrg016"><c:choose>
+																			<c:when test="${classs.isClassApprove()}">수강 가능</c:when>
+																			<c:otherwise>승인 대기</c:otherwise>
+																			</c:choose></p>
 																		</div>
 																	</div>
 																</div>
@@ -586,7 +596,12 @@
 																	role="gridcell"
 																	style="overflow: hidden; flex: 0 1 120px;">
 																	<div class="css-b3mawz">
-																		<p class="css-esz8sy">정규 클래스</p>
+																		<p class="css-esz8sy">
+																		<c:choose>
+																			<c:when test="${classs.getClassOne()== 1}">원데이 클래스</c:when>
+																			<c:otherwise>온라인 클래스</c:otherwise>
+																		</c:choose>
+																		</p>
 																	</div>
 																</div>
 																<div aria-colindex="6"
@@ -594,7 +609,17 @@
 																	role="gridcell"
 																	style="overflow: hidden; flex: 0 1 170px;">
 																	<div class="css-b3mawz">
-																		<p class="classCategory css-esz8sy"><c:out value="${classs.getClassCategory()}"/></p>
+																		<p class="classCategory css-esz8sy">
+																		<c:choose>
+																			<c:when test="${classs.getClassCategory()=='drawing'}">드로잉</c:when>
+																			<c:when test="${classs.getClassCategory()=='crafts'}">공예</c:when>
+																			<c:when test="${classs.getClassCategory()=='cooking'}">요리 · 베이킹</c:when>
+																			<c:when test="${classs.getClassCategory()=='music'}">음악</c:when>
+																			<c:when test="${classs.getClassCategory()=='exercise'}">운동</c:when>
+																			<c:when test="${classs.getClassCategory()=='life'}">라이프</c:when>
+																			<c:otherwise>카테고리 오류</c:otherwise>
+																		</c:choose>
+																		</p>
 																	</div>
 																</div>
 																<div aria-colindex="7"

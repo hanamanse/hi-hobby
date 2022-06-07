@@ -2,6 +2,7 @@ package com.hi_hobby._class;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -66,8 +67,11 @@ public class ClassMine implements Action{
 		classMap.put("startRow", startRow);
 		classMap.put("rowCount", rowCount);
 		
+		List<ClassVO> classList = classDAO.viewMine(classMap);
+		List <String> cateList = new ArrayList<>();
+		
 		// 시작 인덱스와 게시글 목록을 가져온 뒤 requestScope에 담아주기
-		req.setAttribute("classList", classDAO.viewMine(classMap));
+		req.setAttribute("classList", classList);
 		// 현재 페이지를 requestScopr에 담기
 		req.setAttribute("page", page);										// 처음 메뉴진입하면 null == 1
 		req.setAttribute("startPageNum", startPageNum);			// 처음 메뉴진입하면 1

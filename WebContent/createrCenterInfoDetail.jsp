@@ -38,7 +38,7 @@ ${int userNum = (Integer)session.getAttribute("userNum");}
 						<header class="css-3h2b4c">
 							<div class="css-1n2mv2k">
 								<div class="css-zfyjjr">
-									<a target="_self" href="createrCenter.jsp">
+									<a target="_self" href="${pageContext.request.contextPath}/ClassCreatorMain.cl">
 										<img src="asset/img/creatorLogo2.png">
 									</a>
 									<div class="css-1mwu62q"></div>

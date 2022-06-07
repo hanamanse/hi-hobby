@@ -21,7 +21,6 @@ public class ClassCreatorMain implements Action{
 		int userNum = (Integer)req.getSession().getAttribute("userNum");
 		
 		session.setAttribute("userNum", userNum);
-		System.out.println("CreatorMain : "+userNum);
 		actionInfo.setRedirect(false);
 		actionInfo.setPath("/createrCenterInformation.jsp");
 
