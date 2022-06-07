@@ -460,7 +460,7 @@
 															style="display: flex; padding: 19px 16px; flex: 0 1 120px;">
 															<span
 																class="ReactVirtualized__Table__headerTruncatedText"
-																title="상품군">상품군</span>
+																title="상품군">구분</span>
 														</div>
 														<div class="ReactVirtualized__Table__headerColumn"
 															role="columnheader"
@@ -486,13 +486,13 @@
 																<div class="css-9c48d3">
 																	<!-- <p class="css-n0d300">생성일</p> -->
 																	<p class="css-n0d300">마지막 수정 날짜</p>	
-																	<span class="css-ujih8e"><svg
+																	<!-- <span class="css-ujih8e"><svg
 																			xmlns="http://www.w3.org/2000/svg"
 																			viewBox="0 0 24 24" class="css-skwyyj">
                                                                                     <path
 																				d="m16.95 9.397-4.75 7c-.1.15-.3.15-.4 0l-4.75-7c-.1-.15 0-.4.2-.4h9.5c.2 0 .3.25.2.4Z"
 																				class="css-sy7xp0"></path>
-                                                                                </svg></span>
+                                                                                </svg></span> -->
 																</div>
 															</span>
 														</div>
@@ -637,7 +637,7 @@
                                                                                             </path>
                                                                                         </svg></span> -->
 																			<div class="css-iiuncx"></div>
-																			<p class="classPrice css-esz8sy"><c:out value="${classs.getClassPrice()}"/></p> </span>
+																			<p class="classPrice css-esz8sy"><c:out value="${classs.getClassPriceComma()}"/></p> </span>
 																	</div>
 																</div>
 																<div aria-colindex="8"
