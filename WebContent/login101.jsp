@@ -27,7 +27,7 @@
 							<!-- 좌측 상단 바 -->
 							<div class="screenLeftTop2">
 								<!-- 좌측 상단 바 -->
-								<a class="screenLeftTopLogo" href="main.jsp"> <!-- 좌측 상단 로고 -->
+								<a class="screenLeftTopLogo" href="index.jsp"> <!-- 좌측 상단 로고 -->
 									<img src="asset/img/hihobbyLogo2.png">
 								</a>
 							</div>
@@ -39,7 +39,6 @@
 								<div class="text_Login">
 									<h2 class="text_Login2">로그인</h2>
 								</div>
-								<p>
 								<form action="LoginOk.us" method="post" name="loginForm">
 									<div class="input_box01 input_box02">
 										<label class="input_label">이메일</label>
@@ -81,14 +80,13 @@
 								</form>
 								<hr class="hrhrhr">
 								<!-- 카카오로 시작하기 -->
-								<button type="button" class="buttonTool1 buttonTool2 buttonTool3 " color="default" fill="true" data-element-name="kakao-login-button" onclick="javascript:loginWithKakao()">
+								<!-- <button type="button" class="buttonTool1 buttonTool2 buttonTool3 " color="default" fill="true" data-element-name="kakao-login-button" onclick="javascript:loginWithKakao()">
 									<span class="allSpan">
 										<svg xmlns="https://www.google.co.kr/" width="24" height="24" viewBox="0 0 24 24">
 											<path fill="#1B1C1D" fill-rule="evenodd" d="M12 4c-4.971 0-9 3.185-9 7.115 0 2.558 1.707 4.8 4.27 6.054l-.78 2.94c-.122.489.179.483.377.351l3.463-2.353a11.39 11.39 0 001.67.123c4.971 0 9-3.185 9-7.115S16.971 4 12 4"></path>
 										</svg> 카카오로 3초 만에 시작하기
 									</span>
-								</button>
-								</p>
+								</button> -->
 								<!-- 밑 이용약관 묶음 -->
 								<div class="termsOfUse_box">
 									<a onclick="location.href='termsOfUse101.jsp'" target="_blank" rel="noreferrer" class="termsOfUse02">이용약관</a>
@@ -175,60 +173,59 @@
 		loginForm.submit();
 	}
 	
-	// 카카오 로그인
+	/* // 카카오 로그인
 	// 2. 카카오 초기화
-	Kakao.init('10eb5071f45630a3cbfa61cd47381d51');
+	Kakao.init('ef4b848b330c9b997a796ac0ae5e7e3f');
 	console.log(Kakao.isInitialized()); // 초기화 판단여부
 	
 	// 3. 데모버전으로 들어가서 카카오로그인 코드를 확인.
 	function loginWithKakao() {
-	    window.Kakao.Auth.login({
-	        scope: 'profile_nickname, profile_image, account_email, gender, birthday', // 동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
-	        success: function (response) {
-	            console.log(response) // 로그인 성공하면 받아오는 데이터
-	            window.Kakao.API.request({ // 사용자 정보 가져오기 
-	                url: '/v2/user/me',
-	                success: (res) => {
-	                    const kakao_account = res.kakao_account;
-	                    console.log(kakao_account);
-	                }
-	            });
-	            /* if(response){
-	            	location.href='createrCenterJoin.jsp';
-	            } */
-	            // window.location.href='/ex/kakao_login.html' // 리다이렉트 되는 코드
+		window.Kakao.Auth.login({
+			scope: 'profile_nickname, account_email', // 동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
+			success: function (response) {
+				console.log(response) // 로그인 성공하면 받아오는 데이터
+				window.Kakao.API.request({ // 사용자 정보 가져오기 
+					url: '/v2/user/me',
+					success: (res) => {
+						const kakao_account = res.kakao_account;
+						console.log(kakao_account);
+					}
+				});
+				/* if(response){
+					location.href='createrCenterJoin.jsp';
+				} */
+				// window.location.href='/ex/kakao_login.html' // 리다이렉트 되는 코드
 	        },
-	        fail: function (error) {
-	            console.log(error);
-	        }
-
-	    });
+			fail: function (error) {
+				console.log(error);
+			}
+		});
 	}
 	
 	// 5. 로그아웃 기능 - 카카오 서버에 접속하는 엑세스 토큰을 만료, 사용자 어플리케이션의 로그아웃은 따로 진행.
 	function kakaoLogout() {
-	 if (!Kakao.Auth.getAccessToken()) {
-	     alert('Not logged in.');
-	     return;
-	 }
-	 Kakao.Auth.logout(function (response) {
-	     alert(response + ' logout');
-	     window.location.href = '/'
-	 });
+		if (!Kakao.Auth.getAccessToken()) {
+			alert('Not logged in.');
+			return;
+		}
+		Kakao.Auth.logout(function (response) {
+			alert(response + ' logout');
+			window.location.href = '/'
+		});
 	}
 	function secession() {
-	 Kakao.API.request({
-	     url: '/v1/user/unlink',
-	     success: function (response) {
-	         console.log(response);
-	         // callback(); // 연결끊기(탈퇴)성공시 서버에서 처리할 함수
-	         window.location.href = '/'
-	     },
-	     fail: function (error) {
-	         console.log('탈퇴 미완료')
-	         console.log(error);
-	     },
-	 });
-	}
+		Kakao.API.request({
+			url: '/v1/user/unlink',
+			success: function (response) {
+				console.log(response);
+				// callback(); // 연결끊기(탈퇴)성공시 서버에서 처리할 함수
+				window.location.href = '/'
+			},
+			fail: function (error) {
+				console.log('탈퇴 미완료')
+				console.log(error);
+			},
+		});
+	} */
 </script>
 </html>
