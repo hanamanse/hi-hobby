@@ -112,17 +112,14 @@
 									<a onclick="location.href='personal_info101.jsp'" target="_blank" rel="noreferrer" class="termsOfUse">개인정보 제공</a>
 									내용을 확인하였고 동의합니다.
 								</div>
-								<hr>
-								<p>
-									<button type="button" class="buttonTool1 buttonTool2 button_kakao" color="default" fill="true" data-element-name="kakao-login-button" onclick="javascript:loginWithKakao()">
-										<span class="allSpan">
-											<svg xmlns="https://www.google.co.kr/" width="24" height="24" viewBox="0 0 24 24">
-	                                                <path fill="#1B1C1D" fill-rule="evenodd" d="M12 4c-4.971 0-9 3.185-9 7.115 0 2.558 1.707 4.8 4.27 6.054l-.78 2.94c-.122.489.179.483.377.351l3.463-2.353a11.39 11.39 0 001.67.123c4.971 0 9-3.185 9-7.115S16.971 4 12 4"></path>
-											</svg>
-											카카오로 3초 만에 시작하기
-										</span>
-									</button>
-								</p>
+								<!-- <button type="button" class="buttonTool1 buttonTool2 button_kakao" color="default" fill="true" data-element-name="kakao-login-button" onclick="javascript:loginWithKakao()">
+									<span class="allSpan">
+										<svg xmlns="https://www.google.co.kr/" width="24" height="24" viewBox="0 0 24 24">
+                                                <path fill="#1B1C1D" fill-rule="evenodd" d="M12 4c-4.971 0-9 3.185-9 7.115 0 2.558 1.707 4.8 4.27 6.054l-.78 2.94c-.122.489.179.483.377.351l3.463-2.353a11.39 11.39 0 001.67.123c4.971 0 9-3.185 9-7.115S16.971 4 12 4"></path>
+										</svg>
+										카카오로 3초 만에 시작하기
+									</span>
+								</button> -->
 							</div>
 						</div>
 					</div>
