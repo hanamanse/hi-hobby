@@ -1,7 +1,7 @@
 package com.hi_hobby._class;
 
 import java.io.IOException;
-import java.util.Date;
+import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

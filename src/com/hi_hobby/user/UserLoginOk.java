@@ -32,61 +32,61 @@ public class UserLoginOk implements Action {
 		userMap.put("userEmail", userEmail);
 		userMap.put("userPw", userPw);
 		
-		userNum = userDAO.login(userMap);
-		
-		if(userNum != 0) {
-			session.setAttribute("userNum", userNum);
-			
-			if(saveEmail != null) {
-				Cookie cookieEmail = new Cookie("userEmail", userEmail);
-				Cookie cookieSaveEmail = new Cookie("saveEmail", "saveEmail");
+		try {
+			userNum = userDAO.login(userMap);
+			if(userNum != 0) {
+				session.setAttribute("userNum", userNum);
 				
-				cookieEmail.setMaxAge(60 * 60 * 24 * 365);
-				cookieSaveEmail.setMaxAge(60 * 60 * 24 * 365);
-				
-				resp.addCookie(cookieEmail);
-				resp.addCookie(cookieSaveEmail);
-			}
-			else {
-				if(req.getHeader("Cookie") != null) {
-					Cookie[] cookies = req.getCookies();
-					for(Cookie cookie : cookies) {
-						if(cookie.getName().equals("userEmail") || cookie.getName().equals("saveEmail")) {
-							cookie.setMaxAge(0);
-							resp.addCookie(cookie);
+				if(saveEmail != null) {
+					Cookie cookieEmail = new Cookie("userEmail", userEmail);
+					Cookie cookieSaveEmail = new Cookie("saveEmail", "saveEmail");
+					
+					cookieEmail.setMaxAge(60 * 60 * 24 * 365);
+					cookieSaveEmail.setMaxAge(60 * 60 * 24 * 365);
+					
+					resp.addCookie(cookieEmail);
+					resp.addCookie(cookieSaveEmail);
+				}
+				else {
+					if(req.getHeader("Cookie") != null) {
+						Cookie[] cookies = req.getCookies();
+						for(Cookie cookie : cookies) {
+							if(cookie.getName().equals("userEmail") || cookie.getName().equals("saveEmail")) {
+								cookie.setMaxAge(0);
+								resp.addCookie(cookie);
+							}
 						}
 					}
 				}
-			}
-			
-			if(autoLogin != null) {
-				Cookie cookieEmail = new Cookie("userEmail", userEmail);
-				Cookie cookiePw = new Cookie("userPw", userPw);
-				Cookie cookieAutoLogin = new Cookie("autoLogin", "autoLogin");
 				
-				cookieEmail.setMaxAge(60*60*24*365);
-				cookiePw.setMaxAge(60*60*24*365);
-				cookieAutoLogin.setMaxAge(60*60*24*365);
-				
-				resp.addCookie(cookieEmail);
-				resp.addCookie(cookiePw);
-				resp.addCookie(cookieAutoLogin);
-			}
-			else {
-				if(req.getHeader("Cookie") != null) {
-					Cookie[] cookies = req.getCookies();
-					for(Cookie cookie : cookies) {
-						if(cookie.getName().equals("cookieEmail") || cookie.getName().equals("cookiePw") || cookie.getName().equals("cookieAutoLogin")) {
-							cookie.setMaxAge(0);
-							resp.addCookie(cookie);
+				if(autoLogin != null) {
+					Cookie cookieEmail = new Cookie("userEmail", userEmail);
+					Cookie cookiePw = new Cookie("userPw", userPw);
+					Cookie cookieAutoLogin = new Cookie("autoLogin", "autoLogin");
+					
+					cookieEmail.setMaxAge(60*60*24*365);
+					cookiePw.setMaxAge(60*60*24*365);
+					cookieAutoLogin.setMaxAge(60*60*24*365);
+					
+					resp.addCookie(cookieEmail);
+					resp.addCookie(cookiePw);
+					resp.addCookie(cookieAutoLogin);
+				}
+				else {
+					if(req.getHeader("Cookie") != null) {
+						Cookie[] cookies = req.getCookies();
+						for(Cookie cookie : cookies) {
+							if(cookie.getName().equals("cookieEmail") || cookie.getName().equals("cookiePw") || cookie.getName().equals("cookieAutoLogin")) {
+								cookie.setMaxAge(0);
+								resp.addCookie(cookie);
+							}
 						}
 					}
 				}
+				actionInfo.setPath("/index.jsp");
 			}
-			
-			actionInfo.setPath("/index.jsp");
 		}
-		else {
+		catch (NullPointerException e) {
 			actionInfo.setPath("/Login.us");
 		}
 		

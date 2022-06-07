@@ -355,4 +355,5 @@ function getPriceBack(){
 		alert("주문이 완료 되었습니다.");
 	}
 </script>
+<script src="asset/js/header.js"></script>
 </html>
