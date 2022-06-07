@@ -59,37 +59,37 @@
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=사진·영상">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=picture">
 	                            <div class="cate-bottom below-child">사진·영상</div>
                             </a>
                         </div>
                         <div class="child-wrap white">
-	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=수익창출">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=profit">
 	                            <div class="cate-top below-child">수익창출</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=금융·재테크">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=finance">
 	                            <div class="cate-bottom below-child">금융·재테크</div>
                             </a>
                         </div>
                         <div class="child-wrap white">
-	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=직무">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=job">
 	                            <div class="cate-top below-child">직무</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=프로그래밍">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=programming">
 	                            <div class="cate-bottom below-child">프로그래밍</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=비즈니스">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=business">
 	                            <div class="cate-bottom below-child">비즈니스</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=외국어">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=language">
 	                            <div class="cate-bottom below-child">외국어</div>
                             </a>
                         </div>
