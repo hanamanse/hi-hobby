@@ -64,7 +64,7 @@ public class ClassOneCreateOk implements Action {
 			fileDAO.insert(multipartRequest, classDAO.getSeq(userNum));
 			
 			actionInfo.setRedirect(false);
-			actionInfo.setPath(req.getContextPath() + "/_class/ClassMine.cl?userNum="+userNum+"&page="+page);
+			actionInfo.setPath(req.getContextPath() + "/ClassMine.cl?userNum="+userNum+"&page="+page);
 	
 			return actionInfo;
 		

@@ -47,11 +47,6 @@ public class ClassModify implements Action {
 		String category = null;
 		
 		System.out.println(classVO.getClassCategory());
-		switch (classVO.getClassCategory()) {
-		
-		case : drawing
-		
-		}
 		
 		req.setAttribute("classVO", classVO);
 		req.setAttribute("page", page);
