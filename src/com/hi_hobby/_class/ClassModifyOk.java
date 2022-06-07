@@ -2,6 +2,8 @@ package com.hi_hobby._class;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +30,8 @@ public class ClassModifyOk implements Action {
 			ClassDAO classDAO = new ClassDAO();
 			ActionInfo actionInfo = new ActionInfo();		
 			HttpSession session = req.getSession();
+			Date now = new Date();
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 			int classNum = 0, userNum = 0, page = 0;
 			
@@ -51,8 +55,9 @@ public class ClassModifyOk implements Action {
 			classVO.setClassPrice(Integer.parseInt(multipartRequest.getParameter("classPrice")));          	// 클래스 가격                    
 			classVO.setClassStart(multipartRequest.getParameter("classStart"));                            // 시작시간 (시간 자료형)                 
 			classVO.setClassEnd(multipartRequest.getParameter("classEnd"));                                // 끝나는 시간(시간 자료형)                
-//			classVO.setClassOne(multipartRequest.getParameter("classOne"));                                // 원데이, 온라인 클래스 구분               
-			classVO.setClassIntroduce(multipartRequest.getParameter("classIntroduce"));                          // 클래스 설명                     
+			classVO.setClassOne(Integer.parseInt(multipartRequest.getParameter("classOne")));                                // 원데이, 온라인 클래스 구분               
+			classVO.setClassIntroduce(multipartRequest.getParameter("classIntroduce"));                          // 클래스 설명  
+			classVO.setClassUpdate(formatter.format(now));
 			
 			// 게시글 수정내용 등록
 			classDAO.modifyOk(classVO);
@@ -70,7 +75,7 @@ public class ClassModifyOk implements Action {
 			req.setAttribute("page", page);
 			
 			actionInfo.setRedirect(true);
-			actionInfo.setPath(req.getContextPath()+"/_class/ClassModify.cl?classNum="+classNum +"&userNum="+userNum + "&page=" + page);
+			actionInfo.setPath(req.getContextPath()+"/ClassMine.cl?userNum="+userNum + "&page=" + page);
 	
 			return actionInfo;
 		

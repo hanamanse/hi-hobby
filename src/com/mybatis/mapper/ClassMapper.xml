@@ -26,7 +26,8 @@
 		class_start = #{classStart},
 		class_end = #{classEnd},
 		class_introduce = #{classIntroduce},
-		class_nickname = #{classNickname}	
+		class_nickname = #{classNickname},	
+		class_update = #{classUpdate}
 		where class_num = #{classNum}
 </update>
 	
@@ -38,7 +39,7 @@
 	
 	<!-- 내가 개설한 클래스 보기 (크리에이터센터)-->
 	<select id="viewMine" parameterType="map" resultType="classVO">
-		select class_num, class_nickname, class_title, class_category, class_place, class_start, class_end, class_approve, class_img, class_one, class_status, class_introduce, class_price
+		select class_num, class_nickname, class_title, class_category, class_place, class_start, class_end, class_approve, class_img, class_one, class_status, class_introduce, class_price, class_update
 		from tbl_class
 		where user_num = #{userNum}
 		order by 1 desc limit #{startRow}, #{rowCount}
