@@ -40,24 +40,10 @@ public class ClassModify implements Action {
 //		MultipartRequest multipartRequest = new MultipartRequest(req, uploadPath, fileSize, "UTF-8", new DefaultFileRenamePolicy());
 		
 		int classNum = Integer.parseInt(req.getParameter("classNum"));
-		int page = Integer.parseInt(req.getParameter("page"));
+		String temp = req.getParameter("page");
+		int page = temp == null? 1 : Integer.parseInt(temp);
 		
 		classVO = classDAO.modify(classNum);
-		System.out.println(classVO);
-//		List<FileVO> fileList = fileDAO.select(classNum);
-//		System.out.println(fileList);
-		
-//		obj.put("title", classVO.getClassTitle());
-//		obj.put("category", classVO.getClassCategory());
-//		obj.put("place", classVO.getClassPlace());
-//		obj.put("placeDetail", classVO.getClassPlaceDetail());
-//		obj.put("start", classVO.getClassStart());
-//		obj.put("end", classVO.getClassEnd());
-//		obj.put("introduce", classVO.getClassIntroduce());
-//		obj.put("price", classVO.getClassPrice());
-//		obj.put("nickname", classVO.getClassNickname());
-		
-//		System.out.println(obj);
 		
 		req.setAttribute("classVO", classVO);
 		req.setAttribute("page", page);

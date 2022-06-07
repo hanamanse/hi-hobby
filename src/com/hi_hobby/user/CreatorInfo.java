@@ -29,6 +29,7 @@ public class CreatorInfo implements Action {
 		List<UserDTO> userList = userDAO.creatorInfo(userNum);
 		
 		req.setAttribute("userList", userList);
+		req.setAttribute("userDTO",userList.get(0));
 		
 		actionInfo.setRedirect(false);
 		actionInfo.setPath("/createrCenterInfoDetail.jsp");

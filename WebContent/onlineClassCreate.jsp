@@ -84,7 +84,7 @@
 												</div>
 											</div>
 										</div>
-										<a href="${pageContext.request.contextPath}/_class/ClassMine.cl?userNum=1">
+										<a href="${pageContext.request.contextPath}/ClassMine.cl?userNum=1">
 											<div class="css-165esj4 3" onclick="notice(3)" onmouseout="this.style.background='#ffffff'" onmouseover="this.style.background='rgb(248, 248, 248)';" style="background: rgb(255, 255, 255);">
 												<div class="css-1f8m7mx">
 													<div class="css-1m6hr3p">

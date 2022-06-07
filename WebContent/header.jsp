@@ -23,7 +23,7 @@
 	<header>
 	    <div class="header-wrap">
 	        <div class="header-left">
-	            <a href="main.jsp">
+	            <a href="index.jsp">
 	                <span>
 	                    <div class="main-logo"><img src="${pageContext.request.contextPath}/asset/img/hihobbyLogo2.png" /></div>
 	                </span>
@@ -105,7 +105,7 @@
 	                <p>크리에이터 지원</p>
 	            </a>
 	            <div style="width:24px;"></div> <!-- 공백 블록 -->
-	            <a class="csGoGo" onclick="location.href = '${pageContext.request.contextPath}/inquiry/InquiryAllView.in'">
+	            <a class="csGoGo" onclick="location.href = '${pageContext.request.contextPath}/InquiryAllView.in'">
 	                <p>고객센터</p>
 	            </a>
 				<c:choose>
@@ -131,5 +131,4 @@
 	</header>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/asset/js/header.js"></script>
 </html>

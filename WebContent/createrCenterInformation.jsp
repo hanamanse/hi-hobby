@@ -36,7 +36,7 @@ ${int userNum = (Integer)session.getAttribute("userNum");}
 						<header class="css-3h2b4c">
 							<div class="css-1n2mv2k">
 								<div class="css-zfyjjr">
-									<a target="_self" href="createrCenter.jsp">
+									<a target="_self" href="${pageContext.request.contextPath}/ClassCreatorMain.cl">
 										<img src="asset/img/creatorLogo2.png">
 									</a>
 									<div class="css-1mwu62q"></div>
@@ -90,7 +90,7 @@ ${int userNum = (Integer)session.getAttribute("userNum");}
 												</div>
 											</div>
 										</div>
-										<a href="${pageContext.request.contextPath}/_class/ClassMine.cl?userNum=${userNum}">
+										<a href="${pageContext.request.contextPath}/ClassMine.cl?userNum=${userNum}">
 											<div class="css-a1maoc" style="display: block;" id="classList">전체 상품</div>
 										</a>
 									</div>
@@ -115,7 +115,7 @@ ${int userNum = (Integer)session.getAttribute("userNum");}
 									<h4 class="css-1o07dsb">기본 정보</h4>
 									<div class="css-1pki59g"></div>
 									<div class="css-ako7s9">
-										<a href="${pageContext.request.contextPath}/user/CreatorInfo.us">
+										<a href="${pageContext.request.contextPath}/CreatorInfo.us">
 											<div class="css-1iy9h8i">
 												<div class="css-1f8m7mx">
 													<div class="css-u4kbcl">
