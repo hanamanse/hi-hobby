@@ -27,7 +27,7 @@
 ${int userNum = (Integer)session.getAttribute("userNum");}
  --%>
  <c:set var="userNum" value="${sessionScope.userNum}"/>
- <c:set var="user" value="${userDTO}"/>
+ <c:set var="userDTO" value="${userDTO}"/>
  
 	<div id="__next" data-reactroot="">
 		<main>
@@ -202,7 +202,7 @@ ${int userNum = (Integer)session.getAttribute("userNum");}
 											</div>
 											<div class="FormGroup__Content-sc-1b539l4-4 fedjlq">
 												<input type="text" id="name" fill="true" name="name"
-													value="${user.getUserName()}"  id="nameIn"
+													value="${userDTO.getUserName()}"  id="nameIn"
 													class="TextInput__StyledInput-sc-5hb15z-0 jRAPzN TextInputField__StyledTextInput-sc-3mob3-0"
 													readonly>
 												<div class="css-hpn70j"></div>
