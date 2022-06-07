@@ -2,6 +2,7 @@ package com.hi_hobby._class;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,6 +26,7 @@ public class ClassMine implements Action{
 		resp.setContentType("text/html;charset=UTF-8"); 
 		req.setCharacterEncoding("UTF-8");
 		
+		DecimalFormat df = new DecimalFormat("###,###,###.###");
 		ClassDAO classDAO = new ClassDAO();
 		// userNum 받아오기
 		int userNum = Integer.parseInt(req.getParameter("userNum"));
@@ -68,7 +70,9 @@ public class ClassMine implements Action{
 		classMap.put("rowCount", rowCount);
 		
 		List<ClassVO> classList = classDAO.viewMine(classMap);
-		List <String> cateList = new ArrayList<>();
+		classList.forEach(classs -> {	// 가격에 천원단위로 , 해주기 위함
+			classs.setClassPriceComma(df.format(classs.getClassPrice()));
+		});
 		
 		// 시작 인덱스와 게시글 목록을 가져온 뒤 requestScope에 담아주기
 		req.setAttribute("classList", classList);

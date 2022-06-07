@@ -2,6 +2,10 @@ package com.hi_hobby._class;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,8 +35,11 @@ public class ClassModify implements Action {
 		ClassVO classVO = new ClassVO();
 //		PrintWriter out = resp.getWriter();
 		ActionInfo actionInfo = new ActionInfo();
+//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
 		
 		FileDAO fileDAO = new FileDAO();
+		FileVO fileVO = new FileVO();
 		
 		// 사진 첨부를 위한 부분 
 		String uploadPath = "C:\\hi_hobby\\upload";
@@ -44,10 +51,11 @@ public class ClassModify implements Action {
 		int page = temp == null? 1 : Integer.parseInt(temp);
 		
 		classVO = classDAO.modify(classNum);
+		List <FileVO> fileList = fileDAO.select(classNum);
 		
 		req.setAttribute("classVO", classVO);
 		req.setAttribute("page", page);
-//		req.setAttribute("fileList", fileList);
+		req.setAttribute("fileList", fileList);
 		
 		actionInfo.setRedirect(false);
 		actionInfo.setPath("/creatorClassModify.jsp");

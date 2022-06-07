@@ -333,3 +333,7 @@ div.css-2pw500 label[for='video-file'] div {
 div.flexWrap {
     display: flex;
 }
+
+div.classOneReruired{
+	visible : hidden;
+}
