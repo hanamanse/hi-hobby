@@ -66,7 +66,9 @@
 										<img class="empty" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FtUiuQ%2FbtrCNOnpIbK%2FtYcpNGwOjSNCd7tzUtBja0%2Fimg.png">
 									</span>
 									<span id="LikeClass">
-										<p class="LikeClassTo"><c:out value="${classOne.getClassLike()}"/></p>
+										<p class="LikeClassTo">
+											<c:out value="${classOne.getClassLike()}"/>
+										</p>
 									</span>
 								</button>
 								<button type="button" class="share" onclick="copy()">
@@ -89,7 +91,7 @@
 										</div>
 									</div>
 									<section class="main">
-										<form action="OrderCreateOne.or" name="createOneForm" method="post" onsubmit="orderCheck()">
+										<form action="${pageContext.request.contextPath}/OrderCreateOne.or?classNum=${classNum}" name="createOneForm" method="post" onsubmit="orderCheck()">
 											<div class="reservation">
 												<div class="reservation-text-big">예약</div>
 												<div class="reservation-text-small">예약</div>
@@ -164,15 +166,9 @@
 								<section>
 									<div class="class-intro">클래스 소개</div>
 									<div class="writing">
-										<div class="folded">
-											<div class="main-text">
+										<div class="main-text">
 											<c:out value="${classOne.getClassIntroduce()}"/>
-											</div>
 										</div>
-										<div class="class-hidden"></div>
-									</div>
-									<div class="button-more">
-										<button type="button" class="class-more fold">더보기</button>
 									</div>
 								</section>
 							</div>
@@ -180,15 +176,6 @@
 								<div class="creator-wrap">
 									<div class="creator-profile">
 										<h3><c:out value="${classOne.getClassNickname()}"/></h3>
-										<div class="creator-image">
-											<c:out value="${classOne.getClassImg()}"/>
-										</div>
-									</div>
-									<div class="writing">
-										<div class="creator-hidden"></div>
-									</div>
-									<div class="button-more">
-										<button type="button" class="creator-more">더보기</button>
 									</div>
 								</div>
 							</div>
@@ -241,7 +228,6 @@
 			contentType: "application/json; charset=utf-8",
 			dataType: "json",
 			success: function(result){
-				console.log(result)
 				if(!result.result){
 					$("p#result").text("사용 불가능한 쿠폰입니다.");
 					$("p#result").css("color","red")
@@ -274,7 +260,6 @@
 			contentType: "application/json; charset=utf-8",
 			dataType: "json",
 			success: function(result){
-				console.log(result);
 				$("p.resultPrice").text(result.classPrice);
 				persent = true;
 			},
@@ -295,7 +280,6 @@
 			contentType: "application/json; charset=utf-8",
 			dataType: "json",
 			success: function(result){
-				console.log(result);
 				$("p.resultPrice").text(result.classPrice);
 				persent = false;
 			},
@@ -316,7 +300,6 @@
 			dataType: "json", 
 			data: {classNum: "${classOne.getClassNum()}"}, 
 			success: function(result){
-				console.log(result.like);
 				$("p.LikeClassTo").text(result.like);
 			},
 			error: function(request, status, error){
@@ -337,7 +320,6 @@
 			type: "post",
 			data: {classNum: "${classNum}", click: click},
 			success: function(result){
-				console.log(result);
  				if(click){
 					click = false;
 				}else{

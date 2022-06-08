@@ -80,12 +80,12 @@
 					
 					<!-- 데이터 입력받으면 위 div는 display는 none으로 바꾸고 밑 .giQpUz .kkWRfi div가 생성되게 해야 함.  -->
 					
-					<div class="hPeVaC">
-						<c:forEach var="order" items="${orderList}">
+					<c:forEach var="orderList" items="${orderList}">
+						<div class="hPeVaC">
 							<div class="giQpUz kkWRfi">
 								<div class="hdnqZU">
 									<div class="fyBGRf" color="#3a3a3a">
-									<c:out value="${order.orderReservation()}"></c:out>
+									<c:out value="${orderList.getOrderReservation()}"/>
 									</div>
 								</div>
 								<div class="ihCtaW">
@@ -100,23 +100,25 @@
 										<div class="hsEmIr">
 											<span class="bUogJm ilGvKF">
 												<picture class="kWswCZ iXXLck">
-													<img style="max-width: 100%; max-height:100%;" src="https://cdn.class101.net/images/b1e9c19f-dc77-4b83-a68b-b04a4183730e/375xauto.webp">
+													<c:out value="${orderList.getClassImg()}"/>
+													<!-- <img style="max-width: 100%; max-height:100%;" src="https://cdn.class101.net/images/b1e9c19f-dc77-4b83-a68b-b04a4183730e/375xauto.webp"> -->
 												</picture>
 											</span>
 										</div>
 										<div class="jzTFeN">
-											<h1>주문번호 : <c:out value="${order.getOrderNum}"></c:out></h1>
+											<h1>주문번호 : <c:out value="${orderList.getOrderNum()}"/></h1>
 											<div class="bpeeGV">
 												<a class="fjgoBy" >
-													<h1> 클래스 번호 : <c:out value="${order.getClassNum}"></c:out></h1>
+													<h1> 클래스 번호 : <c:out value="${orderList.getClassNum()}"></c:out></h1>
+													<h1> 클래스 명 : <c:out value="${orderList.getClassTitle()}"></c:out></h1>
 												</a>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</c:forEach>
-					</div>
+						</div>
+					</c:forEach>
 				</div>
 			
 				<footer class="imGLyS">
@@ -154,4 +156,25 @@
 		</div>
 	</div>
 </body>
+<script>
+	function getOrder(){
+		$.ajax({
+			url:"${pageContext.request.contextPath}/OrderGet.or",
+			type: "get",
+ 			contentType: "application/json; charset=utf-8",
+			dataType: "json", 
+			success: function(result){
+				console.log(result.like);
+				$("p.LikeClassTo").text(result.like);
+			},
+			error: function(request, status, error){
+				console.log("실패..");
+				console.log(request);
+				console.log(status);
+				console.log(error);
+			}
+		});
+		
+	}
+</script>
 </html>

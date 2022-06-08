@@ -65,7 +65,11 @@
 									<span class="push-share-img">
 										<img class="empty" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FtUiuQ%2FbtrCNOnpIbK%2FtYcpNGwOjSNCd7tzUtBja0%2Fimg.png">
 									</span>
-									<span id="LikeClass"><c:out value="${classOn.getClassLike()}"/></span>
+									<span id="LikeClass">
+										<p class="LikeClassTo">
+											<c:out value="${classOne.getClassLike()}"/>
+										</p>
+									</span>
 								</button>
 								<button type="button" class="share" onclick="copy()">
 									<span class="push-share-img">
@@ -115,14 +119,7 @@
 												<div class="payment-line"></div>
 												<div class="payment-final">
 													<p>최종 가격</p>
-													<c:choose>
-													<c:when test="">
-													<p><c:out value="${priceResult}"/></p>
-													</c:when>
-													<c:otherwise>
-													<p><c:out value="${priceResult}"/></p>
-													</c:otherwise>
-													</c:choose>
+													<p class="resultPrice"><c:out value="${priceResult}"/></p>
 												</div>
 											</div>
 											<div class="line"></div>
@@ -160,15 +157,9 @@
 								<section>
 									<div class="class-intro">클래스 소개</div>
 									<div class="writing">
-										<div class="folded">
-											<div class="main-text">
+										<div class="main-text">
 											<c:out value="${classOn.getClassIntroduce()}"/>
-											</div>
 										</div>
-										<div class="class-hidden"></div>
-									</div>
-									<div class="button-more">
-										<button type="button" class="class-more fold">더보기</button>
 									</div>
 								</section>
 							</div>
@@ -176,15 +167,6 @@
 								<div class="creator-wrap">
 									<div class="creator-profile">
 										<h3><c:out value="${classOn.getClassNickname()}"/></h3>
-										<div class="creator-image">
-											<c:out value="${classOn.getClassImg()}"/>
-										</div>
-									</div>
-									<div class="writing">
-										<div class="creator-hidden"></div>
-									</div>
-									<div class="button-more">
-										<button type="button" class="creator-more">더보기</button>
 									</div>
 								</div>
 							</div>
@@ -195,7 +177,7 @@
 								<div class="detail-wrap">
 									<div class="detail-product">
 										<p class="question">상품</p>
-										<p class="answer"><c:out value="${classOn.isClassOne()}"/></p>
+										<p class="answer"><c:out value="${classOn.getClassOne()}"/></p>
 									</div>
 									<div class="detail-category">
 										<p class="question">카테고리</p>
@@ -227,95 +209,89 @@
 <script src="asset/js/onlinePayment.js"></script>
 <script src="asset/js/header.js"></script>
 <script>
-var click = false;
-var persent = false;
-function checkCoupon(){
-	$.ajax({
-		url:"${pageContext.request.contextPath}/CouponCheck.co",
-		type: "get",
-		data: {couponUser: $("input[name='point']").val()},
-		contentType: "application/json; charset=utf-8",
-		dataType: "json",
-		success: function(result){
-			if(!result.result){
-				$("p#result").text("사용 불가능한 쿠폰입니다.");
-				$("p#result").css("color","red")
-				$("p#couponPrice").text("0");
-				if(persent){
+	var click = false;
+	var persent = false;
+	function checkCoupon(){
+		$.ajax({
+			url:"${pageContext.request.contextPath}/CouponCheck.co",
+			type: "get",
+			data: {couponUser: $("input[name='point']").val()},
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			success: function(result){
+				if(!result.result){
+					$("p#result").text("사용 불가능한 쿠폰입니다.");
+					$("p#result").css("color","red")
+					$("p#couponPrice").text("0");
 					getPriceBack();
-					persent = false;
-					
+				}else{
+					if(persent){
+						$("p#result").text("사용가능한 쿠폰입니다. 중복 사용은 불가합니다.");
+					}else{
+						$("p#result").text("사용가능한 쿠폰입니다.");
+						$("p#result").css("color","blue");
+						$("p#couponPrice").text("2000");
+						getPrice();
+					}
 				}
-			}else{
-				if(persent){
-					$("p#result").text("사용가능한 쿠폰입니다. 중복 사용은 불가합니다.");
-					continue;
-				}
-				$("p#result").text("사용가능한 쿠폰입니다.");
-				$("p#result").css("color","blue")
-				$("p#couponPrice").text("2000");
-				getPrice();
-				persent = true;
+			},
+			error: function(request, status, error){
+				console.log("실패..");
+				console.log(request);
+				console.log(status);
+				console.log(error);
 			}
-		},
-		error: function(request, status, error){
-			console.log("실패..");
-			console.log(request);
-			console.log(status);
-			console.log(error);
-		}
-	});
-}
-
-function getPrice(){
-	$.ajax({
-		url:"${pageContext.request.contextPath}/ClassSale.cl",
-		type: "get",
-		data: {classNum: ${classOn.getClassNum()}},
-		contentType: "application/json; charset=utf-8",
-		dataType: "json",
-		success: function(result){
-			console.log(result.classSale);
-			persent = true;
-		},
-		error: function(request, status, error){
-			console.log("실패..");
-			console.log(request);
-			console.log(status);
-			console.log(error);
-		}
-	});
-}
-
-function getPriceBack(){
-	$.ajax({
-		url:"${pageContext.request.contextPath}/ClassSaleBack.cl",
-		type: "get",
-		data: {classNum: ${classOn.getClassNum()}},
-		contentType: "application/json; charset=utf-8",
-		dataType: "json",
-		success: function(result){
-			console.log(result.classSale);
-			persent = false;
-		},
-		error: function(request, status, error){
-			console.log("실패..");
-			console.log(request);
-			console.log(status);
-			console.log(error);
-		}
-	});
-}
+		});
+	}
+	function getPrice(){
+		$.ajax({
+			url:"${pageContext.request.contextPath}/ClassSale.cl",
+			type: "get",
+			data: {classNum: "${classNum}"},
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			success: function(result){
+				$("p.resultPrice").text(result.classPrice);
+				persent = true;
+			},
+			error: function(request, status, error){
+				console.log("실패..");
+				console.log(request);
+				console.log(status);
+				console.log(error);
+			}
+		});
+	}
 	
-	function getLike(){
+	function getPriceBack(){
+		$.ajax({
+			url:"${pageContext.request.contextPath}/ClassSaleBack.cl",
+			type: "get",
+			data: {classNum: "${classNum}"},
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			success: function(result){
+				$("p.resultPrice").text(result.classPrice);
+				persent = false;
+			},
+			error: function(request, status, error){
+				console.log("실패..");
+				console.log(request);
+				console.log(status);
+				console.log(error);
+			}
+		});
+	}
+	
+ 	function getLike(){
 		$.ajax({
 			url:"${pageContext.request.contextPath}/ClassGetLike.cl",
 			type: "get",
-/* 			contentType: "application/json; charset=utf-8",
-			dataType: "json", */
-			data: {classNum: ${classOne.getClassNum()}}, 
+ 			contentType: "application/json; charset=utf-8",
+			dataType: "json", 
+			data: {classNum: "${classNum}"}, 
 			success: function(result){
-				
+				$("p.LikeClassTo").text(result.like);
 			},
 			error: function(request, status, error){
 				console.log("실패..");
@@ -333,14 +309,15 @@ function getPriceBack(){
 		$.ajax({
 			url:"${pageContext.request.contextPath}/ClassLike.cl",
 			type: "post",
-			data: {classNum: ${classNum}, click: click}, 
+			data: {classNum: "${classNum}", click: click},
 			success: function(result){
-				getLike();
  				if(click){
 					click = false;
 				}else{
 					click = true;
 				}
+ 				//$("p.LikeClassTo").text(result.classLike);
+ 				getLike();
 			},
 			error: function(request, status, error){ 
 				console.log("실패..");
@@ -355,5 +332,4 @@ function getPriceBack(){
 		alert("주문이 완료 되었습니다.");
 	}
 </script>
-<script src="asset/js/header.js"></script>
 </html>

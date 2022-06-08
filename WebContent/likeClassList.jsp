@@ -30,33 +30,33 @@
 			<div class="main-section">
 				<section class="category-bar">
 				<section class="category-bar">
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=드로잉">
+					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=drawing">
 						<h1 class="drawing-main category">
 						드로잉
 						</h1>
 					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=공예">
+					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=crafts">
 						<h1 class="crafts-main category">
 							공예
 							
 						</h1>
 					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=요리 · 베이킹">
+					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=cooking">
 						<h1 class="cooking-baking-main category">
 						요리 · 베이킹
 						</h1>
 					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=음악">
+					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=music">
 						<h1 class="music-main category">
 						음악
 						</h1>
 					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=운동">
+					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=exercise">
 						<h1 class="exercise-main category">
 						운동
 						</h1>
 					</a>						
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=라이프">
+					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=life">
 						<h1 class="life-main category">
 						라이프
 						</h1>
@@ -77,7 +77,7 @@
 											<c:if test="${i%j == 0 }">
 											<ul class="classes">
 											</c:if>
-												<a href="${pageContext.request.contextPath }/ClassGraphViewDetail.cl?classNum=${classs.getClassNum()}&page=${page}&classOne=${classs.isClassOne()}">
+												<a href="${pageContext.request.contextPath }/ClassGraphViewDetail.cl?classNum=${classs.getClassNum()}&page=${page}&classOne=${classs.getClassOne()}">
 													<li class="first"">
 														<div class="img-wrap">
 															<c:out value="${classs.getClassImg()}"/>

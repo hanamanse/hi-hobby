@@ -23,20 +23,18 @@ public class OrderCreateOne implements Action{
 		
 		HttpSession session = req.getSession();
 		int classNum = Integer.parseInt(req.getParameter("classNum"));
-		System.out.println("원데이 컨트롤러 들어옴");
 		
 		orderVO.setOrderReservation(req.getParameter("reservation"));
 		orderVO.setOrderStatus(1);
-//		orderVO.setClassNum(classNum);
-//		orderVO.setUserNum(Integer.parseInt(session.getAttribute("userNum")+""));
+		orderVO.setOrderApprove(1);
 		orderVO.setClassNum(classNum);
-		orderVO.setUserNum(1);
+		orderVO.setUserNum((Integer)session.getAttribute("userNum"));
 		
 		orderDAO.createOne(orderVO);
 		
 //		req.setAttribute("orderNumber", orderVO.getOrderNum());
 		actionInfo.setRedirect(false);
-		actionInfo.setPath("/myOrder101.jsp");
+		actionInfo.setPath("${pageContext.request.contextPath}/OrderGet.or");
 		return actionInfo;
 	}
 	

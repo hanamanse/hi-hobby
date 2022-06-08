@@ -17,6 +17,7 @@
 		<typeAlias type="com.hi_hobby.domain.vo.InquiryDTO" alias="inquiryDTO"/>
 		<typeAlias type="com.hi_hobby.domain.vo.FileVO" alias="FileVO"/>
 		<typeAlias type="com.hi_hobby.domain.vo.UserDTO" alias="userDTO"/>
+		<typeAlias type="com.hi_hobby.domain.vo.OrderDTO" alias="orderDTO"/>
 	</typeAliases>
 	
 	<environments default="mysql">
