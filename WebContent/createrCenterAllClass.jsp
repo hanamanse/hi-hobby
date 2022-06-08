@@ -659,7 +659,7 @@
 																	role="gridcell"
 																	style="overflow: hidden; flex: 0 1 180px;">
 																	<div class="css-b3mawz">
-																		<p class="css-esz8sy">2022. 5. 22. 오전 3:36</p>
+																		<p class="css-esz8sy"><c:out value="${classs.getClassUpdate()}" /></p>
 																	</div>
 																</div>
 																<div aria-colindex="9"

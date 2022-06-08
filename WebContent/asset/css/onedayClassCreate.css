@@ -337,3 +337,7 @@ div.class-one select{
 div.classOneRequired{
 	display : none;
 }
+
+p.requiredMsg{
+	color : red;
+}

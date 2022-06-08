@@ -209,9 +209,9 @@
 							<div class="class-time">
 								<p>시간</p>
 								<div class="flexWrap">
-									<input type="datetime-local" name="classStart" id="classStart" >
+									<input type="datetime-local" name="classStart" id="classStart" value= "9999-12-31T00:00">
 									<p style="margin : 0 10px; font-size: 20px; line-height: 47px;">~</p>
-									<input type="datetime-local"  name="classEnd" id="classEnd" >
+									<input type="datetime-local"  name="classEnd" id="classEnd" value= "9999-12-31T00:00">
 								</div>
 								<!-- <input type="text" name="classStart" placeholder="클래스가 진행되는 시간을 추가해주세요."> -->
 							</div>

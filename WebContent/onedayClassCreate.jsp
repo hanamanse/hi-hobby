@@ -176,6 +176,7 @@
 							<div class="class-name">
 								<p>클래스 제목</p>
 								<input type="text" name="classTitle" placeholder="클래스를 대표할 수 있는 제목을 작성해주세요.">
+								<p class="requiredMsg"></p>
 							</div>
 							<div class="class-category">
 								<p>카테고리</p>
@@ -198,6 +199,7 @@
 							<div class="class-price">
 								<p>수강료</p>
 								<input type="text" name="classPrice" placeholder = "클래스의 수강비용을 입력해주세요.">
+								<p class="requiredMsg"></p>
 							</div>
 							<div class="classOneRequired">
 								<div class="class-place">
@@ -232,6 +234,7 @@
 									<p>크리에이터 닉네임</p><!-- <p class=input-required>*</p> -->
 								</div>
 								<input type="text" name="classNickname" placeholder="사용하시는 닉네임을 입력해주세요.">
+								<p class="requiredMsg"></p>
 							</div>
 <!-- 							<div class="creator-introduce">
 								<p>크리에이터 소개</p>
@@ -378,9 +381,23 @@ $(".images").change(function(e){
 		history.back();
 	}
 	
+	let classTitle = document.querySelector('input[name="classTitle"]');
+	let classPrice = document.querySelector('input[name="classPrice"]');
+	let classNickname = document.querySelector('input[name="classTitle"]');
 	function createOk(){
-		oneRegForm.submit();
-		alert("클래스가 승인요청 되었습니다.");
+		if(classTitle==""){
+			classTitle.nextSibling.innerHTML = "클래스 제목을 입력해주세요.";
+		}
+		if(classPrice==""){
+			classPrice.nextSibling.innerHTML = "수강비용을 입력해주세요.";
+		}
+		if(classNickname=""){
+			classNickname.nextSibling.innerHTML = "크리에이터명을 입력해주세요.";
+		} 
+		else{
+			oneRegForm.submit();
+			alert("클래스가 승인요청 되었습니다.");
+		}
 	}
 
 	/* 	function cancelFile(img){
