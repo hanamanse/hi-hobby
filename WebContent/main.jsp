@@ -442,7 +442,7 @@
                               <div class="middleTextWrap">
                                  <div class="middle-title"><span>회원가입만 해도</span></div>
                                  <div class="middle-text"><span>2.000원 쿠폰 증정?</span></div>
-                                 <a href="">
+                                 <a href="joinEvent.jsp">
                                      <div class="middle-more"><span>더 알아보기</span></div>
                                  </a>
                               </div>
