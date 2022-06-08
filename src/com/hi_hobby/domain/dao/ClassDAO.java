@@ -228,4 +228,9 @@ public class ClassDAO {
 		return sqlSession.selectList("Class.classMainRecent");
 	}
 	
+	// 메인페이지를 위한 최근 업로드된 클래스 정보 불러오기
+	public List<ClassVO> classMainRecent() {
+		return sqlSession.selectList("Class.classMainRecent");
+	}
+	
 }
