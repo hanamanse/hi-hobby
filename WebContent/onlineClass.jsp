@@ -34,7 +34,7 @@
 						</div>
 						<div class="images">
 							<div class="image">
-								<c:out value="${classOn.getClassImg()}"></c:out>
+								<img src="/filePath/${classOn.getClassImg()}">
 							</div>
 						</div>
 						<div class="arrow next">
@@ -157,15 +157,9 @@
 								<section>
 									<div class="class-intro">클래스 소개</div>
 									<div class="writing">
-										<div class="folded">
-											<div class="main-text">
+										<div class="main-text">
 											<c:out value="${classOn.getClassIntroduce()}"/>
-											</div>
 										</div>
-										<div class="class-hidden"></div>
-									</div>
-									<div class="button-more">
-										<button type="button" class="class-more fold">더보기</button>
 									</div>
 								</section>
 							</div>
@@ -173,15 +167,6 @@
 								<div class="creator-wrap">
 									<div class="creator-profile">
 										<h3><c:out value="${classOn.getClassNickname()}"/></h3>
-										<div class="creator-image">
-											<c:out value="${classOn.getClassImg()}"/>
-										</div>
-									</div>
-									<div class="writing">
-										<div class="creator-hidden"></div>
-									</div>
-									<div class="button-more">
-										<button type="button" class="creator-more">더보기</button>
 									</div>
 								</div>
 							</div>
@@ -347,5 +332,4 @@
 		alert("주문이 완료 되었습니다.");
 	}
 </script>
-<script src="asset/js/header.js"></script>
 </html>

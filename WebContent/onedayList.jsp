@@ -38,7 +38,6 @@
 					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=crafts">
 						<h1 class="crafts-main category">
 							공예
-							
 						</h1>
 					</a>
 					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=cooking">
@@ -97,7 +96,6 @@
 						</h1>
 					</a>
 				</section>
-				</section>
 				<section>
 					<div>
 						<div class="order-button">
@@ -115,7 +113,7 @@
 												<a href="${pageContext.request.contextPath }/ClassGraphViewOneDetail.cl?classNum=${classs.getClassNum()}&page=${page}">
 													<li class="first"">
 														<div class="img-wrap">
-															<c:out value="${classs.getClassImg()}"/>
+															<img src="/filePath/${classs.getClassImg()}">
 														</div>
 														<div class="class-explanation">
 															<div class="class-author">

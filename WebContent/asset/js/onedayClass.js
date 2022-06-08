@@ -5,14 +5,6 @@ let count = 0;
 const pushButton = document.querySelector("button.push");
 const pushImg = document.querySelector("img.empty");
 
-const classMore = document.querySelector("button.class-more");
-const classFolded = document.querySelector("div.class div.folded");
-const classHidden = document.querySelector("div.class-hidden");
-
-const creatorMore = document.querySelector("button.creator-more");
-const creatorFolded = document.querySelector("div.creator div.folded");
-const creatorHidden = document.querySelector("div.creator-hidden");
-
 const introClass = document.querySelector("h6.intro-class");
 const introCreator = document.querySelector("h6.intro-creator");
 const introDetail = document.querySelector("h6.intro-detail");
@@ -43,36 +35,6 @@ pushButton.addEventListener('click', function() {
 	else {
 		pushImg.src = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FtUiuQ%2FbtrCNOnpIbK%2FtYcpNGwOjSNCd7tzUtBja0%2Fimg.png";
 		pushImg.className = "empty";
-	}
-});
-
-classMore.addEventListener('click', function() {
-	if(classFolded.className == 'folded') {
-		classFolded.style.height = "100%";
-		classFolded.className = "open";
-		classMore.innerHTML = "접기";
-		classHidden.style.display = "none";
-	}
-	else {
-		classFolded.style.height = "1000px";
-		classFolded.className = "folded";
-		classMore.innerHTML = "더보기";
-		classHidden.style.display = "block";
-	}
-});
-
-creatorMore.addEventListener('click', function() {
-	if(creatorFolded.className == 'folded') {
-		creatorFolded.style.height = "100%";
-		creatorFolded.className = "open";
-		creatorMore.innerHTML = "접기";
-		creatorHidden.style.display = "none";
-	}
-	else {
-		creatorFolded.style.height = "1000px";
-		creatorFolded.className = "folded";
-		creatorMore.innerHTML = "더보기";
-		creatorHidden.style.display = "block";
 	}
 });
 

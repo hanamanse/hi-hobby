@@ -17,6 +17,7 @@ import com.hi_hobby.action.Action;
 import com.hi_hobby.action.ActionInfo;
 import com.hi_hobby.domain.dao.ClassDAO;
 import com.hi_hobby.domain.dao.FileDAO;
+import com.hi_hobby.domain.vo.ClassDTO;
 import com.hi_hobby.domain.vo.ClassVO;
 import com.hi_hobby.domain.vo.FileVO;
 import com.oreilly.servlet.MultipartRequest;
@@ -37,6 +38,7 @@ public class ClassModify implements Action {
 		ActionInfo actionInfo = new ActionInfo();
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
 //		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
+		ClassDTO classDTO = new ClassDTO();
 		
 		FileDAO fileDAO = new FileDAO();
 		FileVO fileVO = new FileVO();
@@ -52,7 +54,6 @@ public class ClassModify implements Action {
 		
 		classVO = classDAO.modify(classNum);
 		List <FileVO> fileList = fileDAO.select(classNum);
-		
 		
 		req.setAttribute("classVO", classVO);
 		req.setAttribute("page", page);

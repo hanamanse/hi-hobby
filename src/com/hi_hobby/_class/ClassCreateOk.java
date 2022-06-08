@@ -72,7 +72,7 @@ public class ClassCreateOk implements Action {
 			classDAO.create(classVO);
 			
 			// 방금 등록한 클래스에 파일 추가
-			fileDAO.insert(multipartRequest, classDAO.getSeq(userNum));
+//			fileDAO.insert(multipartRequest, classDAO.getSeq(userNum));
 			
 			actionInfo.setRedirect(false);
 			actionInfo.setPath(req.getContextPath() + "/_class/ClassMine.cl?userNum="+userNum);

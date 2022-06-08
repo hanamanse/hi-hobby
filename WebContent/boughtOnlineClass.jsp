@@ -38,7 +38,7 @@
 			<div class="video">
 				<h1>클래스 영상</h1>
 				<div class="video-wrap">
-					<video src="<c:url value='upload/${classVideo}'/>" controls></video>
+					<video src="/filePath/${classVideo}" controls></video>
 				</div>
 			</div>
 		</section>

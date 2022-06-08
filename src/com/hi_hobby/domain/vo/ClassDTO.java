@@ -24,7 +24,22 @@ public class ClassDTO {
 	private String classVideo;			// 비디오 파일 이름
 	private String classPriceComma;		// 클래스 가격에 ,가 붙은 가격
 	private String orderReservation;	// 예약 시간
+	private String classUpdateParse;		// 출력을위한 파싱
+	private String fileName;				// 파일 이름
 	
+	public String getClassUpdateParse() {
+		return classUpdateParse;
+	}
+	public void setClassUpdateParse(String classUpdateParse) {
+		this.classUpdateParse = classUpdateParse;
+	}
+	
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
 	public int getClassNum() {
 		return classNum;
 	}
