@@ -29,7 +29,7 @@
 		<div class="section-wrap">
 			<div class="main-section">
 				<section class="category-bar">
-				<h1 class="drawing-main category" onClick="location.href='${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=drawing'">드로잉</h1>
+					<h1 class="drawing-main category" onClick="location.href='${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=drawing'">드로잉</h1>
 					<h1 class="crafts-main category" onClick="location.href='${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=crafts'">공예</h1>
 					<h1 class="cooking-baking-main category" onClick="location.href='${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=cooking'">요리 · 베이킹</h1>
 					<h1 class="music-main category" onClick="location.href='${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=music'">음악</h1>
@@ -58,7 +58,7 @@
 												<a href="${pageContext.request.contextPath }/ClassGraphViewOneDetail.cl?classNum=${classs.getClassNum()}&page=${page}">
 													<li class="first"">
 														<div class="img-wrap">
-															<c:out value="${classs.getClassImg()}"/>
+															<img src="/filePath/${classs.getClassImg()}">
 														</div>
 														<div class="class-explanation">
 															<div class="class-author">

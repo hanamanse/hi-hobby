@@ -34,7 +34,7 @@
 						</div>
 						<div class="images">
 							<div class="image">
-								<c:out value="${classOn.getClassImg()}"></c:out>
+								<img src="/filePath/${classOn.getClassImg()}">
 							</div>
 						</div>
 						<div class="arrow next">

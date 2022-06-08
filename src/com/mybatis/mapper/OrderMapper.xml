@@ -18,11 +18,11 @@
 	
 <!-- 주문 불러오기 -->
 	<select id="orderGet" parameterType="_int" resultType="orderDTO">
-	select order_num, order_reservation, order_status, order_approve, o.class_num, class_title, class_img
-	from tbl_order o join tbl_class c
-	on o.class_num = c.class_num
-	where o.user_num = #{userNum} and order_approve = 1
-	order by 1 desc
+		select order_num, order_reservation, order_status, order_approve, o.class_num, class_title, class_img
+		from tbl_order o join tbl_class c
+		on o.class_num = c.class_num
+		where o.user_num = #{userNum} and order_approve = 1
+		order by 1 desc
 	</select>
 
 <!-- 주문 취소 -->
