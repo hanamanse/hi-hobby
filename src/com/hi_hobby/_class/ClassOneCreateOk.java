@@ -54,6 +54,7 @@ public class ClassOneCreateOk implements Action {
 			classVO.setClassTitle(multipartRequest.getParameter("classTitle"));                            // 클래스 제목                        
 			classVO.setClassCategory(multipartRequest.getParameter("classCategory"));                      // 클래스 카테고리                      
 			classVO.setClassPlace(multipartRequest.getParameter("classPlace"));                            // 원데이 클래스 장소                    
+			classVO.setClassPlaceDetail(multipartRequest.getParameter("classPlaceDetail"));                            // 원데이 클래스 상세주소                    
 			classVO.setClassPrice(Integer.parseInt(multipartRequest.getParameter("classPrice")));          	// 클래스 가격                    
 			classVO.setClassStart(multipartRequest.getParameter("classStart"));                            // 시작시간 (시간 자료형)                 
 			classVO.setClassEnd(multipartRequest.getParameter("classEnd"));                                // 끝나는 시간(시간 자료형)                
@@ -65,6 +66,7 @@ public class ClassOneCreateOk implements Action {
 //			classVO.setClassDay(date2);
 			classVO.setClassDay(formatter.format(now));
 			
+			System.out.println(classVO.getClassPlaceDetail());
 			// 클래스 등록
 			classDAO.create(classVO);
 			
