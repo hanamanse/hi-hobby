@@ -31,7 +31,7 @@ public class ClassOneCreateOk implements Action {
 			//파일을 주고받기위해 기존 req를 받던것  > multipartreq로 받아야 하지만,
 			// session은 req 로 받아야한다. ***
 			long miliseconds = System.currentTimeMillis();
-			Date date = new Date(miliseconds);
+			java.sql.Date date = new java.sql.Date(miliseconds);
 			String date2 = String.valueOf(date);
 			
 			// 생성일 만들기
