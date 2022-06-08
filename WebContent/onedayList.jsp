@@ -29,7 +29,7 @@
 		<div class="section-wrap">
 			<div class="main-section">
 				<section class="category-bar">
-					<section class="category-bar">
+				<section class="category-bar">
 					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=drawing">
 						<h1 class="drawing-main category">
 						드로잉
