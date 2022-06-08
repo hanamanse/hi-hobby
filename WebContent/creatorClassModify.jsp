@@ -11,6 +11,7 @@
 <link href="https://cdn.class101.net/fonts/pretendard/pretendard-dynamic-subset.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/asset/css/createrCenter.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/onedayClassCreate.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/classModify.css">
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/asset/img/favicon.ico">
 </head>
 <body>
@@ -37,6 +38,11 @@
 								</div>
 							<div class="css-1mwu62q"></div>
 							<div class="css-1jslgtx">
+							<a href="${pageContext.request.contextPath}/CreatorLogOut.us">
+											<div class="logOut">
+												<p>로그아웃</p>
+											</div>
+										</a>
 								<div class="css-1uqh4qe" onclick="notice(2)">
 									<div class="css-1204bzy">
 										<div class="css-10ncn8v">
@@ -118,7 +124,8 @@
 				<div class="topside">
 					<h3>클래스 수정</h3>
 					<nav>
-						<div class="basic-information">기본 정보</div>
+						<div class="basic-information" onclick="basicInfo()">기본 정보</div>
+						<div class="video" onclick="videoInfo()">동영상</div>
 					</nav>
 				</div>
 				<!-- 기본 정보 -->
@@ -190,6 +197,13 @@
 									<option value="music">음악</option>
 									<option value="exercise">운동</option>
 									<option value="life">라이프</option>
+									<option value="picture">사진·영상</option>
+									<option value="profit">수익창출</option>
+									<option value="finance">금융·재테크</option>
+									<option value="job">직무</option>
+									<option value="programming">프로그래밍</option>
+									<option value="business">비즈니스</option>
+									<option value="language">외국어</option>
 								</select>
 							</div>
 							<div class="class-price">
@@ -220,6 +234,26 @@
 								<textarea name="classIntroduce" rows="10" cols="45" value="${classs.getClassIntroduce()}"></textarea>
 							</div>
 						</div>
+						<!-- 동영상 -->
+						<div class="video-wrap videoInfoWrap" style="display:none;">
+							<div class="class-video">
+								<h4>비디오 정보</h4>
+								<div class="video-name">
+									<p>비디오 제목</p>
+									<input type="text" name="classVideo" placeholder="비디오의 제목을 입력해주세요.">
+								</div>
+								<div class="video-file">
+									<p>비디오 업로드</p>
+									<label for="video-file">
+										<div>
+											<img src="https://creator.class101.net/images/video-add.png">
+										</div>
+									</label>
+									<input type="file" id="video-file" name="videoFile">
+								</div>
+							</div>
+						</div>
+						<!-- 크리에이터 정보 -->
 						<div class="creator-information">
 							<h4>크리에이터 정보</h4>
 							<div class="creator-name">
@@ -236,6 +270,7 @@
 								<p>크리에이터 소개</p>
 								<input type="text" name="creatorPhone" placeholder="연락 가능한 연락처를 입력해주세요. (- 제외)">
 							</div> -->
+						</div>
 						<div class="bottomBtnWrap">
 							<div class="application-button backBtn">
 								<button type="button" class="backBtn" onclick="goToClassMine()">목록으로</button>
@@ -249,7 +284,6 @@
 								</div>
 							</div>
 						</div>
-					</div>
 				</form>
 			</div>
 		</div>
@@ -335,21 +369,11 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
  var contextPath = "${pageContext.request.contextPath}";
- var filePath = "C:\hi_hobby\upload\";
+// var filePath = "C:\hi_hobby\upload\";
 </script>
-<script src="asset/js/onedayClassCreate.js"></script>
-<script src="asset/js/createrCenter.js"></script>
+<script src="${pageContext.request.contextPath}/asset/js/onedayClassCreate.js"></script>
+<script src="${pageContext.request.contextPath}/asset/js/createrCenter.js"></script>
 <script>
-
-$(".images").each(function(i, img){
-	let img = $(this).find("img");
-	
-	if(!${classs.getFileName()}){
-		img.attr("src", contextPath + "/asset/img/noImage.png");
-	} else{
-		img.attr("src", filePath+"${files.getFileName()}");		
-	}
-});
 
 function classOneDisplay(){
 	if($('option[value="1"]').prop('selected') == true){
@@ -364,6 +388,24 @@ window.onload = classOneDisplay();
 
 $('select[name="classCategory"]').val('${classs.getClassCategory()}').prop("selected", true);
 
+function classOneDisplay(){
+	if($('option[value="1"]').prop('selected') == true){
+		$('div.classOneRequired').css('display', 'block');
+	} else{
+		$('div.classOneRequired').css('display', 'none');
+	}
+};
+
+function videoInfo(){
+	$('.videoInfoWrap').css('display','block');
+	$('.basicInfoWrap').css('display','none');
+}
+
+function basicInfo(){
+	$('.videoInfoWrap').css('display','none');
+	$('.basicInfoWrap').css('display','block');
+}
+
 $('#classStart').val('${classs.getClassStart()}');
 $('#classEnd').val('${classs.getClassEnd()}');
 
@@ -374,7 +416,7 @@ $('#classEnd').val('${classs.getClassEnd()}');
 //이미지 등록시 썸네일 보기
 $(".images").click(function(){
 	console.log("이미지 클릭됨");
-})
+});
 
 $(".images").change(function(e){
 	let img = $(this).find("img");
@@ -389,18 +431,19 @@ $(".images").change(function(e){
 			img.attr("src", contextPath + "/asset/img/noImage.png");
 		}							//대체할 이미지의 경로
 	}
-})
+});
 
 function goToClassMine(){
-	location.href=contextPath + "/ClassMine.cl?userNum="+${userNum}+"&page="+${page};
-}
+	location.href=contextPath + "/ClassMine.cl?userNum=" +${userNum};
+};
 
 function modifyOk(){
 	onedayModify.submit();
 	alert("클래스가 수정되었습니다.");
-}
+};
 
 function classDel(){
+	console.log("삭제 클릭");
 	let check = false;
 	check = confirm("클래스를 삭제하시겠습니까?");
 	
@@ -408,8 +451,7 @@ function classDel(){
 		alert("클래스가 삭제되었습니다.")
 		location.href=contextPath + "/ClassDelete.cl?classNum="+${classs.getClassNum()}+"&userNum="+${userNum};
 	}
-
-}
+};
 
 </script>
 </html>

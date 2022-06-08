@@ -55,9 +55,6 @@ public class ClassModify implements Action {
 		classVO = classDAO.modify(classNum);
 		List <FileVO> fileList = fileDAO.select(classNum);
 		
-//		System.out.println("class DTO : "+classList.get(0).getFileName());
-		System.out.println("file DAO : "+fileList.get(0).getFileName());
-		
 		req.setAttribute("classVO", classVO);
 		req.setAttribute("page", page);
 		req.setAttribute("fileList", fileList);

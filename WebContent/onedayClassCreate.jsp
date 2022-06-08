@@ -33,6 +33,11 @@
 								</div>
 							<div class="css-1mwu62q"></div>
 							<div class="css-1jslgtx">
+							<a href="${pageContext.request.contextPath}/CreatorLogOut.us">
+											<div class="logOut">
+												<p>로그아웃</p>
+											</div>
+										</a>
 								<div class="css-1uqh4qe" onclick="notice(2)">
 									<div class="css-1204bzy">
 										<div class="css-10ncn8v">
