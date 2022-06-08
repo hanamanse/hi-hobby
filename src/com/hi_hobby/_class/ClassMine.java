@@ -70,8 +70,15 @@ public class ClassMine implements Action{
 		classMap.put("rowCount", rowCount);
 		
 		List<ClassVO> classList = classDAO.viewMine(classMap);
+		
 		classList.forEach(classs -> {	// 가격에 천원단위로 , 해주기 위함
 			classs.setClassPriceComma(df.format(classs.getClassPrice()));
+			
+			// 수정일 없을경우 생성일로 대체
+			String tempDate = classs.getClassUpdate() == null? classs.getClassDay() : classs.getClassUpdate();
+			classs.setClassUpdate(tempDate);
+//			String classUpdate = tempDate.substring(0,(tempDate.lastIndexOf(" ")));
+//			classs.setClassUpdateParse(classUpdate);
 		});
 		
 		// 시작 인덱스와 게시글 목록을 가져온 뒤 requestScope에 담아주기
