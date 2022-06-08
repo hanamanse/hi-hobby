@@ -24,37 +24,37 @@
                 <div class="all-menu-below">
                     <div class="below-div">
                         <div class="child-wrap white">
-	                        <a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=creator">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=creator">
 	                            <div class="cate-top below-child">크리에이터</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-                        	<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=drawing">
+                        	<a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=drawing">
                             	<div class="cate-bottom below-child">드로잉</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=crafts">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=crafts">
 	                            <div class="cate-bottom below-child">공예</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=cooking">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=cooking">
 	                            <div class="cate-bottom below-child">요리 · 베이킹</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=music">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=music">
 	                            <div class="cate-bottom below-child">음악</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=exercise">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=exercise">
 	                            <div class="cate-bottom below-child">운동</div>
                             </a>
                         </div>
                         <div class="child-wrap">
-	                        <a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=life">
+	                        <a href="${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=life">
 	                            <div class="cate-bottom below-child">라이프</div>
                             </a>
                         </div>
@@ -259,7 +259,7 @@
                 <div class="container-hidden">
 					<div class="timedeal-container" id="oneday-top10">
                        	<c:forEach var="lecture" items="${classOnedayTop}">
-							<a href="#">
+							<a href="${pageContext.request.contextPath}/ClassMainViewDetail.cl?classNum=${lecture.getClassNum()}&classOne=${lecture.getClassOne()}">
 								<div class="thumb-pic">
 									<img src="/filePath/${lecture.getClassImg()}">
 								</div>
@@ -275,9 +275,6 @@
 								<div class="price-wrap">
 									<p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
 								</div>
-								<form action="ClassMainView.cl" name="classForm">
-									<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
-								</form>
 							</a>
 						</c:forEach>
 					</div>
@@ -300,7 +297,7 @@
                 <div class="container-hidden">
 					<div class="timedeal-container" id="online-top10">
                        	<c:forEach var="lecture" items="${classOnlineTop}">
-							<a href="#">
+							<a href="${pageContext.request.contextPath}/ClassMainViewDetail.cl?classNum=${lecture.getClassNum()}&classOne=${lecture.getClassOne()}">
 								<div class="thumb-pic">
 									<img src="/filePath/${lecture.getClassImg()}">
 								</div>
@@ -316,9 +313,6 @@
 								<div class="price-wrap">
 									<p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
 								</div>
-								<form action="ClassBoughtViewOnlineDetail.cl" name="classForm">
-									<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
-								</form>
 							</a>
 						</c:forEach>
 					</div>
@@ -341,7 +335,7 @@
                 <div class="container-hidden">
 					<div class="timedeal-container" id="md-recommend">
                        	<c:forEach var="lecture" items="${classMD}">
-							<a href="#">
+							<a href="${pageContext.request.contextPath}/ClassMainViewDetail.cl?classNum=${lecture.getClassNum()}&classOne=${lecture.getClassOne()}">
 								<div class="thumb-pic">
 									<img src="/filePath/${lecture.getClassImg()}">
 								</div>
@@ -357,9 +351,6 @@
 								<div class="price-wrap">
 									<p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
 								</div>
-								<form action="ClassBoughtViewOnlineDetail.cl" name="classForm">
-									<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
-								</form>
 							</a>
 						</c:forEach>
 					</div>
@@ -381,7 +372,7 @@
                 <div class="container-hidden">
 					<div class="timedeal-container" id="oneday">
                        	<c:forEach var="lecture" items="${classOneday}">
-							<a href="#">
+							<a href="${pageContext.request.contextPath}/ClassMainViewDetail.cl?classNum=${lecture.getClassNum()}&classOne=${lecture.getClassOne()}">
 								<div class="thumb-pic">
 									<img src="/filePath/${lecture.getClassImg()}">
 								</div>
@@ -397,9 +388,6 @@
 								<div class="price-wrap">
 									<p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
 								</div>
-								<form action="ClassBoughtViewOnlineDetail.cl" name="classForm">
-									<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
-								</form>
 							</a>
 						</c:forEach>
 					</div>
@@ -421,7 +409,7 @@
                 <div class="container-hidden">
 					<div class="timedeal-container" id="online">
                        	<c:forEach var="lecture" items="${classOnline}">
-							<a href="#">
+							<a href="${pageContext.request.contextPath}/ClassMainViewDetail.cl?classNum=${lecture.getClassNum()}&classOne=${lecture.getClassOne()}">
 								<div class="thumb-pic">
 									<img src="/filePath/${lecture.getClassImg()}">
 								</div>
@@ -437,9 +425,6 @@
 								<div class="price-wrap">
 									<p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
 								</div>
-								<form action="ClassBoughtViewOnlineDetail.cl" name="classForm">
-									<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
-								</form>
 							</a>
 						</c:forEach>
 					</div>
@@ -481,28 +466,27 @@
                 <div class="latlyClass-container">
                     <ul class="class-list">
                     	<c:forEach var="lecture" items="${classRecent}">
-	                        <li>
-	                            <div class="class-cell">
-                                    <div class="thumb-pic">
-                                        <img src="/filePath/${lecture.getClassImg()}">
-                                    </div>
-                                    <p class="creator-name"><c:out value="${lecture.getClassNickname()}"/></p>
-                                    <p class="class-name"><c:out value="${lecture.getClassTitle()}"/></p>
-                                    <div class="good-icon">
-                                        <div class="good-child">
-                                            <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M1.5 8.824C1.5 5.607 3.962 3 7 3c2.5 0 4 1.5 5 3 1-1.5 2.5-3 5-3 3.038 0 5.5 2.607 5.5 5.824C22.5 14.827 16.684 18.52 12 21 7.316 18.52 1.5 14.827 1.5 8.824z" fill="#d7d7d7"></path></svg></span>
-                                            <p><c:out value="${lecture.getClassLike()}"/></p>
-                                        </div>
-                                    </div>
-                                    <div class="linediv"></div>
-                                    <div class="price-wrap">
-                                        <p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
-                                    </div>
-                                    <form action="ClassBoughtViewOnlineDetail.cl" name="classForm">
-										<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
-									</form>
-	                            </div>
-	                        </li>
+                    		<a href="${pageContext.request.contextPath}/ClassMainViewDetail.cl?classNum=${lecture.getClassNum()}&classOne=${lecture.getClassOne()}">
+		                        <li>
+		                            <div class="class-cell">
+	                                    <div class="thumb-pic">
+	                                        <img src="/filePath/${lecture.getClassImg()}">
+	                                    </div>
+	                                    <p class="creator-name"><c:out value="${lecture.getClassNickname()}"/></p>
+	                                    <p class="class-name"><c:out value="${lecture.getClassTitle()}"/></p>
+	                                    <div class="good-icon">
+	                                        <div class="good-child">
+	                                            <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M1.5 8.824C1.5 5.607 3.962 3 7 3c2.5 0 4 1.5 5 3 1-1.5 2.5-3 5-3 3.038 0 5.5 2.607 5.5 5.824C22.5 14.827 16.684 18.52 12 21 7.316 18.52 1.5 14.827 1.5 8.824z" fill="#d7d7d7"></path></svg></span>
+	                                            <p><c:out value="${lecture.getClassLike()}"/></p>
+	                                        </div>
+	                                    </div>
+	                                    <div class="linediv"></div>
+	                                    <div class="price-wrap">
+	                                        <p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
+	                                    </div>
+		                            </div>
+		                        </li>
+                    		</a>
 						</c:forEach>
                     </ul>
                 </div>
