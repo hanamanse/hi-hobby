@@ -24,11 +24,11 @@ public class ClassListView implements Action {
 			ClassDAO classDAO = new ClassDAO();
 			ActionInfo actionInfo = new ActionInfo();
 			
-			List<ClassVO> list = new ClassDAO().listView();
+//			List<ClassVO> list = new ClassDAO().listView();
 			JSONArray resultArr = new JSONArray();
 			PrintWriter out = resp.getWriter();
 			
-			System.out.println(list);
+//			System.out.println(list);
 			
 //			int idx = 0;
 //			for(ClassVO classs : list) {
@@ -38,14 +38,14 @@ public class ClassListView implements Action {
 //				idx++;
 //			}
 			
-			list.forEach(classs -> {
-				JSONObject obj = new JSONObject();
-				obj.put("num", classs.getClassNum());
-				obj.put("title", classs.getClassTitle());
-				obj.put("category", classs.getClassCategory());
-				obj.put("price", classs.getClassPrice());
-				resultArr.add(obj);
-			});
+//			list.forEach(classs -> {
+//				JSONObject obj = new JSONObject();
+//				obj.put("num", classs.getClassNum());
+//				obj.put("title", classs.getClassTitle());
+//				obj.put("category", classs.getClassCategory());
+//				obj.put("price", classs.getClassPrice());
+//				resultArr.add(obj);
+//			});
 			
 			resp.setCharacterEncoding("UTF-8");
 //			System.out.println(resultArr);

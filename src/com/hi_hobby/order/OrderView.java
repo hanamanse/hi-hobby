@@ -25,7 +25,7 @@ public class OrderView implements Action{
 	
 		System.out.println("주문조회 컨트롤러 들어옴");
 		
-		req.setAttribute("orderList", orderDAO.view());
+//		req.setAttribute("orderList", orderDAO.view());
 		
 		actionInfo.setRedirect(false);
 		actionInfo.setPath("/myOrder.jsp");

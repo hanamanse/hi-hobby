@@ -26,7 +26,7 @@ public class OrderCreateOn implements Action{
 	
 		orderVO.setOrderReservation(req.getParameter("reservation"));
 		orderVO.setOrderStatus(0);
-		orderVO.setOrderApprove(1);
+		orderVO.setOrderApprove(0);
 		orderVO.setClassNum(classNum);
 		orderVO.setUserNum(Integer.parseInt(session.getAttribute("userNum")+""));
 		

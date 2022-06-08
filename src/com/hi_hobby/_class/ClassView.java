@@ -20,9 +20,9 @@ public class ClassView implements Action {
 			ClassDAO classDAO = new ClassDAO();
 			
 			int userNum = Integer.parseInt(req.getParameter("userNum"));
-			List<ClassVO> classList = classDAO.viewMine(userNum);
+//			List<ClassVO> classList = classDAO.viewMine(userNum);
 			
-			req.setAttribute("classList", classList);
+//			req.setAttribute("classList", classList);
 			
 			actionInfo.setRedirect(false);
 			actionInfo.setPath("/creatorCenter.jsp");

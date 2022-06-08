@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="shortcut icon" href="asset/img/favicon.ico">
 <title>관리자 헤더</title>
 <style>
 	header{

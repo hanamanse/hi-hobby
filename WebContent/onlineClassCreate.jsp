@@ -168,6 +168,11 @@
 									<option value="music">음악</option>
 									<option value="exercise">운동</option>
 									<option value="life">라이프</option>
+									<option value="picture">사진·영상</option>
+									<option value="finance">금융·재테크</option>
+									<option value="programming">프로그래밍</option>
+									<option value="business">비즈니스</option>
+									<option value="language">외국어</option>
 								</select>
 							</div>
 							<div class="class-price">
