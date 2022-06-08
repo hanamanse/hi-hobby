@@ -66,7 +66,9 @@
 										<img class="empty" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FtUiuQ%2FbtrCNOnpIbK%2FtYcpNGwOjSNCd7tzUtBja0%2Fimg.png">
 									</span>
 									<span id="LikeClass">
-										<p class="LikeClassTo"><c:out value="${classOne.getClassLike()}"/></p>
+										<p class="LikeClassTo">
+											<c:out value="${classOne.getClassLike()}"/>
+										</p>
 									</span>
 								</button>
 								<button type="button" class="share" onclick="copy()">
