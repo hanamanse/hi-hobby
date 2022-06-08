@@ -29,39 +29,17 @@
 		<div class="section-wrap">
 			<div class="main-section">
 				<section class="category-bar">
-				<section class="category-bar">
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=드로잉">
-						<h1 class="drawing-main category">
-						드로잉
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=공예">
-						<h1 class="crafts-main category">
-							공예
-							
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=요리 · 베이킹">
-						<h1 class="cooking-baking-main category">
-						요리 · 베이킹
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=음악">
-						<h1 class="music-main category">
-						음악
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=운동">
-						<h1 class="exercise-main category">
-						운동
-						</h1>
-					</a>						
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=라이프">
-						<h1 class="life-main category">
-						라이프
-						</h1>
-					</a>
-				</section>
+				<h1 class="drawing-main category" onClick="location.href='${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=drawing'">드로잉</h1>
+					<h1 class="crafts-main category" onClick="location.href='${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=crafts'">공예</h1>
+					<h1 class="cooking-baking-main category" onClick="location.href='${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=cooking'">요리 · 베이킹</h1>
+					<h1 class="music-main category" onClick="location.href='${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=music'">음악</h1>
+					<h1 class="exercise-main category" onClick="location.href='${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=exercise'">운동</h1>
+					<h1 class="life-main category" onClick="location.href='${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=life'">라이프</h1>
+					<h1 class="photo-video-main category" onClick="location.href='${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=picture'">사진 · 영상</h1>
+					<h1 class="finance-main category" onClick="location.href='${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=finance'">금융 · 재태크</h1>
+					<h1 class="programming-main category" onClick="location.href='${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=programming'">프로그래밍</h1>
+					<h1 class="business-main category" onClick="location.href='${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=business'">비즈니스</h1>
+					<h1 class="language-main category" onClick="location.href='${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=language'">외국어</h1>
 				</section>
 				<section>
 					<div>

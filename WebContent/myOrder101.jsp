@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="asset/css/myOrder101.css">
 <link rel="stylesheet" href="asset/css/miniHeadFoot101.css">
 <link rel="shortcut icon" href="asset/img/favicon.ico">
-<title>하이하비 | 주문 내역</title>
+<title>하이하비 | 구매 내역</title>
 </head>
 <body class="101-ui-portal" style="width: auto;">
 	<div id="__next">
