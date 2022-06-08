@@ -67,7 +67,9 @@ public class UserFrontController extends HttpServlet {
 		}
 		else if(command.equals("CreatorInfo.us")) {
 			actionInfo = new CreatorInfo().execute(req, resp);
-			System.out.println(actionInfo.getPath());
+		}
+		else if(command.equals("CreatorLogOut.us")) {
+			actionInfo = new CreatorLogOut().execute(req, resp);
 		}
 		else {
 			// 404 일 때 출력할 에러 페이지 경로 작성

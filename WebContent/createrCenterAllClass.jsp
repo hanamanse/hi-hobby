@@ -47,6 +47,11 @@
 									</a>
 									<div class="css-1mwu62q"></div>
 									<div class="css-1jslgtx">
+									<a href="${pageContext.request.contextPath}/CreatorLogOut.us">
+											<div class="logOut">
+												<p>로그아웃</p>
+											</div>
+										</a>
 										<div class="css-1uqh4qe" onclick="">
 											<div class="css-1204bzy">
 												<div class="css-10ncn8v">
@@ -668,7 +673,7 @@
 																	style="overflow: hidden; flex: 0 1 155px;">
 																	<div class="css-b3mawz">
 																		<div class="css-i2rvrf">
-																			<button class="css-1estejg" onclick="location.href='${pageContext.request.contextPath}/_class/ClassModify.cl?classNum=${classs.getClassNum()}&page=${page}'">
+																			<button class="css-1estejg" onclick="location.href='${pageContext.request.contextPath}/ClassModify.cl?classNum=${classs.getClassNum()}&page=${page}'">
 																				<span class="css-3kqv01"><span
 																					class="css-13g5vis">수정하기</span></span>
 																			</button>
