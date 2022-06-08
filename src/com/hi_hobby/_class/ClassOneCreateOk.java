@@ -40,7 +40,7 @@ public class ClassOneCreateOk implements Action {
 			
 			// 사진 첨부를 위한 부분 
 			String uploadPath = "C:\\hi_hobby\\upload";
-			int fileSize = 1024 * 1024 * 5; // 파일 사이즈 5M								//업로드 경로, 파일사이즈
+			int fileSize = 1024 * 1024 * 10; // 파일 사이즈 5M								//업로드 경로, 파일사이즈
 			MultipartRequest multipartRequest = new MultipartRequest(req, uploadPath, fileSize, "UTF-8", new DefaultFileRenamePolicy());
 			// 파일을 주고받기 위해서는 multipartREquest 를 이용해야한다.
 			
@@ -49,6 +49,7 @@ public class ClassOneCreateOk implements Action {
 			int userNum = (Integer)req.getSession().getAttribute("userNum");
 			// String > Integer 다운캐스팅 표시
 			
+			System.out.println(multipartRequest.getParameter("classImg"));
 			classVO.setClassNickname(multipartRequest.getParameter("classNickname"));                      // 클래스 생성자 닉네임                   
 			classVO.setClassTitle(multipartRequest.getParameter("classTitle"));                            // 클래스 제목                        
 			classVO.setClassCategory(multipartRequest.getParameter("classCategory"));                      // 클래스 카테고리                      
@@ -57,6 +58,7 @@ public class ClassOneCreateOk implements Action {
 			classVO.setClassStart(multipartRequest.getParameter("classStart"));                            // 시작시간 (시간 자료형)                 
 			classVO.setClassEnd(multipartRequest.getParameter("classEnd"));                                // 끝나는 시간(시간 자료형)                
 			classVO.setClassImg(multipartRequest.getParameter("classImg"));                                // 이미지 자료형                       
+			classVO.setClassImg(multipartRequest.getParameter("classVideo"));                                // 동영상 자료형                       
 			classVO.setClassOne(Integer.parseInt(multipartRequest.getParameter("classOne")));                                // 클래스구분 : 원데이(1)
 			classVO.setClassIntroduce(multipartRequest.getParameter("classIntroduce"));                          // 클래스 설명                     
 			classVO.setUserNum(userNum);                             // 유저 고유번호(크리에이터 정보를 가져오기 위해)

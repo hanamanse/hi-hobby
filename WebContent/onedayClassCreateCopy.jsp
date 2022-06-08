@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>하이하비 크리에이터 센터 | 클래스 수정하기</title>
+<title>하이하비 크리에이터 센터 | 원데이 클래스 신청</title>
 <link href="https://cdn.class101.net/fonts/pretendard/pretendard-dynamic-subset.css" rel="preload" as="style">
 <link href="https://cdn.class101.net/fonts/pretendard/pretendard-dynamic-subset.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/asset/css/createrCenter.css">
@@ -15,9 +13,7 @@
 </head>
 <body>
 	<c:set var="userNum" value="${sessionScope.userNum }"/>
-	<c:set var="classs" value= "${classVO}"/>
-	<c:set var="page" value= "${page}"/>
-	<c:set var="files" value="${fileList}"/>
+	<c:set var="page" value="${page}"/>
 	
 	<div class="css-13i5cls">
 		<div class="css-zsoya5">
@@ -26,7 +22,7 @@
 					<div class="css-1n2mv2k">
 						<div class="css-zfyjjr">
 							<a target="_self" href="${pageContext.request.contextPath}/ClassCreatorMain.cl">
-								<img src="${pageContext.request.contextPath}/asset/img/creatorLogo2.png">
+								<img src="asset/img/creatorLogo2.png">
 							</a>
 								<div class="css-1sk4nz8">
 									<span class="css-ezxb3w">
@@ -116,15 +112,16 @@
 		<div class="container-wrap" id="classInput">
 			<div class="container">
 				<div class="topside">
-					<h3>클래스 수정</h3>
+					<h3>클래스 신청</h3>
 					<nav>
-						<div class="basic-information">기본 정보</div>
+						<div class="basic-information" onclick="basicInfo()">기본 정보</div>
+						<div class="video" onclick="videoInfo()">동영상</div>
 					</nav>
 				</div>
 				<!-- 기본 정보 -->
-				<form action="${pageContext.request.contextPath}/ClassModifyOk.cl?classNum=${classs.getClassNum()}&userNum=${userNum}&page=${page}" name="onedayModify" method="post" enctype="multipart/form-data">
+				<form action="${pageContext.request.contextPath}/ClassOneCreateOk.cl?userNum=${userNum}" name="oneRegForm" method="post" enctype="multipart/form-data">
 					<div class="bottomside">
-						<div class="class-information">
+						<div class="class-information basicInfoWrap">
 							<h4>클래스 정보</h4>
 							<div class="class-image">
 								<p>커버 이미지</p>
@@ -133,19 +130,19 @@
 									<div class="images images1">
 										<label for="class_image1">
 											<div>
-												<img class="imgFile" src="${pageContext.request.contextPath}/asset/img/noImage.png">
+												<img src="${pageContext.request.contextPath}/asset/img/noImage.png">
 											</div>
 										</label>
-										<input type="file" id="class_image1" class="class-image-file" name="classImage1">
+										<input type="file" id="class_image1" class="class-image-file" name="classImg">
 										<input type="button" class="uploadDel" onclick="cancelFile('classImage1')" value="첨부 삭제">
 									</div>
 									<div class="images images2">	
 										<label for="class_image2">
 											<div>
-												<img class="imgFile" src="${pageContext.request.contextPath}/asset/img/noImage.png">
+												<img src="${pageContext.request.contextPath}/asset/img/noImage.png">
 											</div>
 										</label>
-										<input type="file" id="class_image2" class="class-image-file" name="classImage2">
+										<input type="file" id="class_image2" class="class-image-file" name="classImg">
 										<input type="button" class="uploadDel" onclick="cancelFile('classImage2')" value="첨부 삭제">
 									</div>
 								</div>
@@ -153,7 +150,7 @@
 									<div class="images images3">
 										<label for="class_image3">
 											<div>
-												<img class="imgFile" src="${pageContext.request.contextPath}/asset/img/noImage.png">
+												<img src="${pageContext.request.contextPath}/asset/img/noImage.png">
 											</div>
 										</label>
 										<input type="file" id="class_image3" class="class-image-file" name="classImage3">
@@ -162,7 +159,7 @@
 									<div class="images images4">	
 										<label for="class_image4">
 											<div>
-												<img  class="imgFile" src="${pageContext.request.contextPath}/asset/img/noImage.png">
+												<img src="${pageContext.request.contextPath}/asset/img/noImage.png">
 											</div>
 										</label>
 										<input type="file" id="class_image4" class="class-image-file" name="classImage4">
@@ -179,54 +176,86 @@
 							</div>
 							<div class="class-name">
 								<p>클래스 제목</p>
-								<input type="text" name="classTitle" placeholder="클래스를 대표할 수 있는 제목을 작성해주세요." value="${classs.getClassTitle()}">
+								<input type="text" name="classTitle" placeholder="클래스를 대표할 수 있는 제목을 작성해주세요.">
+								<p class="requiredMsg"></p>
 							</div>
 							<div class="class-category">
 								<p>카테고리</p>
-								<select name="classCategory" >
+								<select name="classCategory">
 									<option value="drawing">드로잉</option>
 									<option value="crafts">공예</option>
 									<option value="cooking">요리 · 베이킹</option>
 									<option value="music">음악</option>
 									<option value="exercise">운동</option>
 									<option value="life">라이프</option>
+									<option value="picture">사진·영상</option>
+									<option value="profit">수익창출</option>
+									<option value="finance">금융·재테크</option>
+									<option value="job">직무</option>
+									<option value="programming">프로그래밍</option>
+									<option value="business">비즈니스</option>
+									<option value="language">외국어</option>
 								</select>
 							</div>
 							<div class="class-price">
 								<p>수강료</p>
-								<input type="text" name="classPrice" placeholder = "클래스의 수강비용을 입력해주세요." value="${classs.getClassPrice()}">
+								<input type="text" name="classPrice" placeholder = "클래스의 수강비용을 입력해주세요.">
+								<p class="requiredMsg"></p>
 							</div>
-							<div class="class-place">
-								<p>장소</p>
-								<!-- <input type="text" name="classPlace" placeholder="클래스가 진행되는 장소를 추가해주세요."> -->
-								<div class="searchPlaceWrap">
-									<input type="text" name ="classPlace" class="searchPlaceWrap1" id="sample5_address" placeholder="클래스가 진행되는 장소를 추가해주세요." value="${classs.getClassPlace()}">
-									<input type="button" class="searchPlaceWrap2" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
+							<div class="classOneRequired">
+								<div class="class-place">
+									<p>장소</p>
+									<!-- <input type="text" name="classPlace" placeholder="클래스가 진행되는 장소를 추가해주세요."> -->
+									<div class="searchPlaceWrap">
+										<input type="text" name ="classPlace" class="searchPlaceWrap1" id="sample5_address" placeholder="클래스가 진행되는 장소를 추가해주세요.">
+										<input type="button" class="searchPlaceWrap2" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
+									</div>
+									<input type="text" name="classPlaceDetail" placeholder="상세 주소를 입력해주세요.">
+									<div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
 								</div>
-								<input type="text" name="classPlaceDetail" placeholder="상세 주소를 입력해주세요." value="${classs.getClassPlaceDetail()}">
-								<div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
-							</div>
-							<div class="class-time">
-								<p>시간</p>
-								<div class="flexWrap">
-									<input type="datetime-local" name="classStart" id="classStart" value= "9999-12-31T00:00">
-									<p style="margin : 0 10px; font-size: 20px; line-height: 47px;">~</p>
-									<input type="datetime-local"  name="classEnd" id="classEnd" value= "9999-12-31T00:00">
+								<div class="class-time">
+									<p>시간</p>
+									<div class="flexWrap">
+										<input type="datetime-local" name="classStart" value= "9999-12-31T00:00" required="false">
+										<p style="margin : 0 10px; font-size: 20px; line-height: 47px;">~</p>
+										<input type="datetime-local"  name="classEnd" value="9999-12-31T00:00:00" required="false">
+									</div>
+									<!-- <input type="text" name="classStart" placeholder="클래스가 진행되는 시간을 추가해주세요."> -->
 								</div>
-								<!-- <input type="text" name="classStart" placeholder="클래스가 진행되는 시간을 추가해주세요."> -->
 							</div>
 							<div class="class-introduce">
 								<p>클래스 소개</p>
-								<textarea name="classIntroduce" rows="10" cols="45" value="${classs.getClassIntroduce()}"></textarea>
+								<textarea name="classIntroduce" rows="10" cols="45"></textarea>
 							</div>
 						</div>
+						<!-- 동영상 -->
+						<div class="video-wrap videoInfoWrap" style="display:none;">
+							<div class="class-video">
+								<h4>비디오 정보</h4>
+								<div class="video-name">
+									<p>비디오 제목</p>
+									<input type="text" name="classVideo" placeholder="비디오의 제목을 입력해주세요.">
+								</div>
+								<div class="video-file">
+									<p>비디오 업로드</p>
+									<label for="video-file">
+										<div>
+											<img src="https://creator.class101.net/images/video-add.png">
+										</div>
+									</label>
+									<input type="file" id="video-file" name="videoFile">
+								</div>
+							</div>
+						</div>
+						<!-- 크리에이터 정보 -->
 						<div class="creator-information">
 							<h4>크리에이터 정보</h4>
 							<div class="creator-name">
 								<div class="flexWrap">
 									<p>크리에이터 닉네임</p><!-- <p class=input-required>*</p> -->
 								</div>
-								<input type="text" name="classNickname" placeholder="사용하시는 닉네임을 입력해주세요." value="${classs.getClassNickname()}">
+								<input type="text" name="classNickname" placeholder="사용하시는 닉네임을 입력해주세요.">
+								<p class="requiredMsg"></p>
 							</div>
 <!-- 							<div class="creator-introduce">
 								<p>크리에이터 소개</p>
@@ -236,20 +265,20 @@
 								<p>크리에이터 소개</p>
 								<input type="text" name="creatorPhone" placeholder="연락 가능한 연락처를 입력해주세요. (- 제외)">
 							</div> -->
+						</div>
 						<div class="bottomBtnWrap">
 							<div class="application-button backBtn">
-								<button type="button" class="backBtn" onclick="goToClassMine()">목록으로</button>
+								<button class="backBtn" onclick="goToClassMine()">뒤로가기</button>
 							</div>
 							<div class="rightBtnWrap">
 								<div class="application-button">
-									<button type="submit" onclick="modifyOk()">수정하기</button>
+									<button onclick="createOk()">신청하기</button>
 								</div>
-								<div class="application-button"> <!-- onclick="notice(4) -->
-									<button type="button" id="class-del-btn" onclick = "classDel()">삭제하기</button>
-								</div>
+<!-- 								<div class="application-button"> onclick="notice(4)
+									<button id="class-del-btn" type="submit" onclick = "classDel()">삭제하기</button>
+								</div> -->
 							</div>
-						</div>
-					</div>
+						</div>						
 				</form>
 			</div>
 		</div>
@@ -334,22 +363,12 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
- var contextPath = "${pageContext.request.contextPath}";
- var filePath = "C:\hi_hobby\upload\";
+	var contextPath = "{pageContext.request.contextPath}";
 </script>
 <script src="asset/js/onedayClassCreate.js"></script>
 <script src="asset/js/createrCenter.js"></script>
-<script>
-
-$(".images").each(function(i, img){
-	let img = $(this).find("img");
-	
-	if(!${classs.getFileName()}){
-		img.attr("src", contextPath + "/asset/img/noImage.png");
-	} else{
-		img.attr("src", filePath+"${files.getFileName()}");		
-	}
-});
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>	
 
 function classOneDisplay(){
 	if($('option[value="1"]').prop('selected') == true){
@@ -357,24 +376,34 @@ function classOneDisplay(){
 	} else{
 		$('div.classOneRequired').css('display', 'none');
 	}
-};
+}
 
-$('select[name="classOne"]').val('${classs.getClassOne()}').prop("selected", true);
-window.onload = classOneDisplay();
+function videoInfo(){
+	$('.videoInfoWrap').css('display','block');
+	$('.basicInfoWrap').css('display','none');
+}
 
-$('select[name="classCategory"]').val('${classs.getClassCategory()}').prop("selected", true);
-
-$('#classStart').val('${classs.getClassStart()}');
-$('#classEnd').val('${classs.getClassEnd()}');
-
-/* $(document).ready(function(){
-	$('select[name="classCategory"]').val('${classs.getClassCategory()}').prop("selected", true);
-});  */ 
+function basicInfo(){
+	$('.videoInfoWrap').css('display','none');
+	$('.basicInfoWrap').css('display','block');
+}
 
 //이미지 등록시 썸네일 보기
 $(".images").click(function(){
 	console.log("이미지 클릭됨");
 })
+
+$('.class-video').change(function(e){
+	let reader = new FileReader();
+	reader.readAsDataURL(e.target.files[0]);
+	
+	reader.onload = function(e){
+		console.log(e);
+		if(e.target.result.indexOf("mp4") != -1){
+			img.attr("src", e.target.result);
+		}
+	}
+});
 
 $(".images").change(function(e){
 	let img = $(this).find("img");
@@ -382,6 +411,7 @@ $(".images").change(function(e){
 	reader.readAsDataURL(e.target.files[0]);
 	
 	reader.onload = function(e){
+		console.log(e);
 		if(e.target.result.indexOf("image") != -1){	// 이미지가 있을때
 			img.attr("src", e.target.result);
 			console.log(e.target.result);
@@ -391,25 +421,88 @@ $(".images").change(function(e){
 	}
 })
 
-function goToClassMine(){
-	location.href=contextPath + "/ClassMine.cl?userNum="+${userNum}+"&page="+${page};
-}
-
-function modifyOk(){
-	onedayModify.submit();
-	alert("클래스가 수정되었습니다.");
-}
-
-function classDel(){
-	let check = false;
-	check = confirm("클래스를 삭제하시겠습니까?");
+	function goToClassMine(){
+		history.back();
+	}
 	
-	if(check){
-		alert("클래스가 삭제되었습니다.")
-		location.href=contextPath + "/ClassDelete.cl?classNum="+${classs.getClassNum()}+"&userNum="+${userNum};
+	let classTitle = document.querySelector('input[name="classTitle"]');
+	let classPrice = document.querySelector('input[name="classPrice"]');
+	let classNickname = document.querySelector('input[name="classTitle"]');
+	function createOk(){
+		if(classTitle==""){
+			classTitle.nextSibling.innerHTML = "클래스 제목을 입력해주세요.";
+		}
+		if(classPrice==""){
+			classPrice.nextSibling.innerHTML = "수강비용을 입력해주세요.";
+		}
+		if(classNickname=""){
+			classNickname.nextSibling.innerHTML = "크리에이터명을 입력해주세요.";
+		} 
+		else{
+			oneRegForm.submit();
+			alert("클래스가 승인요청 되었습니다.");
+		}
 	}
 
-}
+	/* 	function cancelFile(img){
+	File file = new File();
+    
+	if( file.exists() ){
+		if(file.delete()){
+			System.out.println("파일삭제 성공");
+		}else{
+			System.out.println("파일삭제 실패");
+		}
+	}else{
+		System.out.println("파일이 존재하지 않습니다.");
+	}
+} */
+
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+mapOption = {
+    center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
+    level: 5 // 지도의 확대 레벨
+};
+
+//지도를 미리 생성
+var map = new daum.maps.Map(mapContainer, mapOption);
+//주소-좌표 변환 객체를 생성
+var geocoder = new daum.maps.services.Geocoder();
+//마커를 미리 생성
+var marker = new daum.maps.Marker({
+position: new daum.maps.LatLng(37.537187, 127.005476),
+map: map
+});
+
+
+function sample5_execDaumPostcode() {
+new daum.Postcode({
+    oncomplete: function(data) {
+        var addr = data.address; // 최종 주소 변수
+
+        // 주소 정보를 해당 필드에 넣는다.
+        document.getElementById("sample5_address").value = addr;
+        // 주소로 상세 정보를 검색
+        geocoder.addressSearch(data.address, function(results, status) {
+            // 정상적으로 검색이 완료됐으면
+            if (status === daum.maps.services.Status.OK) {
+
+                var result = results[0]; //첫번째 결과의 값을 활용
+
+                // 해당 주소에 대한 좌표를 받아서
+                var coords = new daum.maps.LatLng(result.y, result.x);
+                // 지도를 보여준다.
+                mapContainer.style.display = "block";
+                map.relayout();
+                // 지도 중심을 변경한다.
+                map.setCenter(coords);
+                // 마커를 결과값으로 받은 위치로 옮긴다.
+                marker.setPosition(coords)
+            }
+        });
+    }
+}).open();
+} 
 
 </script>
 </html>
