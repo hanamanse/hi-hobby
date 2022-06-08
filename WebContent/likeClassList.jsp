@@ -77,7 +77,7 @@
 											<c:if test="${i%j == 0 }">
 											<ul class="classes">
 											</c:if>
-												<a href="${pageContext.request.contextPath }/ClassGraphViewDetail.cl?classNum=${classs.getClassNum()}&page=${page}&classOne=${classs.isClassOne()}">
+												<a href="${pageContext.request.contextPath }/ClassGraphViewDetail.cl?classNum=${classs.getClassNum()}&page=${page}&classOne=${classs.getClassOne()}">
 													<li class="first"">
 														<div class="img-wrap">
 															<c:out value="${classs.getClassImg()}"/>

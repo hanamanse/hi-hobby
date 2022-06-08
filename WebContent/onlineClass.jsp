@@ -65,7 +65,11 @@
 									<span class="push-share-img">
 										<img class="empty" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FtUiuQ%2FbtrCNOnpIbK%2FtYcpNGwOjSNCd7tzUtBja0%2Fimg.png">
 									</span>
-									<span id="LikeClass"><c:out value="${classOn.getClassLike()}"/></span>
+									<span id="LikeClass">
+										<p class="LikeClassTo">
+											<c:out value="${classOne.getClassLike()}"/>
+										</p>
+									</span>
 								</button>
 								<button type="button" class="share" onclick="copy()">
 									<span class="push-share-img">
@@ -115,14 +119,7 @@
 												<div class="payment-line"></div>
 												<div class="payment-final">
 													<p>최종 가격</p>
-													<c:choose>
-													<c:when test="">
-													<p><c:out value="${priceResult}"/></p>
-													</c:when>
-													<c:otherwise>
-													<p><c:out value="${priceResult}"/></p>
-													</c:otherwise>
-													</c:choose>
+													<p class="resultPrice"><c:out value="${priceResult}"/></p>
 												</div>
 											</div>
 											<div class="line"></div>
@@ -195,7 +192,7 @@
 								<div class="detail-wrap">
 									<div class="detail-product">
 										<p class="question">상품</p>
-										<p class="answer"><c:out value="${classOn.isClassOne()}"/></p>
+										<p class="answer"><c:out value="${classOn.getClassOne()}"/></p>
 									</div>
 									<div class="detail-category">
 										<p class="question">카테고리</p>
@@ -237,7 +234,6 @@
 			contentType: "application/json; charset=utf-8",
 			dataType: "json",
 			success: function(result){
-				console.log(result)
 				if(!result.result){
 					$("p#result").text("사용 불가능한 쿠폰입니다.");
 					$("p#result").css("color","red")
@@ -266,11 +262,10 @@
 		$.ajax({
 			url:"${pageContext.request.contextPath}/ClassSale.cl",
 			type: "get",
-			data: {classNum: "${classOne.getClassNum()}"},
+			data: {classNum: "${classNum}"},
 			contentType: "application/json; charset=utf-8",
 			dataType: "json",
 			success: function(result){
-				console.log(result);
 				$("p.resultPrice").text(result.classPrice);
 				persent = true;
 			},
@@ -287,11 +282,10 @@
 		$.ajax({
 			url:"${pageContext.request.contextPath}/ClassSaleBack.cl",
 			type: "get",
-			data: {classNum: "${classOne.getClassNum()}"},
+			data: {classNum: "${classNum}"},
 			contentType: "application/json; charset=utf-8",
 			dataType: "json",
 			success: function(result){
-				console.log(result);
 				$("p.resultPrice").text(result.classPrice);
 				persent = false;
 			},
@@ -310,9 +304,8 @@
 			type: "get",
  			contentType: "application/json; charset=utf-8",
 			dataType: "json", 
-			data: {classNum: "${classOne.getClassNum()}"}, 
+			data: {classNum: "${classNum}"}, 
 			success: function(result){
-				console.log(result.like);
 				$("p.LikeClassTo").text(result.like);
 			},
 			error: function(request, status, error){
@@ -333,7 +326,6 @@
 			type: "post",
 			data: {classNum: "${classNum}", click: click},
 			success: function(result){
-				console.log(result);
  				if(click){
 					click = false;
 				}else{
