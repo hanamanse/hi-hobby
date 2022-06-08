@@ -82,7 +82,7 @@
 	<select id="GraphViewCategory" resultType="classVO">
 		select class_num, class_nickname, class_title, class_category, class_place, class_place_detail, class_price, class_start, class_end, class_img, class_like, class_introduce, class_approve, class_one, class_day
 		from tbl_class
-		where class_category = #{classCategory} and class_approve = '1'
+		where class_category = #{categoryList} and class_approve = '1'
 		order by class_like desc limit 0, 9
 	</select>
 	

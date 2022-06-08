@@ -69,8 +69,8 @@ public class ClassDAO {
 	}
 	
 	// 카테고리 별 클래스 목록 조회
-	public List<ClassVO> GraphViewCategory(Map<String, String> classMap) {
-		return sqlSession.selectList("Class.GraphViewCategory", classMap);
+	public List<ClassVO> GraphViewCategory(String categoryList) {
+		return sqlSession.selectList("Class.GraphViewCategory", categoryList);
 	}
 	
 	// 원데이 클래스 목록 조회

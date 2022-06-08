@@ -1,20 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>하이하비 | 원데이 클래스</title>
-<link rel="stylesheet" href="asset/css/onedayList.css">
+<title>하이하비 | 온라인 클래스</title>
+<link rel="stylesheet" href="asset/css/onlineList.css">
 <link rel="stylesheet" href="asset/css/header.css">
 <link rel="stylesheet" href="asset/css/footer.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 <link rel="shortcut icon" href="asset/img/favicon.ico">
 </head>
 <body>
-	<c:set var="GraphViewCategory" value="${GraphViewCategory}"/>
+	<c:set var="classViewOn" value="${classViewOn}"/>
 	<c:set var="page" value="${page}"/>
 	<c:set var="startPage" value="${startPage}"/>
 	<c:set var="endPage" value="${endPage}"/>
@@ -22,7 +22,6 @@
 	<c:set var="total" value="${total}"/>
 	<c:set var="i" value="0" />
 	<c:set var="j" value="3" />
-	
 	<jsp:include page="header.jsp"/>
 	<!-- ↑ 헤더 부분 -->
 	<section class="final-wrap">
@@ -60,57 +59,22 @@
 						라이프
 						</h1>
 					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=picture">
-						<h1 class="life-main category">
-						사진·영상
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=profit">
-						<h1 class="life-main category">
-						수익창출
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=finance">
-						<h1 class="life-main category">
-						금융·재테크
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=job">
-						<h1 class="life-main category">
-						직무
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=programming">
-						<h1 class="life-main category">
-						프로그래밍
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=business">
-						<h1 class="life-main category">
-						비즈니스
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=language">
-						<h1 class="life-main category">
-						외국어
-						</h1>
-					</a>
 				</section>
 				<section>
 					<div>
 						<div class="order-button">
-							<button type="button" class="recommended-order" onclick="recommended()">추천순</button>
-							<button type="button" class="latest-order" onclick="latest()">최신순</button>
+							<button type="button" class="recommended-order" onclick="location.href='${pageContext.request.contextPath }/ClassLikeOn.cl'">추천순</button>
+							<button type="button" class="latest-order" onclick="location.href='${pageContext.request.contextPath }/ClassLatestOn.cl'">최신순</button>
 						</div>
 						<div class="class-wrap">
 							<div class="classes-wrap">
 								<c:choose>
-									<c:when test="${GraphViewCategory != null and fn:length(GraphViewCategory) > 0}">
-										<c:forEach var="classs" items="${GraphViewCategory}">
+									<c:when test="${GraphViewOn != null and fn:length(GraphViewOn) > 0}">
+										<c:forEach var="classs" items="${GraphViewOn}">
 											<c:if test="${i%j == 0 }">
 											<ul class="classes">
 											</c:if>
-												<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryDetail.cl?classNum=${classs.getClassNum()}&page=${page}">
+												<a href="${pageContext.request.contextPath }/ClassGraphViewOnDetail.cl?classNum=${classs.getClassNum()}&page=${page}">
 													<li class="first"">
 														<div class="img-wrap">
 															<c:out value="${classs.getClassImg()}"/>
@@ -192,63 +156,6 @@
 	<jsp:include page="footer.jsp"/>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="asset/js/onedayList.js"></script>
+<script src="asset/js/onlineList.js"></script>
 <script src="asset/js/header.js"></script>
-<script>
-	function like(){
-		$.ajax({
-			url:"${pageContext.request.contextPath}/ClassRecommended.co",
-			type: "get",
-			data: {category: GraphViewCategory},
-			contentType: "application/json; charset=utf-8",
-			dataType: "json",
-			success: function(result){
-				aj = result;
-				if(!result.result){
-					$("p#result").text("사용 불가능한 쿠폰입니다.");
-					$("p#result").css("color","red")
-					$("p#couponPrice").text("0");
-				}else{
-					$("p#result").text("사용가능한 쿠폰입니다.");
-					$("p#result").css("color","blue")
-					$("p#couponPrice").text("2000");
-				}
-			},
-			error: function(request, status, error){
-				console.log("실패..");
-				console.log(request);
-				console.log(status);
-				console.log(error);
-			}
-		});
-	}
-	
-	function latest(){
-		$.ajax({
-			url:"${pageContext.request.contextPath}/ClassLatest.co",
-			type: "get",
-			data: {couponUser: GraphViewCategory},
-			contentType: "application/json; charset=utf-8",
-			dataType: "json",
-			success: function(result){
-				aj = result;
-				if(!result.result){
-					$("p#result").text("사용 불가능한 쿠폰입니다.");
-					$("p#result").css("color","red")
-					$("p#couponPrice").text("0");
-				}else{
-					$("p#result").text("사용가능한 쿠폰입니다.");
-					$("p#result").css("color","blue")
-					$("p#couponPrice").text("2000");
-				}
-			},
-			error: function(request, status, error){
-				console.log("실패..");
-				console.log(request);
-				console.log(status);
-				console.log(error);
-			}
-		});
-	}
-</script>
 </html>
