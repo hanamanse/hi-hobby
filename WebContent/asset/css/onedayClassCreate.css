@@ -341,3 +341,43 @@ div.classOneRequired{
 p.requiredMsg{
 	color : red;
 }
+
+.class-video h4{
+	font-size: 20px;
+    color: #1a1a1a;
+    margin-top: 24px;
+}
+
+div.video-name p {
+    font-size: 14px;
+    color: #a2a2a2;
+    padding-top: 16px;
+}
+
+div.video-file p {
+    font-size: 14px;
+    color: #a2a2a2;
+    padding-top: 16px;
+}
+
+.video-name input {
+	border: 1px solid #efefef;
+    border-radius: 3px;
+    width: 892px;
+    height: 50px;
+    margin-top: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.video-file input{
+	display: none;
+}
+
+label[for="video-file"]{
+	margin : 40px;
+}
+
+div.video {
+    border-bottom: none;
+}
