@@ -16,7 +16,6 @@
 <body>
 	<c:set var="classAll" value="${classNum}"/>
 	<c:set var="page" value="${page}"/>
-	<c:set var="classOne" value="${classOne}"/>
 	<c:set var="priceResult" value="${classAll.getClassPrice()}"/>
 	<c:set var="classNum" value="${classAll.getClassNum()}"/>
 	<jsp:include page="header.jsp"/>
@@ -35,7 +34,7 @@
 						</div>
 						<div class="images">
 							<div class="image">
-								<c:out value="${classOne.getClassImg()}"></c:out>
+								<c:out value="${classAll.getClassImg()}"></c:out>
 							</div>
 						</div>
 						<div class="arrow next">
@@ -53,10 +52,10 @@
 						<div class="sticky">
 							<div class="class-explan">
 								<div class="class-name">
-									<c:out value="${classOne.getClassTitle()}"/>
+									<c:out value="${classAll.getClassTitle()}"/>
 								</div>
-								<div class="class-crea"><c:out value="${classOne.getClassNickname()}"/></div>
-								<div class="class-price"><c:out value="${classOne.getClassPrice()}"/></div>
+								<div class="class-crea"><c:out value="${classAll.getClassNickname()}"/></div>
+								<div class="class-price"><c:out value="${classAll.getClassPrice()}"/></div>
 							</div>
 							<div class="reservation-button">
 								<button type="button">클래스 예약하기</button>
@@ -66,7 +65,11 @@
 									<span class="push-share-img">
 										<img class="empty" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FtUiuQ%2FbtrCNOnpIbK%2FtYcpNGwOjSNCd7tzUtBja0%2Fimg.png">
 									</span>
-									<span id="LikeClass"><c:out value="${classOne.getClassLike()}"/></span>
+									<span id="LikeClass">
+										<p class="LikeClassTo">
+											<c:out value="${classOne.getClassLike()}"/>
+										</p>
+									</span>
 								</button>
 								<button type="button" class="share" onclick="copy()">
 									<span class="push-share-img">
@@ -117,7 +120,7 @@
 												<div class="payment-text-big">결제 금액</div>
 												<div class="payment-price">
 													<p>총 상품 금액</p>
-													<p><c:out value="${classOne.getClassPrice()}"/></p>
+													<p><c:out value="${classAll.getClassPrice()}"/></p>
 												</div>
 												<div class="payment-line"></div>
 												<div class="payment-point">
@@ -127,14 +130,7 @@
 												<div class="payment-line"></div>
 												<div class="payment-final">
 													<p>최종 가격</p>
-													<c:choose>
-													<c:when test="">
-													<p><c:out value="${priceResult}"/></p>
-													</c:when>
-													<c:otherwise>
-													<p><c:out value="${priceResult-2000}"/></p>
-													</c:otherwise>
-													</c:choose>
+													<p class="resultPrice"><c:out value="${priceResult}"/></p>													
 												</div>
 											</div>
 											<div class="line"></div>
@@ -174,7 +170,7 @@
 									<div class="writing">
 										<div class="folded">
 											<div class="main-text">
-											<c:out value="${classOne.getClassIntroduce()}"/>
+											<c:out value="${classAll.getClassIntroduce()}"/>
 											</div>
 										</div>
 										<div class="class-hidden"></div>
@@ -187,9 +183,9 @@
 							<div class="creator">
 								<div class="creator-wrap">
 									<div class="creator-profile">
-										<h3><c:out value="${classOne.getClassNickname()}"/></h3>
+										<h3><c:out value="${classAll.getClassNickname()}"/></h3>
 										<div class="creator-image">
-											<c:out value="${classOne.getClassImg()}"/>
+											<c:out value="${classAll.getClassImg()}"/>
 										</div>
 									</div>
 									<div class="writing">
@@ -207,21 +203,21 @@
 								<div class="detail-wrap">
 									<div class="detail-product">
 										<p class="question">상품</p>
-										<p class="answer"><c:out value="${classOne.isClassOne()}"/></p>
+										<p class="answer"><c:out value="${classAll.getClassOne()}"/></p>
 									</div>
 									<div class="detail-category">
 										<p class="question">카테고리</p>
-										<p class="answer"><c:out value="${classOne.getClassCategory()}"/></p>
+										<p class="answer"><c:out value="${classAll.getClassCategory()}"/></p>
 									</div>
 								</div>
 								<div class="detail-wrap">
 									<div class="detail-location">
 										<p class="question">위치</p>
-										<p class="answer"><c:out value="${classOne.getClassPlace()}"/></p>
+										<p class="answer"><c:out value="${classAll.getClassPlace()}"/></p>
 									</div>
 									<div class="detail-time">
 										<p class="question">시간</p>
-										<p class="answer"><c:out value="${classOne.getClassStart()}"/></p>
+										<p class="answer"><c:out value="${classAll.getClassStart()}"/></p>
 									</div>
 								</div>
 							</div>
