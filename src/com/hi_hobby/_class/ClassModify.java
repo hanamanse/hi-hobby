@@ -35,8 +35,8 @@ public class ClassModify implements Action {
 		ClassVO classVO = new ClassVO();
 //		PrintWriter out = resp.getWriter();
 		ActionInfo actionInfo = new ActionInfo();
-//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
 		
 		FileDAO fileDAO = new FileDAO();
 		FileVO fileVO = new FileVO();
@@ -52,6 +52,7 @@ public class ClassModify implements Action {
 		
 		classVO = classDAO.modify(classNum);
 		List <FileVO> fileList = fileDAO.select(classNum);
+		
 		
 		req.setAttribute("classVO", classVO);
 		req.setAttribute("page", page);
