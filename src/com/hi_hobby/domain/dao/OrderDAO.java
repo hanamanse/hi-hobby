@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.hi_hobby.domain.vo.OrderDTO;
 import com.hi_hobby.domain.vo.OrderVO;
 import com.mybatis.config.MyBatisConfig;
 
@@ -27,10 +28,9 @@ public class OrderDAO {
 	}
 	
 	// 주문 불러오기
-	public List<OrderVO> view() {
+	public List<OrderDTO> orderGet(int userNum) {
 		// 하나 가져올 때는 selectOne
-		System.out.println("view dao들어옴");
-		return sqlSession.selectList("Order.view");
+		return sqlSession.selectList("Order.orderGet", userNum);
 	}
 	
 	// 주문 취소
@@ -48,4 +48,5 @@ public class OrderDAO {
 	public List<Integer> viewOneday(int userNum) {
 		return sqlSession.selectList("Order.viewOneday", userNum);
 	}
+
 }

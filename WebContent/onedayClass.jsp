@@ -89,7 +89,7 @@
 										</div>
 									</div>
 									<section class="main">
-										<form action="OrderCreateOne.or" name="createOneForm" method="post" onsubmit="orderCheck()">
+										<form action="${pageContext.request.contextPath}/OrderCreateOne.or?classNum=${classNum}" name="createOneForm" method="post" onsubmit="orderCheck()">
 											<div class="reservation">
 												<div class="reservation-text-big">예약</div>
 												<div class="reservation-text-small">예약</div>
@@ -241,7 +241,6 @@
 			contentType: "application/json; charset=utf-8",
 			dataType: "json",
 			success: function(result){
-				console.log(result)
 				if(!result.result){
 					$("p#result").text("사용 불가능한 쿠폰입니다.");
 					$("p#result").css("color","red")
@@ -274,7 +273,6 @@
 			contentType: "application/json; charset=utf-8",
 			dataType: "json",
 			success: function(result){
-				console.log(result);
 				$("p.resultPrice").text(result.classPrice);
 				persent = true;
 			},
@@ -295,7 +293,6 @@
 			contentType: "application/json; charset=utf-8",
 			dataType: "json",
 			success: function(result){
-				console.log(result);
 				$("p.resultPrice").text(result.classPrice);
 				persent = false;
 			},
@@ -316,7 +313,6 @@
 			dataType: "json", 
 			data: {classNum: "${classOne.getClassNum()}"}, 
 			success: function(result){
-				console.log(result.like);
 				$("p.LikeClassTo").text(result.like);
 			},
 			error: function(request, status, error){
@@ -337,7 +333,6 @@
 			type: "post",
 			data: {classNum: "${classNum}", click: click},
 			success: function(result){
-				console.log(result);
  				if(click){
 					click = false;
 				}else{
