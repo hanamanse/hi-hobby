@@ -227,95 +227,93 @@
 <script src="asset/js/onlinePayment.js"></script>
 <script src="asset/js/header.js"></script>
 <script>
-var click = false;
-var persent = false;
-function checkCoupon(){
-	$.ajax({
-		url:"${pageContext.request.contextPath}/CouponCheck.co",
-		type: "get",
-		data: {couponUser: $("input[name='point']").val()},
-		contentType: "application/json; charset=utf-8",
-		dataType: "json",
-		success: function(result){
-			if(!result.result){
-				$("p#result").text("사용 불가능한 쿠폰입니다.");
-				$("p#result").css("color","red")
-				$("p#couponPrice").text("0");
-				if(persent){
+	var click = false;
+	var persent = false;
+	function checkCoupon(){
+		$.ajax({
+			url:"${pageContext.request.contextPath}/CouponCheck.co",
+			type: "get",
+			data: {couponUser: $("input[name='point']").val()},
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			success: function(result){
+				console.log(result)
+				if(!result.result){
+					$("p#result").text("사용 불가능한 쿠폰입니다.");
+					$("p#result").css("color","red")
+					$("p#couponPrice").text("0");
 					getPriceBack();
-					persent = false;
-					
+				}else{
+					if(persent){
+						$("p#result").text("사용가능한 쿠폰입니다. 중복 사용은 불가합니다.");
+					}else{
+						$("p#result").text("사용가능한 쿠폰입니다.");
+						$("p#result").css("color","blue");
+						$("p#couponPrice").text("2000");
+						getPrice();
+					}
 				}
-			}else{
-				if(persent){
-					$("p#result").text("사용가능한 쿠폰입니다. 중복 사용은 불가합니다.");
-					continue;
-				}
-				$("p#result").text("사용가능한 쿠폰입니다.");
-				$("p#result").css("color","blue")
-				$("p#couponPrice").text("2000");
-				getPrice();
-				persent = true;
+			},
+			error: function(request, status, error){
+				console.log("실패..");
+				console.log(request);
+				console.log(status);
+				console.log(error);
 			}
-		},
-		error: function(request, status, error){
-			console.log("실패..");
-			console.log(request);
-			console.log(status);
-			console.log(error);
-		}
-	});
-}
-
-function getPrice(){
-	$.ajax({
-		url:"${pageContext.request.contextPath}/ClassSale.cl",
-		type: "get",
-		data: {classNum: ${classOn.getClassNum()}},
-		contentType: "application/json; charset=utf-8",
-		dataType: "json",
-		success: function(result){
-			console.log(result.classSale);
-			persent = true;
-		},
-		error: function(request, status, error){
-			console.log("실패..");
-			console.log(request);
-			console.log(status);
-			console.log(error);
-		}
-	});
-}
-
-function getPriceBack(){
-	$.ajax({
-		url:"${pageContext.request.contextPath}/ClassSaleBack.cl",
-		type: "get",
-		data: {classNum: ${classOn.getClassNum()}},
-		contentType: "application/json; charset=utf-8",
-		dataType: "json",
-		success: function(result){
-			console.log(result.classSale);
-			persent = false;
-		},
-		error: function(request, status, error){
-			console.log("실패..");
-			console.log(request);
-			console.log(status);
-			console.log(error);
-		}
-	});
-}
+		});
+	}
+	function getPrice(){
+		$.ajax({
+			url:"${pageContext.request.contextPath}/ClassSale.cl",
+			type: "get",
+			data: {classNum: "${classOne.getClassNum()}"},
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			success: function(result){
+				console.log(result);
+				$("p.resultPrice").text(result.classPrice);
+				persent = true;
+			},
+			error: function(request, status, error){
+				console.log("실패..");
+				console.log(request);
+				console.log(status);
+				console.log(error);
+			}
+		});
+	}
 	
-	function getLike(){
+	function getPriceBack(){
+		$.ajax({
+			url:"${pageContext.request.contextPath}/ClassSaleBack.cl",
+			type: "get",
+			data: {classNum: "${classOne.getClassNum()}"},
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			success: function(result){
+				console.log(result);
+				$("p.resultPrice").text(result.classPrice);
+				persent = false;
+			},
+			error: function(request, status, error){
+				console.log("실패..");
+				console.log(request);
+				console.log(status);
+				console.log(error);
+			}
+		});
+	}
+	
+ 	function getLike(){
 		$.ajax({
 			url:"${pageContext.request.contextPath}/ClassGetLike.cl",
 			type: "get",
-/* 			contentType: "application/json; charset=utf-8",
-			dataType: "json", */
-			data: {classNum: ${classOne.getClassNum()}}, 
+ 			contentType: "application/json; charset=utf-8",
+			dataType: "json", 
+			data: {classNum: "${classOne.getClassNum()}"}, 
 			success: function(result){
-				
+				console.log(result.like);
+				$("p.LikeClassTo").text(result.like);
 			},
 			error: function(request, status, error){
 				console.log("실패..");
@@ -333,14 +331,16 @@ function getPriceBack(){
 		$.ajax({
 			url:"${pageContext.request.contextPath}/ClassLike.cl",
 			type: "post",
-			data: {classNum: ${classNum}, click: click}, 
+			data: {classNum: "${classNum}", click: click},
 			success: function(result){
-				getLike();
+				console.log(result);
  				if(click){
 					click = false;
 				}else{
 					click = true;
 				}
+ 				//$("p.LikeClassTo").text(result.classLike);
+ 				getLike();
 			},
 			error: function(request, status, error){ 
 				console.log("실패..");

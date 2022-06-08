@@ -49,7 +49,7 @@
 									<a class="eYKbXT" onclick="location.href='ViewCoupon.co'">
 										<div class="cqZvVN gkiCmL">내 쿠폰</div>
 									</a>
-									<a class="eYKbXT" onclick="location.href='myOrder101.jsp'">
+									<a class="eYKbXT" onclick="location.href='${pageContext.request.contextPath}/OrderGet.or'">
 										<div class="cqZvVN gkiCmL">구매 내역</div>
 									</a>
 									<!-- <a class="eYKbXT" onclick="location.href='myReview101.jsp'">
