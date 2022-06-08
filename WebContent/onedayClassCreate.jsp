@@ -114,13 +114,14 @@
 				<div class="topside">
 					<h3>클래스 신청</h3>
 					<nav>
-						<div class="basic-information">기본 정보</div>
+						<div class="basic-information" onclick="basicInfo()">기본 정보</div>
+						<div class="video" onclick="videoInfo()">동영상</div>
 					</nav>
 				</div>
 				<!-- 기본 정보 -->
 				<form action="${pageContext.request.contextPath}/ClassOneCreateOk.cl?userNum=${userNum}" name="oneRegForm" method="post" enctype="multipart/form-data">
 					<div class="bottomside">
-						<div class="class-information">
+						<div class="class-information basicInfoWrap">
 							<h4>클래스 정보</h4>
 							<div class="class-image">
 								<p>커버 이미지</p>
@@ -132,7 +133,7 @@
 												<img src="${pageContext.request.contextPath}/asset/img/noImage.png">
 											</div>
 										</label>
-										<input type="file" id="class_image1" class="class-image-file" name="classImage1">
+										<input type="file" id="class_image1" class="class-image-file" name="classImg">
 										<input type="button" class="uploadDel" onclick="cancelFile('classImage1')" value="첨부 삭제">
 									</div>
 									<div class="images images2">	
@@ -141,7 +142,7 @@
 												<img src="${pageContext.request.contextPath}/asset/img/noImage.png">
 											</div>
 										</label>
-										<input type="file" id="class_image2" class="class-image-file" name="classImage2">
+										<input type="file" id="class_image2" class="class-image-file" name="classImg">
 										<input type="button" class="uploadDel" onclick="cancelFile('classImage2')" value="첨부 삭제">
 									</div>
 								</div>
@@ -227,6 +228,26 @@
 								<textarea name="classIntroduce" rows="10" cols="45"></textarea>
 							</div>
 						</div>
+						<!-- 동영상 -->
+						<div class="video-wrap videoInfoWrap" style="display:none;">
+							<div class="class-video">
+								<h4>비디오 정보</h4>
+								<div class="video-name">
+									<p>비디오 제목</p>
+									<input type="text" name="classVideo" placeholder="비디오의 제목을 입력해주세요.">
+								</div>
+								<div class="video-file">
+									<p>비디오 업로드</p>
+									<label for="video-file">
+										<div>
+											<img src="https://creator.class101.net/images/video-add.png">
+										</div>
+									</label>
+									<input type="file" id="video-file" name="classVideo">
+								</div>
+							</div>
+						</div>
+						<!-- 크리에이터 정보 -->
 						<div class="creator-information">
 							<h4>크리에이터 정보</h4>
 							<div class="creator-name">
@@ -244,6 +265,7 @@
 								<p>크리에이터 소개</p>
 								<input type="text" name="creatorPhone" placeholder="연락 가능한 연락처를 입력해주세요. (- 제외)">
 							</div> -->
+						</div>
 						<div class="bottomBtnWrap">
 							<div class="application-button backBtn">
 								<button class="backBtn" onclick="goToClassMine()">뒤로가기</button>
@@ -256,8 +278,7 @@
 									<button id="class-del-btn" type="submit" onclick = "classDel()">삭제하기</button>
 								</div> -->
 							</div>
-						</div>
-					</div>
+						</div>						
 				</form>
 			</div>
 		</div>
@@ -357,10 +378,38 @@ function classOneDisplay(){
 	}
 }
 
+function videoInfo(){
+	$('.videoInfoWrap').css('display','block');
+	$('.basicInfoWrap').css('display','none');
+	
+	$('.basic-information').css('border-bottom', 'none');
+	$('.video').css('border-bottom', '3px solid #1a1a1a');
+}
+
+function basicInfo(){
+	$('.videoInfoWrap').css('display','none');
+	$('.basicInfoWrap').css('display','block');
+	
+	$('.basic-information').css('border-bottom', '3px solid #1a1a1a');
+	$('.video').css('border-bottom', 'none');
+}
+
 //이미지 등록시 썸네일 보기
 $(".images").click(function(){
 	console.log("이미지 클릭됨");
 })
+
+$('.class-video').change(function(e){
+	let reader = new FileReader();
+	reader.readAsDataURL(e.target.files[0]);
+	
+	reader.onload = function(e){
+		console.log(e);
+		if(e.target.result.indexOf("mp4") != -1){
+			img.attr("src", e.target.result);
+		}
+	}
+});
 
 $(".images").change(function(e){
 	let img = $(this).find("img");
@@ -368,6 +417,7 @@ $(".images").change(function(e){
 	reader.readAsDataURL(e.target.files[0]);
 	
 	reader.onload = function(e){
+		console.log(e);
 		if(e.target.result.indexOf("image") != -1){	// 이미지가 있을때
 			img.attr("src", e.target.result);
 			console.log(e.target.result);
