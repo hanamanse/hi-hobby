@@ -29,7 +29,6 @@
 		<div class="section-wrap">
 			<div class="main-section">
 				<section class="category-bar">
-				<section class="category-bar">
 					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=drawing">
 						<h1 class="drawing-main category">
 						드로잉
@@ -66,19 +65,9 @@
 						사진·영상
 						</h1>
 					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=profit">
-						<h1 class="life-main category">
-						수익창출
-						</h1>
-					</a>
 					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=finance">
 						<h1 class="life-main category">
 						금융·재테크
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=job">
-						<h1 class="life-main category">
-						직무
 						</h1>
 					</a>
 					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=programming">
@@ -96,7 +85,6 @@
 						외국어
 						</h1>
 					</a>
-				</section>
 				</section>
 				<section>
 					<div>
