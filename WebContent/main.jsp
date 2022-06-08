@@ -259,7 +259,7 @@
                 <div class="container-hidden">
 					<div class="timedeal-container" id="oneday-top10">
                        	<c:forEach var="lecture" items="${classOnedayTop}">
-							<form action="ClassBoughtViewOnlineDetail.cl" name="classForm">
+							<a href="#">
 								<div class="thumb-pic">
 									<img src="/filePath/${lecture.getClassImg()}">
 								</div>
@@ -275,10 +275,12 @@
 								<div class="price-wrap">
 									<p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
 								</div>
-								<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
-							</form>
+								<form action="ClassMainView.cl" name="classForm">
+									<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
+								</form>
+							</a>
 						</c:forEach>
-					</div> 
+					</div>
                 </div>
                 <button type="button" class="swipe-btn next next-btn oneday-top-next">
                     <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M8.5 18.5l6-6.5-6-6.5L10 4l7.5 8-7.5 8-1.5-1.5z" fill="#1a1a1a"></path></svg></span>
@@ -314,7 +316,9 @@
 								<div class="price-wrap">
 									<p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
 								</div>
-								<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
+								<form action="ClassBoughtViewOnlineDetail.cl" name="classForm">
+									<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
+								</form>
 							</a>
 						</c:forEach>
 					</div>
@@ -353,7 +357,9 @@
 								<div class="price-wrap">
 									<p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
 								</div>
-								<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
+								<form action="ClassBoughtViewOnlineDetail.cl" name="classForm">
+									<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
+								</form>
 							</a>
 						</c:forEach>
 					</div>
@@ -391,7 +397,9 @@
 								<div class="price-wrap">
 									<p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
 								</div>
-								<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
+								<form action="ClassBoughtViewOnlineDetail.cl" name="classForm">
+									<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
+								</form>
 							</a>
 						</c:forEach>
 					</div>
@@ -429,7 +437,9 @@
 								<div class="price-wrap">
 									<p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
 								</div>
-								<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
+								<form action="ClassBoughtViewOnlineDetail.cl" name="classForm">
+									<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
+								</form>
 							</a>
 						</c:forEach>
 					</div>
@@ -473,24 +483,24 @@
                     	<c:forEach var="lecture" items="${classRecent}">
 	                        <li>
 	                            <div class="class-cell">
-	                                <a href="#">
-	                                    <div class="thumb-pic">
-	                                        <img src="/filePath/${lecture.getClassImg()}">
-	                                    </div>
-	                                    <p class="creator-name"><c:out value="${lecture.getClassNickname()}"/></p>
-	                                    <p class="class-name"><c:out value="${lecture.getClassTitle()}"/></p>
-	                                    <div class="good-icon">
-	                                        <div class="good-child">
-	                                            <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M1.5 8.824C1.5 5.607 3.962 3 7 3c2.5 0 4 1.5 5 3 1-1.5 2.5-3 5-3 3.038 0 5.5 2.607 5.5 5.824C22.5 14.827 16.684 18.52 12 21 7.316 18.52 1.5 14.827 1.5 8.824z" fill="#d7d7d7"></path></svg></span>
-	                                            <p><c:out value="${lecture.getClassLike()}"/></p>
-	                                        </div>
-	                                    </div>
-	                                    <div class="linediv"></div>
-	                                    <div class="price-wrap">
-	                                        <p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
-	                                    </div>
-	                                    <input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
-	                                </a>
+                                    <div class="thumb-pic">
+                                        <img src="/filePath/${lecture.getClassImg()}">
+                                    </div>
+                                    <p class="creator-name"><c:out value="${lecture.getClassNickname()}"/></p>
+                                    <p class="class-name"><c:out value="${lecture.getClassTitle()}"/></p>
+                                    <div class="good-icon">
+                                        <div class="good-child">
+                                            <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M1.5 8.824C1.5 5.607 3.962 3 7 3c2.5 0 4 1.5 5 3 1-1.5 2.5-3 5-3 3.038 0 5.5 2.607 5.5 5.824C22.5 14.827 16.684 18.52 12 21 7.316 18.52 1.5 14.827 1.5 8.824z" fill="#d7d7d7"></path></svg></span>
+                                            <p><c:out value="${lecture.getClassLike()}"/></p>
+                                        </div>
+                                    </div>
+                                    <div class="linediv"></div>
+                                    <div class="price-wrap">
+                                        <p class="price"><c:out value="${lecture.getClassPriceComma()}"/> 원</p>
+                                    </div>
+                                    <form action="ClassBoughtViewOnlineDetail.cl" name="classForm">
+										<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
+									</form>
 	                            </div>
 	                        </li>
 						</c:forEach>
@@ -506,28 +516,4 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="asset/js/header.js"></script>
 <script src="asset/js/main.js"></script>
-<!-- <script>
-function oneListView(){
-	$.ajax({
-		url:"${pageContext.request.contextPath}/ClassGraphViewOne.cl",
-		type: "get",
-		contentType: "application/json; charset=utf-8",
-		dataType: "json",
-		success: function(result){
-			console.log(result);
-			if(!result.result){
-				
-			}else{
-				
-			}
-		},
-		error: function(request, status, error){
-			console.log("실패..");
-			console.log(request);
-			console.log(status);
-			console.log(error);
-		}
-	});
-}
-</script> -->
 </html>
