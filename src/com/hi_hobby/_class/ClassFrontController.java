@@ -84,6 +84,9 @@ public class ClassFrontController extends HttpServlet {
 		else if(command.equals("ClassGraphViewDetail.cl")) {
 			actionInfo = new ClassGraphViewDetail().execute(req, resp);
 		}
+		else if(command.equals("ClassGraphViewCategoryDetail.cl")) {
+			actionInfo = new ClassGraphViewCategoryDetail().execute(req, resp);
+		}
 		else if(command.equals("ClassGraphViewOnTop.cl")) {
 			actionInfo = new ClassGraphViewOnTop().execute(req, resp);
 		}

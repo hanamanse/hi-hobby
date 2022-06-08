@@ -14,7 +14,7 @@
 <link rel="shortcut icon" href="asset/img/favicon.ico">
 </head>
 <body>
-	<c:set var="classAll" value="${classNum}"/>
+	<c:set var="classAll" value="${classAll}"/>
 	<c:set var="page" value="${page}"/>
 	<c:set var="priceResult" value="${classAll.getClassPrice()}"/>
 	<c:set var="classNum" value="${classAll.getClassNum()}"/>
@@ -67,7 +67,7 @@
 									</span>
 									<span id="LikeClass">
 										<p class="LikeClassTo">
-											<c:out value="${classOne.getClassLike()}"/>
+											<c:out value="${classAll.getClassLike()}"/>
 										</p>
 									</span>
 								</button>

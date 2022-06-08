@@ -69,8 +69,8 @@ public class ClassDAO {
 	}
 	
 	// 카테고리 별 클래스 목록 조회
-	public List<ClassVO> GraphViewCategory(Map<String, String> classMap) {
-		return sqlSession.selectList("Class.GraphViewCategory", classMap);
+	public List<ClassVO> GraphViewCategory(String categoryList) {
+		return sqlSession.selectList("Class.GraphViewCategory", categoryList);
 	}
 	
 	// 원데이 클래스 목록 조회
@@ -223,11 +223,6 @@ public class ClassDAO {
 		return sqlSession.selectList("Class.classMainOnline");
 	}
 		
-	// 메인페이지를 위한 최근 업로드된 클래스 정보 불러오기
-	public List<ClassVO> classMainRecent() {
-		return sqlSession.selectList("Class.classMainRecent");
-	}
-	
 	// 메인페이지를 위한 최근 업로드된 클래스 정보 불러오기
 	public List<ClassVO> classMainRecent() {
 		return sqlSession.selectList("Class.classMainRecent");

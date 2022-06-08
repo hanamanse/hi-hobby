@@ -21,6 +21,7 @@ public class ClassGraphViewCategory implements Action {
 			ClassDAO classDAO = new ClassDAO();
 			
 			String categoryList = req.getParameter("classCategory");
+			System.out.println(categoryList);
 			
 			//전체 게시글 개수
 			int total = classDAO.getTotal();
@@ -54,10 +55,10 @@ public class ClassGraphViewCategory implements Action {
 			//DB에서 필요한 데이터를 Map에 담는다.
 /*			classMap.put("startRow", startRow);
 			classMap.put("rowCount", rowCount);*/
-			classMap.put("categoryList", categoryList);
+//			classMap.put("categoryList", categoryList);
 
 			//시작 인덱스와, 개수를 전달하여 게시글 목록을 가져온 뒤 requestScope에 담아준다.
-			req.setAttribute("GraphViewCategory", classDAO.GraphViewCategory(classMap));
+			req.setAttribute("GraphViewCategory", classDAO.GraphViewCategory(categoryList));
 			//현재 페이지를 requestScope에 담아준다.
 			req.setAttribute("page", page);
 			req.setAttribute("startPage", startPage);

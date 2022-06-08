@@ -61,6 +61,41 @@
 						라이프
 						</h1>
 					</a>
+					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=picture">
+						<h1 class="life-main category">
+						사진·영상
+						</h1>
+					</a>
+					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=profit">
+						<h1 class="life-main category">
+						수익창출
+						</h1>
+					</a>
+					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=finance">
+						<h1 class="life-main category">
+						금융·재테크
+						</h1>
+					</a>
+					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=job">
+						<h1 class="life-main category">
+						직무
+						</h1>
+					</a>
+					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=programming">
+						<h1 class="life-main category">
+						프로그래밍
+						</h1>
+					</a>
+					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=business">
+						<h1 class="life-main category">
+						비즈니스
+						</h1>
+					</a>
+					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=language">
+						<h1 class="life-main category">
+						외국어
+						</h1>
+					</a>
 				</section>
 				</section>
 				<section>
