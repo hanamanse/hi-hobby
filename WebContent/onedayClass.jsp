@@ -122,7 +122,7 @@
 												</div>
 												<div class="payment-line"></div>
 												<div class="payment-point">
-													<p>사용 포인트</p>
+													<p>사용 쿠폰</p>
 													<p id="couponPrice"></p>
 												</div>
 												<div class="payment-line"></div>
