@@ -21,15 +21,15 @@
 		select order_num, order_reservation, order_status, order_approve, o.class_num, class_title, class_img
 		from tbl_order o join tbl_class c
 		on o.class_num = c.class_num
-		where o.user_num = #{userNum} and order_approve = 1
+		where o.user_num = #{userNum} and order_approve = 0
 		order by 1 desc
 	</select>
 
 <!-- 주문 취소 -->
  	<update id="cancel" parameterType="orderVO">
  	update tbl_order
-	set order_approve=#{orderApprove}
-	where order_num=#{orderNum};
+	set order_approve = #{orderApprove}
+	where order_num = #{orderNum};
 	</update>
 	
 	<!-- 마이페이지를 위한 온라인 주문 불러오기 -->

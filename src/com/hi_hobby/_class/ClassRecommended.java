@@ -22,10 +22,10 @@ public class ClassRecommended implements Action {
 			PrintWriter out = resp.getWriter();
 			ClassDAO classDAO = new ClassDAO();
 			JSONObject resultJSON = new JSONObject();
-			String GraphViewCategory = req.getParameter(GraphViewCategory);
-			List<ClassVO> categoryList = (List<ClassVO>)classDAO.ClassRecommended(GraphViewCategory); 
+//			String GraphViewCategory = req.getParameter(GraphViewCategory);
+//			List<ClassVO> categoryList = (List<ClassVO>)classDAO.ClassRecommended(GraphViewCategory); 
 			
-			resultJSON.put("result", categoryList);
+//			resultJSON.put("result", categoryList);
 			
 			System.out.println(resultJSON.toJSONString());
 			

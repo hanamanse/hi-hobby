@@ -25,7 +25,7 @@ public class OrderCancel implements Action{
 	
 		System.out.println("주문취소 컨트롤러 들어옴");
 		
-		orderVO.setOrderApprove(true);
+//		orderVO.setOrderApprove(true);
 //		orderVO.setOrderCoupon(session.getAttribute("coupon"));
 		
 		
