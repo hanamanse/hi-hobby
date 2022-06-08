@@ -21,6 +21,7 @@ public class ClassVO {
 	private String classVideo;			// 비디오 파일 이름
 	private int userNum;				// 유저 고유번호(크리에이터 정보를 가져오기 위해)
 	private String classPriceComma;		// 클래스 가격에 ,가 붙은 가격
+	private String classUpdateParse;		// 출력을위한 파싱
 	
 	public ClassVO() {;}
 
@@ -183,4 +184,13 @@ public class ClassVO {
 	public void setClassPriceComma(String classPriceComma) {
 		this.classPriceComma = classPriceComma;
 	}
+	
+	public String getClassUpdateParse() {
+		return classUpdateParse;
+	}
+
+	public void setClassUpdateParse(String classUpdateParse) {
+		this.classUpdateParse = classUpdateParse;
+	}
+
 }

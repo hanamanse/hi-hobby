@@ -17,7 +17,7 @@
 	<c:set var="userNum" value="${sessionScope.userNum }"/>
 	<c:set var="classs" value= "${classVO}"/>
 	<c:set var="page" value= "${page}"/>
-	<c:set var="files" value="${files}"/>
+	<c:set var="files" value="${fileList}"/>
 	
 	<div class="css-13i5cls">
 		<div class="css-zsoya5">
@@ -133,7 +133,7 @@
 									<div class="images images1">
 										<label for="class_image1">
 											<div>
-												<img src="${pageContext.request.contextPath}/asset/img/noImage.png">
+												<img class="imgFile" src="C:\hi_hobby\upload\${files.getFileName()}">
 											</div>
 										</label>
 										<input type="file" id="class_image1" class="class-image-file" name="classImage1">
@@ -142,7 +142,7 @@
 									<div class="images images2">	
 										<label for="class_image2">
 											<div>
-												<img src="${pageContext.request.contextPath}/asset/img/noImage.png">
+												<img class="imgFile" src="C:\hi_hobby\upload\${files.getFileName()}">
 											</div>
 										</label>
 										<input type="file" id="class_image2" class="class-image-file" name="classImage2">
@@ -153,7 +153,7 @@
 									<div class="images images3">
 										<label for="class_image3">
 											<div>
-												<img src="${pageContext.request.contextPath}/asset/img/noImage.png">
+												<img class="imgFile" src="${pageContext.request.contextPath}/asset/img/noImage.png">
 											</div>
 										</label>
 										<input type="file" id="class_image3" class="class-image-file" name="classImage3">
@@ -162,13 +162,20 @@
 									<div class="images images4">	
 										<label for="class_image4">
 											<div>
-												<img src="${pageContext.request.contextPath}/asset/img/noImage.png">
+												<img  class="imgFile" src="${pageContext.request.contextPath}/asset/img/noImage.png">
 											</div>
 										</label>
 										<input type="file" id="class_image4" class="class-image-file" name="classImage4">
 										<input type="button" class="uploadDel" onclick="cancelFile('classImage4')" value="첨부 삭제">
 									</div>
 								</div>
+							</div>
+							<div class="class-one">
+								<p>클래스 구분</p>
+								<select name="classOne" onchange="classOneDisplay()">
+									<option value="0">온라인 클래스</option>
+									<option value="1">원데이 클래스</option>
+								</select>
 							</div>
 							<div class="class-name">
 								<p>클래스 제목</p>
@@ -202,9 +209,9 @@
 							<div class="class-time">
 								<p>시간</p>
 								<div class="flexWrap">
-									<input type="datetime-local" name="classStart" value="${classs.getClassStart()}">
+									<input type="datetime-local" name="classStart" id="classStart" value= "9999-12-31T00:00">
 									<p style="margin : 0 10px; font-size: 20px; line-height: 47px;">~</p>
-									<input type="datetime-local"  name="classEnd" value="${classs.getClassEnd()}">
+									<input type="datetime-local"  name="classEnd" id="classEnd" value= "9999-12-31T00:00">
 								</div>
 								<!-- <input type="text" name="classStart" placeholder="클래스가 진행되는 시간을 추가해주세요."> -->
 							</div>
@@ -333,7 +340,25 @@
 <script src="asset/js/createrCenter.js"></script>
 <script>
 
+$('.imgFile').each(function(i, img){
+	img.attr("src", "C:\hi_hobby\upload\${files.getFileName()}");
+});
+
+function classOneDisplay(){
+	if($('option[value="1"]').prop('selected') == true){
+		$('div.classOneRequired').css('display', 'block');
+	} else{
+		$('div.classOneRequired').css('display', 'none');
+	}
+};
+
+$('select[name="classOne"]').val('${classs.getClassOne()}').prop("selected", true);
+window.onload = classOneDisplay();
+
 $('select[name="classCategory"]').val('${classs.getClassCategory()}').prop("selected", true);
+
+$('#classStart').val('${classs.getClassStart()}');
+$('#classEnd').val('${classs.getClassEnd()}');
 
 /* $(document).ready(function(){
 	$('select[name="classCategory"]').val('${classs.getClassCategory()}').prop("selected", true);

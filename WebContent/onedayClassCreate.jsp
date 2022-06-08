@@ -7,9 +7,9 @@
 <title>하이하비 크리에이터 센터 | 원데이 클래스 신청</title>
 <link href="https://cdn.class101.net/fonts/pretendard/pretendard-dynamic-subset.css" rel="preload" as="style">
 <link href="https://cdn.class101.net/fonts/pretendard/pretendard-dynamic-subset.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="asset/css/createrCenter.css">
-<link rel="stylesheet" href="asset/css/onedayClassCreate.css">
-<link rel="shortcut icon" href="asset/img/favicon.ico">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/asset/css/createrCenter.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/onedayClassCreate.css">
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/asset/img/favicon.ico">
 </head>
 <body>
 	<c:set var="userNum" value="${sessionScope.userNum }"/>
@@ -112,7 +112,7 @@
 		<div class="container-wrap" id="classInput">
 			<div class="container">
 				<div class="topside">
-					<h3>원데이 클래스 신청</h3>
+					<h3>클래스 신청</h3>
 					<nav>
 						<div class="basic-information">기본 정보</div>
 					</nav>
@@ -166,9 +166,17 @@
 									</div>
 								</div>
 							</div>
+							<div class="class-one">
+								<p>클래스 구분</p>
+								<select name="classOne" onchange="classOneDisplay()">
+									<option value="0">온라인 클래스</option>
+									<option value="1">원데이 클래스</option>
+								</select>
+							</div>
 							<div class="class-name">
 								<p>클래스 제목</p>
 								<input type="text" name="classTitle" placeholder="클래스를 대표할 수 있는 제목을 작성해주세요.">
+								<p class="requiredMsg"></p>
 							</div>
 							<div class="class-category">
 								<p>카테고리</p>
@@ -179,28 +187,40 @@
 									<option value="music">음악</option>
 									<option value="exercise">운동</option>
 									<option value="life">라이프</option>
+									<option value="picture">사진·영상</option>
+									<option value="profit">수익창출</option>
+									<option value="finance">금융·재테크</option>
+									<option value="job">직무</option>
+									<option value="programming">프로그래밍</option>
+									<option value="business">비즈니스</option>
+									<option value="language">외국어</option>
 								</select>
 							</div>
 							<div class="class-price">
 								<p>수강료</p>
 								<input type="text" name="classPrice" placeholder = "클래스의 수강비용을 입력해주세요.">
+								<p class="requiredMsg"></p>
 							</div>
-							<div class="class-place">
-								<p>장소</p>
-								<!-- <input type="text" name="classPlace" placeholder="클래스가 진행되는 장소를 추가해주세요."> -->
-								<div class="searchPlaceWrap">
-									<input type="text" name ="classPlace" class="searchPlaceWrap1" id="sample5_address" placeholder="클래스가 진행되는 장소를 추가해주세요.">
-									<input type="button" class="searchPlaceWrap2" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
+							<div class="classOneRequired">
+								<div class="class-place">
+									<p>장소</p>
+									<!-- <input type="text" name="classPlace" placeholder="클래스가 진행되는 장소를 추가해주세요."> -->
+									<div class="searchPlaceWrap">
+										<input type="text" name ="classPlace" class="searchPlaceWrap1" id="sample5_address" placeholder="클래스가 진행되는 장소를 추가해주세요.">
+										<input type="button" class="searchPlaceWrap2" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
+									</div>
+									<input type="text" name="classPlaceDetail" placeholder="상세 주소를 입력해주세요.">
+									<div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
 								</div>
-								<input type="text" name="classPlaceDetail" placeholder="상세 주소를 입력해주세요.">
-								<div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
-							</div>
-							<div class="class-time">
-								<p>시간</p>
-								<div class="flexWrap">
-									<input type="datetime-local" name="classStart"><p style="margin : 0 10px; font-size: 20px; line-height: 47px;">~</p><input type="datetime-local"  name="classEnd">
+								<div class="class-time">
+									<p>시간</p>
+									<div class="flexWrap">
+										<input type="datetime-local" name="classStart" value= "9999-12-31T00:00" required="false">
+										<p style="margin : 0 10px; font-size: 20px; line-height: 47px;">~</p>
+										<input type="datetime-local"  name="classEnd" value="9999-12-31T00:00:00" required="false">
+									</div>
+									<!-- <input type="text" name="classStart" placeholder="클래스가 진행되는 시간을 추가해주세요."> -->
 								</div>
-								<!-- <input type="text" name="classStart" placeholder="클래스가 진행되는 시간을 추가해주세요."> -->
 							</div>
 							<div class="class-introduce">
 								<p>클래스 소개</p>
@@ -214,6 +234,7 @@
 									<p>크리에이터 닉네임</p><!-- <p class=input-required>*</p> -->
 								</div>
 								<input type="text" name="classNickname" placeholder="사용하시는 닉네임을 입력해주세요.">
+								<p class="requiredMsg"></p>
 							</div>
 <!-- 							<div class="creator-introduce">
 								<p>크리에이터 소개</p>
@@ -328,6 +349,14 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>	
 
+function classOneDisplay(){
+	if($('option[value="1"]').prop('selected') == true){
+		$('div.classOneRequired').css('display', 'block');
+	} else{
+		$('div.classOneRequired').css('display', 'none');
+	}
+}
+
 //이미지 등록시 썸네일 보기
 $(".images").click(function(){
 	console.log("이미지 클릭됨");
@@ -352,9 +381,23 @@ $(".images").change(function(e){
 		history.back();
 	}
 	
+	let classTitle = document.querySelector('input[name="classTitle"]');
+	let classPrice = document.querySelector('input[name="classPrice"]');
+	let classNickname = document.querySelector('input[name="classTitle"]');
 	function createOk(){
-		oneRegForm.submit();
-		alert("클래스가 승인요청 되었습니다.");
+		if(classTitle==""){
+			classTitle.nextSibling.innerHTML = "클래스 제목을 입력해주세요.";
+		}
+		if(classPrice==""){
+			classPrice.nextSibling.innerHTML = "수강비용을 입력해주세요.";
+		}
+		if(classNickname=""){
+			classNickname.nextSibling.innerHTML = "크리에이터명을 입력해주세요.";
+		} 
+		else{
+			oneRegForm.submit();
+			alert("클래스가 승인요청 되었습니다.");
+		}
 	}
 
 	/* 	function cancelFile(img){

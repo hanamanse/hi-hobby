@@ -1,6 +1,7 @@
 package com.hi_hobby._class;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -33,6 +34,10 @@ public class ClassOneCreateOk implements Action {
 			Date date = new Date(miliseconds);
 			String date2 = String.valueOf(date);
 			
+			// 생성일 만들기
+			Date now = new Date();
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			
 			// 사진 첨부를 위한 부분 
 			String uploadPath = "C:\\hi_hobby\\upload";
 			int fileSize = 1024 * 1024 * 5; // 파일 사이즈 5M								//업로드 경로, 파일사이즈
@@ -51,11 +56,12 @@ public class ClassOneCreateOk implements Action {
 			classVO.setClassPrice(Integer.parseInt(multipartRequest.getParameter("classPrice")));          	// 클래스 가격                    
 			classVO.setClassStart(multipartRequest.getParameter("classStart"));                            // 시작시간 (시간 자료형)                 
 			classVO.setClassEnd(multipartRequest.getParameter("classEnd"));                                // 끝나는 시간(시간 자료형)                
-//			classVO.setClassImg(multipartRequest.getParameter("classImg"));                                // 이미지 자료형                       
-			classVO.setClassOne(1);                                // 클래스구분 : 원데이(1)
+			classVO.setClassImg(multipartRequest.getParameter("classImg"));                                // 이미지 자료형                       
+			classVO.setClassOne(Integer.parseInt(multipartRequest.getParameter("classOne")));                                // 클래스구분 : 원데이(1)
 			classVO.setClassIntroduce(multipartRequest.getParameter("classIntroduce"));                          // 클래스 설명                     
 			classVO.setUserNum(userNum);                             // 유저 고유번호(크리에이터 정보를 가져오기 위해)
-			classVO.setClassDay(date2);
+//			classVO.setClassDay(date2);
+			classVO.setClassDay(formatter.format(now));
 			
 			// 클래스 등록
 			classDAO.create(classVO);
