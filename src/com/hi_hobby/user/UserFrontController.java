@@ -69,7 +69,7 @@ public class UserFrontController extends HttpServlet {
 			actionInfo = new CreatorInfo().execute(req, resp);
 		}
 		else if(command.equals("CreatorLogOut.us")) {
-			actionInfo = new CreatorLogOut().execute(req, resp);
+//			actionInfo = new CreatorLogOut().execute(req, resp);
 		}
 		else {
 			// 404 일 때 출력할 에러 페이지 경로 작성
