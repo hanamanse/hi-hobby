@@ -7,6 +7,7 @@
 - Java, JSP, JSTL, EL, AJAX, HTML, CSS, JavaScript, jQuery, MySQL, MyBatis
 
 ## 🎇프로젝트에서 맡은 역할
+- 부팀장
 - 서비스 기획부터 전반적인 페이지 프론트엔드 업무 수행
 - web.xml, FrontController 설계
 - 로그인, 로그아웃, 회원가입, 마이페이지, 메인페이지, 쿠폰 부분을 전담하여 개발
