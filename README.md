@@ -4,7 +4,7 @@
 - 원데이 · 온라인 클래스 교육 서비스
 
 ## 🎇프로젝트에서 사용한 기술
-- Java, JSP, JavaScript, jQuery, HTML, CSS, JSTL, EL, AJAX, MySQL, MyBatis
+- Java, JSP, JSTL, EL, AJAX, HTML, CSS, JavaScript, jQuery, MySQL, MyBatis
 
 ## 🎇프로젝트에서 맡은 역할
 - 서비스 기획부터 전반적인 페이지 프론트엔드 업무 수행
