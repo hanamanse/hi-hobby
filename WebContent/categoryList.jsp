@@ -29,62 +29,17 @@
 		<div class="section-wrap">
 			<div class="main-section">
 				<section class="category-bar">
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=drawing">
-						<h1 class="drawing-main category">
-						드로잉
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=crafts">
-						<h1 class="crafts-main category">
-							공예
-							
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=cooking">
-						<h1 class="cooking-baking-main category">
-						요리 · 베이킹
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=music">
-						<h1 class="music-main category">
-						음악
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=exercise">
-						<h1 class="exercise-main category">
-						운동
-						</h1>
-					</a>						
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=life">
-						<h1 class="life-main category">
-						라이프
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=picture">
-						<h1 class="life-main category">
-						사진·영상
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=finance">
-						<h1 class="life-main category">
-						금융·재테크
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=programming">
-						<h1 class="life-main category">
-						프로그래밍
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=business">
-						<h1 class="life-main category">
-						비즈니스
-						</h1>
-					</a>
-					<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryList.cl?classCategory=language">
-						<h1 class="life-main category">
-						외국어
-						</h1>
-					</a>
+					<h1 class="drawing-main category" onClick="location.href='${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=drawing'">드로잉</h1>
+					<h1 class="crafts-main category" onClick="location.href='${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=crafts'">공예</h1>
+					<h1 class="cooking-baking-main category" onClick="location.href='${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=cooking'">요리 · 베이킹</h1>
+					<h1 class="music-main category" onClick="location.href='${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=music'">음악</h1>
+					<h1 class="exercise-main category" onClick="location.href='${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=exercise'">운동</h1>
+					<h1 class="life-main category" onClick="location.href='${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=life'">라이프</h1>
+					<h1 class="life-main category" onClick="location.href='${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=picture'">사진 · 영상</h1>
+					<h1 class="life-main category" onClick="location.href='${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=finance'">금융 · 재테크</h1>
+					<h1 class="life-main category" onClick="location.href='${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=programming'">프로그래밍</h1>
+					<h1 class="life-main category" onClick="location.href='${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=business'">비즈니스</h1>
+					<h1 class="life-main category" onClick="location.href='${pageContext.request.contextPath}/ClassGraphViewCategoryList.cl?classCategory=language'">외국어</h1>
 				</section>
 				<section>
 					<div>
@@ -103,7 +58,7 @@
 												<a href="${pageContext.request.contextPath }/ClassGraphViewCategoryDetail.cl?classNum=${classs.getClassNum()}&page=${page}">
 													<li class="first"">
 														<div class="img-wrap">
-															<c:out value="${classs.getClassImg()}"/>
+															<img src="/filePath/${classs.getClassImg()}">
 														</div>
 														<div class="class-explanation">
 															<div class="class-author">
