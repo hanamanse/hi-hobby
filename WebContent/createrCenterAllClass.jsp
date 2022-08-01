@@ -33,7 +33,7 @@
 	<c:set var="total" value="${total}"/>
 	
 
-	<div id="__next" data-reactroot="">
+	<div id="__next">
 		<main>
 		<div class="css-zsoya5">
 			<div class="css-13i5cls">
@@ -518,7 +518,7 @@
 													</div>
 													
 													<!-- 클래스 목록 시작 -->
-												<c:forEach var="classs" items="${classList}" >
+												<c:forEach var="classs" items="${classList}">
 													<c:if test="${classs.getClassStatus() != '1'}">
 													<div aria-label="grid"
 														class="ReactVirtualized__Grid ReactVirtualized__Table__Grid"
@@ -561,11 +561,13 @@
 																				<div class="css-1ct1iq3">
 																					<div class="css-1ql6znx">
 																						<picture class="css-4rx3j2">
-																						<source type="image/webp"
-																							srcset="https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/640xauto.webp 640w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/750xauto.webp 750w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/828xauto.webp 828w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/1080xauto.webp 1080w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/1200xauto.webp 1200w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/1920xauto.webp 1920w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/2048xauto.webp 2048w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/3840xauto.webp 3840w">
+																						<!-- <source type="image/webp"
+																							srcset="https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/640xauto.webp 640w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/750xauto.webp 750w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/828xauto.webp 828w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/1080xauto.webp 1080w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/1200xauto.webp 1200w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/1920xauto.webp 1920w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/2048xauto.webp 2048w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/3840xauto.webp 3840w"> -->
+																						<!-- src="https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e" -->
+																						<!-- srcset="https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/640xauto 640w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/750xauto 750w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/828xauto 828w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/1080xauto 1080w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/1200xauto 1200w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/1920xauto 1920w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/2048xauto 2048w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/3840xauto 3840w" -->
+																						<!-- ${uploadPath}${classs.getClassImg()} -->
 																						<img
-																							srcset="https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/640xauto 640w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/750xauto 750w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/828xauto 828w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/1080xauto 1080w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/1200xauto 1200w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/1920xauto 1920w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/2048xauto 2048w,https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/3840xauto 3840w"
-																							src="https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e"
+																							src="${pageContext.request.contextPath}/asset/img/upload/${classs.getClassImg()}"
 																							class="css-pwvohb"> </picture>
 																					</div>
 																				</div>

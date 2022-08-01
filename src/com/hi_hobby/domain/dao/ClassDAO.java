@@ -20,6 +20,7 @@ public class ClassDAO {
 	
 	// 클래스 생성
 	public void create(ClassVO classVO) {
+		System.out.println("ClassDAO - classImg  : "+classVO.getClassImg());
 		sqlSession.insert("Class.create", classVO);
 	}
 	

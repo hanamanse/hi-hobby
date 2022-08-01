@@ -34,7 +34,7 @@
 						</div>
 						<div class="images">
 							<div class="image">
-								<img src="/filePath/${classOn.getClassImg()}">
+								<img src="${pageContext.request.contextPath}/asset/img/upload/${classOn.getClassImg()}">
 							</div>
 						</div>
 						<div class="arrow next">
@@ -92,6 +92,7 @@
 									</div>
 									<section class="main">
 										<form action="OrderCreateOn.or" name="createOneForm" method="post" onsubmit="orderCheck()">
+											<input type="hidden" name="classNum" value="${classOn.getClassNum()}"/>
 											<div class="point">
 												<div class="point-text-big">쿠폰</div>
 												<div class="point-text-small">쿠폰</div>

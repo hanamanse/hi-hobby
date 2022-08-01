@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.hi_hobby.domain.vo.ClassVO;
 import com.hi_hobby.domain.vo.FileVO;
 import com.mybatis.config.MyBatisConfig;
 import com.oreilly.servlet.MultipartRequest;
@@ -23,6 +24,7 @@ public class FileDAO {
 		FileVO file = new FileVO();
 		//type="file"인 태그의 name 값들
 		Enumeration<String> files = multipartRequest.getFileNames();
+		System.out.println("파일 이름 :  "+ files);
 		
 		while(files.hasMoreElements()) {
 			String name = files.nextElement();
@@ -31,11 +33,17 @@ public class FileDAO {
 			//중복 시 변경되는 이름	:: 내부 중복방지용
 			String fileName = multipartRequest.getFilesystemName(name);
 			
+			System.out.println("name : " + name);
+			System.out.println("fimeNameOriginal :  "+ fileNameOriginal);
+			System.out.println("fimeName :  "+ fileName);
+			
 			if(fileName == null) {continue;}
 			
 			file.setFileName(fileName);
 			file.setFileNameOriginal(fileNameOriginal);
 			file.setClassNum(classNum);
+			
+			ClassVO classVO= new ClassVO();
 			
 			insert(file);
 		}

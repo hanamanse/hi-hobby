@@ -105,7 +105,7 @@
 													<c:forEach var="lecture" items="${classOnline}">
 														<div class="img">
 															<form action="ClassBoughtViewOnlineDetail.cl" name="classForm">
-																<img src="/filePath/${lecture.getClassImg()}">
+																<img src="${pageContext.request.contextPath}/asset/img/upload/${lecture.getClassImg()}">
 																<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
 															</form>
 														</div>
@@ -151,7 +151,7 @@
 													<c:forEach var="lecture" items="${classOneday}">
 														<div class="img">
 															<form action="ClassBoughtViewOnedayDetail.cl" name="classForm">
-																<img src="/filePath/${lecture.getClassImg()}">
+																<img src="${pageContext.request.contextPath}/asset/img/upload/${lecture.getClassImg()}">
 																<input type="hidden" id="classNum" name="classNum" value="${lecture.getClassNum()}">
 															</form>
 														</div>

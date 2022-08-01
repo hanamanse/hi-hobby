@@ -66,6 +66,7 @@ public class UserFrontController extends HttpServlet {
 			System.out.println(actionInfo.getPath());
 		}
 		else if(command.equals("CreatorInfo.us")) {
+			System.out.println("user front controller 들어옴");
 			actionInfo = new CreatorInfo().execute(req, resp);
 		}
 		else if(command.equals("CreatorLogOut.us")) {

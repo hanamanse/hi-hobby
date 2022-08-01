@@ -24,12 +24,20 @@ public class CreatorInfo implements Action {
 		ActionInfo actionInfo = new ActionInfo();
 		UserDAO userDAO = new UserDAO();
 		
+		
 		int userNum = (Integer)req.getSession().getAttribute("userNum");
+		
+		System.out.println("userNum : " + userNum);
 		
 		List<UserDTO> userList = userDAO.creatorInfo(userNum);
 		
+		System.out.println("여기 들어왔나1");
 		req.setAttribute("userList", userList);
-		req.setAttribute("userDTO",userList.get(0));
+		System.out.println("여기 들어왔나2");
+//		if(userList.get(0)) {
+//			System.out.println("여기 들어왔나3");
+//			req.setAttribute("userDTO",userList.get(0));
+//		}
 		
 		actionInfo.setRedirect(false);
 		actionInfo.setPath("/createrCenterInfoDetail.jsp");

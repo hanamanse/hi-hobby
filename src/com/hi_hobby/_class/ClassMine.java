@@ -16,7 +16,9 @@ import org.json.simple.JSONObject;
 import com.hi_hobby.action.Action;
 import com.hi_hobby.action.ActionInfo;
 import com.hi_hobby.domain.dao.ClassDAO;
+import com.hi_hobby.domain.dao.FileDAO;
 import com.hi_hobby.domain.vo.ClassVO;
+import com.hi_hobby.domain.vo.FileVO;
 
 public class ClassMine implements Action{
 
@@ -70,9 +72,18 @@ public class ClassMine implements Action{
 		classMap.put("rowCount", rowCount);
 		
 		List<ClassVO> classList = classDAO.viewMine(classMap);
+		List<Integer>classNumList = new ArrayList<>();
+		
+		FileDAO fileDAO = new FileDAO();
+		List <FileVO> fileList = new ArrayList<>();
 		
 		classList.forEach(classs -> {	// 가격에 천원단위로 , 해주기 위함
 			classs.setClassPriceComma(df.format(classs.getClassPrice()));
+			
+//			classNumList.add(classs.getClassNum());
+//			// 파일 이름 넣기 
+//			int num = classs.getClassNum();
+//			classs.setClassImg(fileDAO.select(num).get(0).getFileNameOriginal());
 			
 			// 수정일 없을경우 생성일로 대체
 			String tempDate = classs.getClassUpdate() == null? classs.getClassDay() : classs.getClassUpdate();
@@ -80,6 +91,17 @@ public class ClassMine implements Action{
 //			String classUpdate = tempDate.substring(0,(tempDate.lastIndexOf(" ")));
 //			classs.setClassUpdateParse(classUpdate);
 		});
+		
+		// 인덱스가 7번인데 파일이 없으면 인덱스오류가 뜸...
+//		classNumList.forEach(num -> {
+//			if(fileDAO.select(num).size() != 0) {
+//				fileList.add(fileDAO.select(num).get(0));
+//				//일단은 한장만 가져오기
+//				
+//			}else {// 파일 없을 경우
+//				fileList.add(null);
+//			}
+//		});
 		
 		// 시작 인덱스와 게시글 목록을 가져온 뒤 requestScope에 담아주기
 		req.setAttribute("classList", classList);
@@ -89,6 +111,8 @@ public class ClassMine implements Action{
 		req.setAttribute("endPageNum", endPageNum);				// 처음 메뉴진입하면 5
 		req.setAttribute("realEndPageNum", realEndPageNum);		
 		req.setAttribute("total", total);										// 총 클래스 개수
+		req.setAttribute("fileList", fileList);
+		
 		
 		actionInfo.setRedirect(false);
 		actionInfo.setPath("/createrCenterAllClass.jsp");

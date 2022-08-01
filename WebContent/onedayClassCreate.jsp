@@ -138,7 +138,7 @@
 												<img src="${pageContext.request.contextPath}/asset/img/noImage.png">
 											</div>
 										</label>
-										<input type="file" id="class_image1" class="class-image-file" name="classImg">
+										<input type="file" id="class_image1" class="class-image-file" name="classImg1">
 										<input type="button" class="uploadDel" onclick="cancelFile('classImage1')" value="첨부 삭제">
 									</div>
 									<div class="images images2">	
@@ -147,7 +147,7 @@
 												<img src="${pageContext.request.contextPath}/asset/img/noImage.png">
 											</div>
 										</label>
-										<input type="file" id="class_image2" class="class-image-file" name="classImg">
+										<input type="file" id="class_image2" class="class-image-file" name="classImg2">
 										<input type="button" class="uploadDel" onclick="cancelFile('classImage2')" value="첨부 삭제">
 									</div>
 								</div>
@@ -434,6 +434,7 @@ $(".images").change(function(e){
 		history.back();
 	}
 	
+	// 클래스 신청하기 버튼 클릭 
 	let classTitle = document.querySelector('input[name="classTitle"]');
 	let classPrice = document.querySelector('input[name="classPrice"]');
 	let classNickname = document.querySelector('input[name="classTitle"]');
@@ -448,6 +449,19 @@ $(".images").change(function(e){
 			classNickname.nextSibling.innerHTML = "크리에이터명을 입력해주세요.";
 		} 
 		else{
+			/* let imagesArr = document.querySelectorAll("div.images");
+			
+			imagesArr.forEach(function(image, i){
+				image.
+			}) */
+			
+/* 			$(".images").each(function(img,i){
+				let str = ' ';
+				let srcText = img.find("img").attr("src");
+				
+				str += "<input type='hidden' >"
+			}); */
+			
 			oneRegForm.submit();
 			alert("클래스가 승인요청 되었습니다.");
 		}

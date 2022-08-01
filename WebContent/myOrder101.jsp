@@ -100,7 +100,7 @@
                               <div class="hsEmIr">
                                  <span class="bUogJm ilGvKF">
                                     <picture class="kWswCZ iXXLck">
-                                       <img src="/filePath/${orderList.getClassImg()}">
+                                       <img src="${pageContext.request.contextPath}/asset/img/upload/${orderList.getClassImg()}">
                                        <!-- <img style="max-width: 100%; max-height:100%;" src="https://cdn.class101.net/images/b1e9c19f-dc77-4b83-a68b-b04a4183730e/375xauto.webp"> -->
                                     </picture>
                                  </span>

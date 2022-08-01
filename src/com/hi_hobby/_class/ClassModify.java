@@ -44,7 +44,7 @@ public class ClassModify implements Action {
 		FileVO fileVO = new FileVO();
 		
 		// 사진 첨부를 위한 부분 
-		String uploadPath = "C:\\hi_hobby\\upload";
+		String uploadPath = "C:\\java2_1900_hnjeong\\jsp\\workspace\\hi_hobby\\WebContent\\asset\\img\\upload";
 		int fileSize = 1024 * 1024 * 5; // 파일 사이즈 5M								//업로드 경로, 파일사이즈
 //		MultipartRequest multipartRequest = new MultipartRequest(req, uploadPath, fileSize, "UTF-8", new DefaultFileRenamePolicy());
 		
@@ -54,10 +54,10 @@ public class ClassModify implements Action {
 		
 		classVO = classDAO.modify(classNum);
 		List <FileVO> fileList = fileDAO.select(classNum);
+//		classVO.setClassImg(fileList.get(0).getFileName());
 		
 		req.setAttribute("classVO", classVO);
 		req.setAttribute("page", page);
-		req.setAttribute("fileList", fileList);
 		
 		actionInfo.setRedirect(false);
 		actionInfo.setPath("/creatorClassModify.jsp");

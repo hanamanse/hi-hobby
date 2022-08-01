@@ -261,7 +261,7 @@
                        	<c:forEach var="lecture" items="${classOnedayTop}">
 							<a href="${pageContext.request.contextPath}/ClassMainViewDetail.cl?classNum=${lecture.getClassNum()}&classOne=${lecture.getClassOne()}">
 								<div class="thumb-pic">
-									<img src="/filePath/${lecture.getClassImg()}">
+									<img src="${pageContext.request.contextPath}/asset/img/upload/${lecture.getClassImg()}">
 								</div>
 								<p class="creator-name"><c:out value="${lecture.getClassNickname()}"/></p>
 								<p class="class-name"><c:out value="${lecture.getClassTitle()}"/></p>
@@ -299,7 +299,7 @@
                        	<c:forEach var="lecture" items="${classOnlineTop}">
 							<a href="${pageContext.request.contextPath}/ClassMainViewDetail.cl?classNum=${lecture.getClassNum()}&classOne=${lecture.getClassOne()}">
 								<div class="thumb-pic">
-									<img src="/filePath/${lecture.getClassImg()}">
+									<img src="${pageContext.request.contextPath}/asset/img/upload/${lecture.getClassImg()}">
 								</div>
 								<p class="creator-name"><c:out value="${lecture.getClassNickname()}"/></p>
 								<p class="class-name"><c:out value="${lecture.getClassTitle()}"/></p>
@@ -337,7 +337,7 @@
                        	<c:forEach var="lecture" items="${classMD}">
 							<a href="${pageContext.request.contextPath}/ClassMainViewDetail.cl?classNum=${lecture.getClassNum()}&classOne=${lecture.getClassOne()}">
 								<div class="thumb-pic">
-									<img src="/filePath/${lecture.getClassImg()}">
+									<img src="${pageContext.request.contextPath}/asset/img/upload/${lecture.getClassImg()}">
 								</div>
 								<p class="creator-name"><c:out value="${lecture.getClassNickname()}"/></p>
 								<p class="class-name"><c:out value="${lecture.getClassTitle()}"/></p>
@@ -374,7 +374,7 @@
                        	<c:forEach var="lecture" items="${classOneday}">
 							<a href="${pageContext.request.contextPath}/ClassMainViewDetail.cl?classNum=${lecture.getClassNum()}&classOne=${lecture.getClassOne()}">
 								<div class="thumb-pic">
-									<img src="/filePath/${lecture.getClassImg()}">
+									<img src="${pageContext.request.contextPath}/asset/img/upload/${lecture.getClassImg()}">
 								</div>
 								<p class="creator-name"><c:out value="${lecture.getClassNickname()}"/></p>
 								<p class="class-name"><c:out value="${lecture.getClassTitle()}"/></p>
@@ -411,7 +411,7 @@
                        	<c:forEach var="lecture" items="${classOnline}">
 							<a href="${pageContext.request.contextPath}/ClassMainViewDetail.cl?classNum=${lecture.getClassNum()}&classOne=${lecture.getClassOne()}">
 								<div class="thumb-pic">
-									<img src="/filePath/${lecture.getClassImg()}">
+									<img src="${pageContext.request.contextPath}/asset/img/upload/${lecture.getClassImg()}">
 								</div>
 								<p class="creator-name"><c:out value="${lecture.getClassNickname()}"/></p>
 								<p class="class-name"><c:out value="${lecture.getClassTitle()}"/></p>
@@ -470,7 +470,7 @@
 		                        <li>
 		                            <div class="class-cell">
 	                                    <div class="thumb-pic">
-	                                        <img src="/filePath/${lecture.getClassImg()}">
+	                                        <img src="${pageContext.request.contextPath}/asset/img/upload/${lecture.getClassImg()}">
 	                                    </div>
 	                                    <p class="creator-name"><c:out value="${lecture.getClassNickname()}"/></p>
 	                                    <p class="class-name"><c:out value="${lecture.getClassTitle()}"/></p>

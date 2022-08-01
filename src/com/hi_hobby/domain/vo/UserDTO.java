@@ -7,7 +7,7 @@ public class UserDTO {
 	private String userEmail;		// 유저 이메일(아이디)
 	private String userName;		// 유저이름
 	private String userPw;			// 유저 비밀번호
-	private boolean userStatus;		// 유저 중 크리에이터 유저 파악을 위함
+	private int userStatus;		// 유저 중 크리에이터 유저 파악을 위함
 	private int classNum; 			// 크리에이터 정보 불러오기 위한 클래스 넘버
 	private String classTitle;		// 크리에이터 정보 불러오기 위한 클래스 제목
 
@@ -45,11 +45,11 @@ public class UserDTO {
 		this.userPw = userPw;
 	}
 	
-	public boolean isUserStatus() {
+	public int getUserStatus() {
 		return userStatus;
 	}
 
-	public void setUserStatus(boolean userStatus) {
+	public void setUserStatus(int userStatus) {
 		this.userStatus = userStatus;
 	}
 	

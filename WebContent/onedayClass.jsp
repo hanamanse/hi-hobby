@@ -34,7 +34,7 @@
 						</div>
 						<div class="images">
 							<div class="image">
-								<img src="/filePath/${classOne.getClassImg()}">
+								<img src="${pageContext.request.contextPath}/asset/img/upload/${classOne.getClassImg()}">
 							</div>
 						</div>
 						<div class="arrow next">

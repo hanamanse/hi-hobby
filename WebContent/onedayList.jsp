@@ -102,7 +102,7 @@
 												<a href="${pageContext.request.contextPath }/ClassGraphViewOneDetail.cl?classNum=${classs.getClassNum()}&page=${page}">
 													<li class="first"">
 														<div class="img-wrap">
-															<img src="/filePath/${classs.getClassImg()}">
+															<img src="${pageContext.request.contextPath}/asset/img/upload/${classs.getClassImg()}">
 														</div>
 														<div class="class-explanation">
 															<div class="class-author">

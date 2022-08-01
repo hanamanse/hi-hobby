@@ -22,8 +22,9 @@ public class OrderCreateOn implements Action{
 		OrderDAO orderDAO = new OrderDAO();
 		
 		HttpSession session = req.getSession();
+		System.out.println("classNum : " + req.getParameter("classNum"));
 		int classNum = Integer.parseInt(req.getParameter("classNum"));
-	
+		
 		orderVO.setOrderReservation(req.getParameter("reservation"));
 		orderVO.setOrderStatus(0);
 		orderVO.setOrderApprove(0);

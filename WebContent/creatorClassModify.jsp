@@ -140,7 +140,7 @@
 									<div class="images images1">
 										<label for="class_image1">
 											<div>
-												<img class="imgFile" src="${pageContext.request.contextPath}/asset/img/noImage.png">
+												<img class="imgFile" src="${pageContext.request.contextPath}/asset/img/upload/${classs.getClassImg()}">
 											</div>
 										</label>
 										<input type="file" id="class_image1" class="class-image-file" name="classImage1">
